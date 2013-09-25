@@ -35,7 +35,7 @@ features
 		//real cycleway - not just sign slapped on sidewalk
 		proper cycleway : highway=cycleway OR ((bicycle=designated AND segregated = yes) OR cycleway = lane)
 		contraflow : cycleway=opposite_lane
-		low-quality cycleway : bicycle=yes AND NOT @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)
+		low-quality cycleway : (bicycle=yes OR bicycle=designated) AND NOT @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)
 		dismount from bicycle : bicycle=dismount
 
 	areas
