@@ -26,7 +26,7 @@ features
 
 		motorway : highway=motorway
 		motorway link : highway=motorway_link
-		major road : @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary)
+		major road : @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link)
 		minor road : @isOneOf(highway, unclassified, residential, service, living_street, pedestrian) OR (highway=track AND (@isOneOf(tracktype, grade1, grade2, grade3) OR NOT tracktype))
 		path : @isOneOf(highway, path, footway, steps) OR (highway=track AND @isOneOf(tracktype, grade4, grade5))
 
