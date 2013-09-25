@@ -2,7 +2,7 @@ def get_bicycle_styles
 return "	target : weird cycleway value
 		define
 			min-zoom : 1
-			line-color : #33ffff
+			line-color : teal
 			line-width : 20
 			line-style : solid
 		draw : line
@@ -11,7 +11,25 @@ return "	target : weird cycleway value
 	target : weird bicycle value
 		define
 			min-zoom : 1
-			line-color : #666600
+			line-color : orange
+			line-width : 20
+			line-style : solid
+		draw : line
+		draw : text
+
+	target : weird tags
+		define
+			min-zoom : 1
+			line-color : black
+			line-width : 20
+			line-style : solid
+		draw : line
+		draw : text
+
+	target : weird surface value
+		define
+			min-zoom : 1
+			line-color : green
 			line-width : 20
 			line-style : solid
 		draw : line

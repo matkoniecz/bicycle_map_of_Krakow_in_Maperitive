@@ -2,24 +2,36 @@ load "definitions.rb"
 load "styles.rb"
 
 #TODO handle cycleway=opposite (droga dwukierunkowa dla rowerzystów, dla reszty jednokierunkowa)
+#TODO find and kill "unpaved" as surface
 
 __cycleable = "(highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane)"
 __typical_road = "@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)"
 __separate_cycleway = "((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))"
 __segregated_cycleway = "((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))"
-__proper_surface = "(surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:right = \"surface=asphalt\" OR cycleway:left = \"surface=asphalt\" OR cycleway:surface=asphalt)"
+__proper_surface = "(surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)"
 __cycleway = "("+__separate_cycleway + " OR " + __segregated_cycleway + ")"
-__paved_is_surface_for_lane = "(cycleway:right = \"surface=paved\" OR cycleway:left = \"surface=paved\" OR cycleway:surface=paved)"
 __no_surface_info_for_main_part = "(surface=paved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness)))"
-__no_surface_info_for_lane = "((" +__paved_is_surface_for_lane + ") OR (NOT cycleway:left AND NOT cycleway:right AND NOT cycleway:surface))"
+__no_surface_info_for_lane = "(cycleway:surface=paved OR NOT cycleway:surface)"
 __lame_cycleway = "((bicycle=designated OR (highway=cycleway AND bicycle = yes)) AND NOT segregated = yes)"
-__contraflow = "cycleway=opposite_lane"
+__contraflow = "(cycleway=opposite_lane)"
 __unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + __typical_road + " AND NOT highway=service)"
 __bicycle_dismount = "(bicycle=dismount)"
+def weird_surface name
+	allowed = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "unpaved"]
+	returned = name
+	allowed.each do |value|
+		returned += " AND NOT #{name}=#{value}"
+	end
+	return "(#{returned})"
+end
+__weird_main_surface = weird_surface("surface")
+__weird_cycleway_surface = weird_surface("cycleway:surface")
 
 puts get_top
 puts "		weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite"
 puts "		weird bicycle value : bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle = designated AND NOT bicycle = dismount"
+puts "		weird tags : cycleway:right OR cycleway:left"
+puts "		weird surface value : #{__cycleable} AND (#{__weird_main_surface} OR #{__weird_cycleway_surface})"
 puts "		no_and_yes_bug : #{__cycleable} AND bicycle=no"
 puts "		crossing_as_way_rather_than_node_bug : highway = crossing"
 puts "		no oneway for bicycle instead of opposite_lane : \"oneway:bicycle\" = \"no\" AND NOT cycleway=opposite_lane"
