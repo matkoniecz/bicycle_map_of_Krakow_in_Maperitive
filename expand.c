@@ -16,7 +16,7 @@ this hack is hilarious ugly, but better than editing expanded form of this stuff
 #define __no_surface_info_for_lane ((__paved_is_surface_for_lane) OR (NOT cycleway:left AND NOT cycleway:right AND NOT cycleway:surface))
 #define __lame_cycleway ((bicycle=designated OR (highway=cycleway AND bicycle = yes)) AND NOT segregated = yes)
 #define __contraflow cycleway=opposite_lane
-#define __unexpected_allowed_cycling ((bicycle=yes) AND NOT __typical_road)
+#define __unexpected_allowed_cycling ((bicycle=yes) AND NOT __typical_road AND NOT highway=service)
 #define __bicycle_dismount (bicycle=dismount)
 
 weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite
