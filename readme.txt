@@ -1,6 +1,8 @@
 This project is a tool to process data from OpenStreetMap into map about cycling infrastructure in city Kraków, using program Maperitive. It may be useful for other locations but it is untested.
 
-In the first place we need map data from OSM. It seems that using Overpass API is the recommended and efficient way of aquiring it, and simple way of using this service is to visit http://overpass-api.de/query_form.html and paste following code in the first textarea (area contains Kraków, code is from http://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide#Simplest_possible_map_call):
+1) to generate map with updated data from OSM, using web browser
+
+Go to http://overpass-api.de/query_form.html and paste following code in the first textarea:
 
 (
   node(50,19.78,50.11,20.09);
@@ -8,12 +10,14 @@ In the first place we need map data from OSM. It seems that using Overpass API i
 );
 out meta;
 
-and press Querry (from http://wiki.openstreetmap.org/wiki/Overpass_API - "You can safely assume that you don't disturb other users when you do less than 10.000 queries per day or download less than 5 GB data per day."). Around 140MB file will be downloaded.
+and press Querry. Around 140MB file will be downloaded (from http://wiki.openstreetmap.org/wiki/Overpass_API - "You can safely assume that you don't disturb other users when you do less than 10.000 queries per day or download less than 5 GB data per day."). Now rename so that extension will be osm. Now install Maperitive. Open this program, disable default backround (click on star in right bottom panel titled "Map sources") use File|Open map sources and import prepared file. Than switch to ruleset that is main part of this repository, using following command: http://maperitive.net/docs/Commands/UseRuleset.html (this repository may reside in rules folder resulting in use-ruleset location=rules/biking.mrules as-alias=biking command).
 
-To improve speed of processing unneded data may be discarded (reducing 140MB file to 21MB). It is also possible to skip this step, but Maperitive will need be around six times slower.
+2) to download and filter map using ruby script (it makes map generation multiple times faster). Requires Ruby, tested on WIndows 7.
 
-Osmfilter executable is a part of the repository, and both downloading and filtering is done by download.rb script.
+run download.rb.
 
-Now file is ready for processing with Maperitive. Open this program, disable default backround (click on star in right bottom panel titled "Map sources") use File|Open map sources and import prepared file (smaller.osm). Than switch to ruleset that is main part of this repository, using following command: http://maperitive.net/docs/Commands/UseRuleset.html (this repository may reside in rules folder resulting in use-ruleset location=rules/biking.mrules as-alias=biking command)
+3) to modify rendering rules. Requires Ruby.
 
-In case with OSM problems - folks at http://irc.openstreetmap.org/irc.cgi are extremely helpful.
+modify and run ?.rb to generate new version of .mrules file
+
+#) In case of problems, feedback, ideas (including pull requests) with this project - open issue on Github (). In case of OSM problems - folks at http://irc.openstreetmap.org/irc.cgi are extremely helpful.
