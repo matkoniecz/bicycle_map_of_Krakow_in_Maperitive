@@ -14,6 +14,6 @@ osmfilter interpreter --drop="building=*" --drop="amenity=fast_food =pub =restau
 
 //osmfilter - is it possible to filter out "highway=footway" but keep ones with "bicycle=yes"?
 
-Now file is ready for processing with Maperitive. Open this program, disable default backround (click on star in right bottom panel titled "Map sources") use File|Open map sources and import prepared file (smaller.osm). Than switch to ruleset that is main part of this repository, using following command: http://maperitive.net/docs/Commands/UseRuleset.html
+Now file is ready for processing with Maperitive. Open this program, disable default backround (click on star in right bottom panel titled "Map sources") use File|Open map sources and import prepared file (smaller.osm). Than switch to ruleset that is main part of this repository, using following command: http://maperitive.net/docs/Commands/UseRuleset.html (this repository may reside in rules folder resulting in use-ruleset location=rules/biking.mrules as-alias=biking command)
 
 In case with OSM problems - folks at http://irc.openstreetmap.org/irc.cgi are extremely helpful.
