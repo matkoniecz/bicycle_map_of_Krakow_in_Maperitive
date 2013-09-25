@@ -32,6 +32,9 @@ features
 
 		water line : waterway=stream OR waterway=river
 
+		//real cycleway - not just sign slapped on sidewalk
+		proper cycleway : highway=cycleway OR ((bicycle=designated AND segregated = yes) OR cycleway = lane)
+
 	areas
 		water : natural=water OR natural=wetland OR waterway=riverbank OR waterway=stream OR landuse=reservoir OR landuse=basin
 		aeroway area : aeroway
@@ -116,6 +119,15 @@ rules
 		draw : text
 
 // lines
+
+	target : proper cycleway
+		define
+			min-zoom : 9
+			line-color : blue
+			line-width : 3
+			line-style : solid
+		draw : line
+		draw : text
 
 	target : boundary*
 		define
