@@ -165,7 +165,7 @@ rules
 		define
 			min-zoom : 1
 			line-color : violet
-			line-width : 10
+			line-width : 5
 			line-style : solid
 		draw : line
 		draw : text
