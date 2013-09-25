@@ -34,6 +34,7 @@ features
 
 		//real cycleway - not just sign slapped on sidewalk
 		proper cycleway : highway=cycleway OR ((bicycle=designated AND segregated = yes) OR cycleway = lane)
+		contraflow : cycleway=opposite_lane
 
 	areas
 		water : natural=water OR natural=wetland OR waterway=riverbank OR waterway=stream OR landuse=reservoir OR landuse=basin
@@ -126,6 +127,20 @@ rules
 			line-color : blue
 			line-width : 3
 			line-style : solid
+		draw : line
+		draw : text
+
+	target : contraflow
+		define
+			min-zoom : 9
+			line-color : green
+			line-width : 7:1;12:2.5;17:3
+			line-style : solid
+			line-offset : 7:1;12:3;13:3;17:3
+			line-offset-sides : left
+		for : oneway=-1
+			define
+				line-offset-sides : right
 		draw : line
 		draw : text
 
