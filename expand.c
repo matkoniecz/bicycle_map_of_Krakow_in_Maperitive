@@ -14,18 +14,22 @@ this hack is hilarious ugly, but better than editing expanded form of this stuff
 #define __paved_is_surface_for_lane (cycleway:right = "surface=paved" OR cycleway:left = "surface=paved" OR cycleway:surface=paved)
 #define __no_surface_info_for_main_part (surface=paved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness)))
 #define __no_surface_info_for_lane ((__paved_is_surface_for_lane) OR (NOT cycleway:left AND NOT cycleway:right AND NOT cycleway:surface))
+#define __lame_cycleway ((bicycle=designated OR (highway=cycleway AND bicycle = yes)) AND NOT segregated = yes)
+#define __contraflow cycleway=opposite_lane
+#define __unexpected_allowed_cycling ((bicycle=yes) AND NOT __typical_road)
+#define __bicycle_dismount (bicycle=dismount)
 
 weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite
 weird bicycle value : bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle = designated AND NOT bicycle = dismount
 no_and_yes_bug : __cycleable AND bicycle=no
 crossing_as_way_rather_than_node_bug : highway = crossing
 no oneway for bicycle instead of opposite_lane : "oneway:bicycle" = "no" AND NOT cycleway=opposite_lane
-no_surface_info : __cycleable AND NOT __typical_road AND (__no_surface_info_for_main_part AND __no_surface_info_for_lane)
+no_surface_info : (__cycleway OR __lame_cycleway OR __contraflow OR __unexpected_allowed_cycling OR __bicycle_dismount) AND (__no_surface_info_for_main_part AND __no_surface_info_for_lane)
 
 proper cycleway : __cycleway AND __proper_surface
 proper cycleway maybe with a bad surface : __cycleway
-lame cycleway : ((bicycle=designated OR (highway=cycleway AND bicycle = yes)) AND NOT segregated = yes)
-contraflow : cycleway=opposite_lane
-bicycle allowed : (bicycle=yes) AND NOT __typical_road
-dismount from bicycle : bicycle=dismount
+lame cycleway : __lame_cycleway
+contraflow : __contraflow
+bicycle allowed : __unexpected_allowed_cycling
+dismount from bicycle : __bicycle_dismount
 unexpected cycling ban : bicycle=no AND __typical_road
