@@ -11,10 +11,8 @@ features
 		place village : place=village
 		place hamlet : place=hamlet
 		place suburb : place=suburb
-		restaurant : @isOneOf(amenity,pub,fast_food,restaurant,bar)
 
 	points, areas
-		parking : amenity=parking
 		railway station : railway=station
 		park : leisure=park OR leisure=playground
 
@@ -69,29 +67,11 @@ rules
 				min-zoom : 16
 				icon-width : 16
 		draw : icon
-	target: hospital
-		define
-			icon-image : icons/SJJB/png/health_hospital.p.32.png
-			min-zoom : 15
-			icon-width : 16
-		draw : icon
 	target: railway station
 		define
 			icon-image : icons/SJJB/png/transport_train_station2.n.32.png
 			min-zoom : 15
 			icon-width : 16
-		draw : icon
-	target: restaurant
-		define
-			icon-image : icons/SJJB/png/food_restaurant.glow.32.png
-			icon-width : 14
-			min-zoom : 17
-		for : amentiy=pub
-			define
-				icon-image : icons/SJJB/png/food_pub.glow.32.png
-		for : amenity=bar
-			define
-				icon-image : icons/SJJB/png/food_bar.glow.32.png
 		draw : icon
 // texts
 	target : $featuretype(point)
@@ -124,13 +104,6 @@ rules
 				define
 					font-size : 14:8;20:16
 					min-zoom : 14
-		elseif : restaurant
-			define
-				text-align-horizontal : near
-				text-offset-horizontal : 7
-				font-size : 14:8;20:10
-				font-weight : normal
-				min-zoom : 17
 		elseif : park
 			define
 				text-align-horizontal : near
@@ -203,25 +176,6 @@ rules
 				border-style : dot
 		draw : line
 
-		define
-			min-zoom : 7
-			text : ref
-			text-halo-width : 0
-			text-color : white
-			font-size : 9
-			font-weight : bold
-			shape : custom
-			shape-def : m:-10,-10;l:0,-14,10,-10,10,10,0,14,-10,10;z
-			shield-resize-mode : free
-			shield-padding-left : 6
-			shield-padding-right : 6
-			shield-padding-top : 2
-			shield-padding-bottom : 1
-			fill-color : #7488dd
-			line-color : #7488dd black 20%
-			line-width : 1
-		draw : shield
-
 	target : motorway link
 		define
 			line-width : 7:1;13:2;15:3
@@ -251,24 +205,6 @@ rules
 			define
 				border-style : dot
 		draw : line
-
-		for : highway=primary
-			define
-				min-zoom : 11.5
-				text : ref
-				text-halo-width : 0
-				font-size : 9
-				font-weight : bold
-				shape : square
-				shield-resize-mode : free
-				shield-padding-left : 4
-				shield-padding-right : 3
-				shield-padding-top : 1
-				shield-padding-bottom : -1
-				fill-color : #fff973
-				line-color : #fd923a
-				line-width : 1
-			draw : shield
 
 		define
 			text:name
@@ -394,11 +330,6 @@ rules
 				text-color : #e5c6c3 black 70%
 				text-align-horizontal : near
 				text-offset-horizontal : 100%
-//		elseif : cemetery
-//			define
-//				min-zoom : 13
-//				font-size : 12:10;20:20
-//				text-color : #d1d0cd black 50%
 		else
 			stop
 		draw : text
