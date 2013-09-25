@@ -57,8 +57,8 @@ properties
 	font-weight : bold
 	font-family : Arial
 	text-max-width : 7
-	text-halo-width : 35%
-	text-halo-opacity : 0.75
+	text-halo-width : 10%
+	text-halo-opacity : 0.3
 	text-align-horizontal : center
 	text-align-vertical : center
 	font-stretch : 0.9
@@ -83,7 +83,7 @@ rules
 // texts
 	target : $featuretype(point)
 		define
-			text-halo-width : 25%
+			text-halo-width : 0%
 		if : place*
 			define
 				//font-weight : bold
@@ -127,8 +127,8 @@ rules
 	target : proper cycleway
 		define
 			min-zoom : 9
-			line-color : blue
-			line-width : 3
+			line-color : green
+			line-width : 4
 			line-style : solid
 		draw : line
 		draw : text
@@ -136,10 +136,10 @@ rules
 	target : contraflow
 		define
 			min-zoom : 9
-			line-color : green
+			line-color : blue
 			line-width : 7:1;12:2.5;17:3
 			line-style : solid
-			line-offset : 7:1;12:3;13:3;17:3
+			line-offset : 14:0.5;15:1;16:2;17:3
 			line-offset-sides : left
 		for : oneway=-1
 			define
@@ -150,9 +150,9 @@ rules
 	target : low-quality cycleway
 		define
 			min-zoom : 9
-			line-color : blue
-			line-width : 3
-			line-style : dot
+			line-color : orange
+			line-width : 2
+			line-style : solid
 			border-width : 0%
 		draw : line
 		draw : text
@@ -160,8 +160,8 @@ rules
 	target : dismount from bicycle
 		define
 			min-zoom : 9
-			line-color : orange
-			line-width : 3
+			line-color : purple
+			line-width : 1
 			line-style : dot
 			border-width : 0%
 		draw : line
@@ -227,7 +227,7 @@ rules
 		define
 			line-width : 7:1;13:3;15:10
 			min-zoom : 7
-			line-color : #fd923a
+			line-color : black
 			border-style : solid
 			border-color : #FFC345 black 20%
 			border-width : 20%
@@ -240,7 +240,7 @@ rules
 		define
 			line-width : 7:1;13:2;15:3
 			min-zoom : 10
-			line-color : #ffe068
+			line-color : gray
 			border-style : solid
 			border-color : #ffe068 black 20%
 			border-width : 50%
@@ -252,11 +252,11 @@ rules
 	target : major road
 		define
 			min-zoom : 8
-			line-color : #fffd8b
+			line-color : #b3b3b3
 			line-width : 10:1;13:2;14:3;15:4;18:12
 			border-style : solid
-			border-color : #fffd8b black 20%
-			border-width : 1
+			border-color : #b0b0b0
+			border-width : 0
 
 		for : highway=tertiary
 			define
