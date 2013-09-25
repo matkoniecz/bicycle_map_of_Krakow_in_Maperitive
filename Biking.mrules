@@ -35,6 +35,7 @@ features
 		//real cycleway - not just sign slapped on sidewalk
 		proper cycleway : highway=cycleway OR ((bicycle=designated AND segregated = yes) OR cycleway = lane)
 		contraflow : cycleway=opposite_lane
+		low-quality cycleway : bicycle=yes AND NOT @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)
 
 	areas
 		water : natural=water OR natural=wetland OR waterway=riverbank OR waterway=stream OR landuse=reservoir OR landuse=basin
@@ -141,6 +142,16 @@ rules
 		for : oneway=-1
 			define
 				line-offset-sides : right
+		draw : line
+		draw : text
+
+	target : low-quality cycleway
+		define
+			min-zoom : 9
+			line-color : blue
+			line-width : 3
+			line-style : dot
+			border-width : 0%
 		draw : line
 		draw : text
 
