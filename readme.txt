@@ -18,6 +18,6 @@ run download.rb.
 
 3) to modify rendering rules. Requires Ruby.
 
-modify and run ?.rb to generate new version of .mrules file
+modify and run generate.rb to generate a new version of .mrules file
 
 #) In case of problems, feedback, ideas (including pull requests) with this project - open issue on Github (). In case of OSM problems - folks at http://irc.openstreetmap.org/irc.cgi are extremely helpful.

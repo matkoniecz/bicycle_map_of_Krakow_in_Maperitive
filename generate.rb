@@ -1,3 +1,5 @@
+load "definitions.rb"
+
 #TODO handle cycleway=opposite (droga dwukierunkowa dla rowerzystów, dla reszty jednokierunkowa)
 
 __cycleable = "(highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane)"
@@ -14,6 +16,7 @@ __contraflow = "cycleway=opposite_lane"
 __unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + __typical_road + " AND NOT highway=service)"
 __bicycle_dismount = "(bicycle=dismount)"
 
+puts get_top
 puts "		weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite"
 puts "		weird bicycle value : bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle = designated AND NOT bicycle = dismount"
 puts "		no_and_yes_bug : #{__cycleable} AND bicycle=no"
@@ -28,3 +31,4 @@ puts "		contraflow : #{__contraflow}"
 puts "		bicycle allowed : #{__unexpected_allowed_cycling}"
 puts "		dismount from bicycle : #{__bicycle_dismount}"
 puts "		unexpected cycling ban : bicycle=no AND #{__typical_road}"
+puts get_bottom

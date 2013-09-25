@@ -1,4 +1,5 @@
-// Created by Igor Brejc
+def get_top 
+return "// Created by Igor Brejc
 // Released under the Creative Commons Attribution-ShareAlike 3.0 License (http://creativecommons.org/licenses/by-sa/3.0/)
 // Updates by Michael <quelbs_at_gmail.com>
 // Icons used: Map icons CC-0 from SJJB Management (http://www.sjjb.co.uk/mapicons)
@@ -31,21 +32,11 @@ features
 		path : @isOneOf(highway, path, footway, steps) OR (highway=track AND @isOneOf(tracktype, grade4, grade5))
 
 		water line : waterway=stream OR waterway=river
-		weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite
-		weird bicycle value : bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle = designated AND NOT bicycle = dismount
-		no_and_yes_bug : (highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND bicycle=no
-		crossing_as_way_rather_than_node_bug : highway = crossing
-		no oneway for bicycle instead of opposite_lane : "oneway:bicycle" = "no" AND NOT cycleway=opposite_lane
-		no_surface_info : ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) OR ((bicycle=designated OR (highway=cycleway AND bicycle = yes)) AND NOT segregated = yes) OR cycleway=opposite_lane OR ((bicycle=yes) AND NOT @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified) AND NOT highway=service) OR (bicycle=dismount)) AND ((surface=paved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness))) AND (((cycleway:right = "surface=paved" OR cycleway:left = "surface=paved" OR cycleway:surface=paved)) OR (NOT cycleway:left AND NOT cycleway:right AND NOT cycleway:surface)))
+"
+end
 
-		proper cycleway : (((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) AND (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:right = "surface=asphalt" OR cycleway:left = "surface=asphalt" OR cycleway:surface=asphalt)
-		proper cycleway maybe with a bad surface : (((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane)))
-		lame cycleway : ((bicycle=designated OR (highway=cycleway AND bicycle = yes)) AND NOT segregated = yes)
-		contraflow : cycleway=opposite_lane
-		bicycle allowed : ((bicycle=yes) AND NOT @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified) AND NOT highway=service)
-		dismount from bicycle : (bicycle=dismount)
-		unexpected cycling ban : bicycle=no AND @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)
-	areas
+def get_bottom
+return "	areas
 		water : natural=water OR natural=wetland OR waterway=riverbank OR waterway=stream OR landuse=reservoir OR landuse=basin
 		aeroway area : aeroway
 		industrial : landuse=industrial
@@ -469,4 +460,5 @@ rules
 				text-offset-horizontal : 100%
 		else
 			stop
-		draw : text
+		draw : text"
+end
