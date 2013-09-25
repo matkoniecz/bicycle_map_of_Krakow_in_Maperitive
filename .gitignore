@@ -1,3 +1,6 @@
 /*.mrules
 !Biking.mrules
 /test
+/interpreter
+/interpreter2
+/*.osm
