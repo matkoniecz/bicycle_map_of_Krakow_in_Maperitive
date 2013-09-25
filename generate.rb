@@ -1,4 +1,5 @@
 load "definitions.rb"
+load "styles.rb"
 
 #TODO handle cycleway=opposite (droga dwukierunkowa dla rowerzystów, dla reszty jednokierunkowa)
 
@@ -31,4 +32,6 @@ puts "		contraflow : #{__contraflow}"
 puts "		bicycle allowed : #{__unexpected_allowed_cycling}"
 puts "		dismount from bicycle : #{__bicycle_dismount}"
 puts "		unexpected cycling ban : bicycle=no AND #{__typical_road}"
-puts get_bottom
+puts get_bottom_before_bicycle_styles 
+puts get_bicycle_styles
+puts get_bottom_after_bicycle_styles 
