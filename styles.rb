@@ -1,76 +1,28 @@
 def get_bicycle_styles
-return "	target : weird cycleway value
+	returned = ""
+	bugs = [
+				["weird cycleway value", "teal"],
+				["weird bicycle value", "orange"],
+				["weird tags", "black"],
+				["weird surface value", "green"],
+				["no_and_yes_bug", "purple"],
+				["crossing_as_way_rather_than_node_bug", "red"],
+				["no oneway for bicycle instead of opposite_lane", "yellow"],
+				["no_surface_info", "violet"],
+			]
+	bugs.each do |element|
+		returned += "	target : #{element[0]}
 		define
 			min-zoom : 1
-			line-color : teal
-			line-width : 20
-			line-style : solid
-		draw : line
-		draw : text
-
-	target : weird bicycle value
-		define
-			min-zoom : 1
-			line-color : orange
-			line-width : 20
-			line-style : solid
-		draw : line
-		draw : text
-
-	target : weird tags
-		define
-			min-zoom : 1
-			line-color : black
-			line-width : 20
-			line-style : solid
-		draw : line
-		draw : text
-
-	target : weird surface value
-		define
-			min-zoom : 1
-			line-color : green
-			line-width : 20
-			line-style : solid
-		draw : line
-		draw : text
-
-	target : no_and_yes_bug
-		define
-			min-zoom : 1
-			line-color : purple
-			line-width : 50
-			line-style : solid
-		draw : line
-		draw : text
-
-	target : crossing_as_way_rather_than_node_bug
-		define
-			min-zoom : 1
-			line-color : red
-			line-width : 50
-			line-style : solid
-		draw : line
-		draw : text
-
-	target : no oneway for bicycle instead of opposite_lane
-		define
-			min-zoom : 1
-			line-color : yellow
+			line-color : #{element[1]}
 			line-width : 10
 			line-style : solid
 		draw : line
 		draw : text
-	
-	target : no_surface_info
-		define
-			min-zoom : 1
-			line-color : violet
-			line-width : 5
-			line-style : solid
-		draw : line
-		draw : text
 
+"
+	end
+return returned + "
 	target : proper cycleway
 		define
 			min-zoom : 9
@@ -93,7 +45,7 @@ return "	target : weird cycleway value
 		define
 			min-zoom : 9
 			line-color : green
-			line-width : 2
+			line-width : 3
 			line-style : solid
 		draw : line
 		draw : text

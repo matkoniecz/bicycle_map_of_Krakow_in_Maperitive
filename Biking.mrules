@@ -135,7 +135,7 @@ rules
 		define
 			min-zoom : 1
 			line-color : teal
-			line-width : 20
+			line-width : 10
 			line-style : solid
 		draw : line
 		draw : text
@@ -144,7 +144,7 @@ rules
 		define
 			min-zoom : 1
 			line-color : orange
-			line-width : 20
+			line-width : 10
 			line-style : solid
 		draw : line
 		draw : text
@@ -153,7 +153,7 @@ rules
 		define
 			min-zoom : 1
 			line-color : black
-			line-width : 20
+			line-width : 10
 			line-style : solid
 		draw : line
 		draw : text
@@ -162,7 +162,7 @@ rules
 		define
 			min-zoom : 1
 			line-color : green
-			line-width : 20
+			line-width : 10
 			line-style : solid
 		draw : line
 		draw : text
@@ -171,7 +171,7 @@ rules
 		define
 			min-zoom : 1
 			line-color : purple
-			line-width : 50
+			line-width : 10
 			line-style : solid
 		draw : line
 		draw : text
@@ -180,7 +180,7 @@ rules
 		define
 			min-zoom : 1
 			line-color : red
-			line-width : 50
+			line-width : 10
 			line-style : solid
 		draw : line
 		draw : text
@@ -193,15 +193,16 @@ rules
 			line-style : solid
 		draw : line
 		draw : text
-	
+
 	target : no_surface_info
 		define
 			min-zoom : 1
 			line-color : violet
-			line-width : 5
+			line-width : 10
 			line-style : solid
 		draw : line
 		draw : text
+
 
 	target : proper cycleway
 		define
@@ -225,7 +226,7 @@ rules
 		define
 			min-zoom : 9
 			line-color : green
-			line-width : 3
+			line-width : 2
 			line-style : solid
 		draw : line
 		draw : text
