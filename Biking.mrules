@@ -32,7 +32,6 @@ features
 
 		water line : waterway=stream OR waterway=river
 
-		//real cycleway - not just sign slapped on sidewalk
 		no_and_yes_bug : (cycleway=opposite_lane AND bicycle=no) OR (cycleway=lane AND bicycle=no) OR (highway=cycleway AND bicycle=no)
 		crossing_as_way_rather_than_node_bug : highway = crossing
 		proper cycleway : highway=cycleway OR ((bicycle=designated AND segregated = yes) OR cycleway = lane)
