@@ -21,3 +21,5 @@ run download.rb.
 modify and run generate.rb to generate a new version of .mrules file
 
 #) In case of problems, feedback, ideas (including pull requests) with this project - open issue on Github (). In case of OSM problems - folks at http://irc.openstreetmap.org/irc.cgi are extremely helpful.
+
+*) Thanks to Igor Brejc and Michael for original .mrules file released under the Creative Commons Attribution-ShareAlike 3.0 License (http://creativecommons.org/licenses/by-sa/3.0/).
