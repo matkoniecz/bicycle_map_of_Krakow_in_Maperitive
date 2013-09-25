@@ -27,8 +27,8 @@ features
 		motorway : highway=motorway
 		motorway link : highway=motorway_link
 		major road : @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary)
-		minor road : @isOneOf(highway, unclassified, residential, service, living_street) OR (highway=track AND (@isOneOf(tracktype, grade1, grade2, grade3) OR NOT tracktype))
-		path : @isOneOf(highway, path, footway, pedestrian, steps) OR (highway=track AND @isOneOf(tracktype, grade4, grade5))
+		minor road : @isOneOf(highway, unclassified, residential, service, living_street, pedestrian) OR (highway=track AND (@isOneOf(tracktype, grade1, grade2, grade3) OR NOT tracktype))
+		path : @isOneOf(highway, path, footway, steps) OR (highway=track AND @isOneOf(tracktype, grade4, grade5))
 
 		water line : waterway=stream OR waterway=river
 
@@ -244,7 +244,7 @@ rules
 	target : minor road
 		define
 			min-zoom : 10.5
-			max-zoom : 13.1
+			max-zoom : 14.5
 			border-style : none
 			line-color : #D4CCB8
 			line-width : 1
