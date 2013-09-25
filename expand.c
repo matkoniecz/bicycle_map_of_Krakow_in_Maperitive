@@ -5,10 +5,9 @@ to expand macros. Run regexp "^" to add tabs, than replace part of Biking.mrules
 this hack is hilarious ugly, but better than editing expanded form of this stuff
 */
 //TODO handle cycleway=opposite (droga dwukierunkowa dla rowerzystów, dla reszty jednokierunkowa)
-//exterminate cycleway=track (TODO?)
 #define __cycleable (highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane)
 #define __typical_road @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)
-#define __separate_cycleway ((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated) OR (cycleway = track))
+#define __separate_cycleway ((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))
 #define __segregated_cycleway ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))
 #define __proper_surface (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:right = "surface=asphalt" OR cycleway:left = "surface=asphalt" OR cycleway:surface=asphalt)
 #define __cycleway (__separate_cycleway OR __segregated_cycleway)
@@ -16,7 +15,7 @@ this hack is hilarious ugly, but better than editing expanded form of this stuff
 #define __no_surface_info_for_main_part (surface=paved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness)))
 #define __no_surface_info_for_lane ((__paved_is_surface_for_lane) OR (NOT cycleway:left AND NOT cycleway:right AND NOT cycleway:surface))
 
-weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite AND NOT cycleway=track
+weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite
 weird bicycle value : bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle = designated AND NOT bicycle = dismount
 no_and_yes_bug : __cycleable AND bicycle=no
 crossing_as_way_rather_than_node_bug : highway = crossing
