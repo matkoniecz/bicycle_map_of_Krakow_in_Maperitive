@@ -42,8 +42,9 @@ features
 		no_surface_info : ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) OR ((bicycle=designated OR (highway=cycleway AND bicycle = yes)) AND NOT segregated = yes) OR (cycleway=opposite_lane) OR ((bicycle=yes) AND NOT @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified) AND NOT highway=service) OR (bicycle=dismount)) AND ((surface=paved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness))) AND (cycleway:surface=paved OR NOT cycleway:surface))
 
 		proper cycleway : (((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) AND (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)
-		proper cycleway maybe with a bad surface : (((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane)))
-		lame cycleway : ((bicycle=designated OR (highway=cycleway AND bicycle = yes)) AND NOT segregated = yes)
+		proper cycleway with a bad surface : (((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) AND NOT (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)
+		lame cycleway with a good surface: ((bicycle=designated OR (highway=cycleway AND bicycle = yes)) AND NOT segregated = yes) AND (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)
+		lame cycleway with a bad surface: ((bicycle=designated OR (highway=cycleway AND bicycle = yes)) AND NOT segregated = yes) AND NOT (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)
 		contraflow : (cycleway=opposite_lane)
 		bicycle allowed : ((bicycle=yes) AND NOT @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified) AND NOT highway=service)
 		dismount from bicycle : (bicycle=dismount)
@@ -217,7 +218,7 @@ rules
 		draw : line
 		draw : text
 
-	target : proper cycleway maybe with a bad surface
+	target : proper cycleway with a bad surface
 		define
 			min-zoom : 9
 			line-color : #A0522D
@@ -226,7 +227,16 @@ rules
 		draw : line
 		draw : text
 
-	target : lame cycleway
+	target : lame cycleway with a bad surface
+		define
+			min-zoom : 9
+			line-color : #A0522D
+			line-width : 2
+			line-style : solid
+		draw : line
+		draw : text
+
+	target : lame cycleway with a good surface
 		define
 			min-zoom : 9
 			line-color : green
