@@ -23,6 +23,22 @@ def get_bicycle_styles
 "
 	end
 return returned + "
+	target: bicycle_parking_no_type
+		define
+			min-zoom : 1
+			fill-color : red
+			shape-size : 5
+			line-width : 0
+		draw : shape
+
+	target: bicycle_parking_no_capacity
+		define
+			min-zoom : 1
+			fill-color : green
+			shape-size : 8
+			line-width : 0
+		draw : shape
+
 	target: bicycle_parking
 		define
 			icon-image : icons/SJJB/png/transport_parking_bicycle.n.32.png
