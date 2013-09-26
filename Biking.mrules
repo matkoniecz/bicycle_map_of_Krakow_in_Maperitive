@@ -52,7 +52,7 @@ features
 		unexpected cycling ban : bicycle=no AND @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)
 	points
 		bicycle_parking_no_capacity : (amenity=bicycle_parking) AND NOT (capacity)
-		bicycle_parking_no_type : (amenity=bicycle_parking) AND NOT (bicycle_parking)
+		bicycle_parking_no_type : (amenity=bicycle_parking) AND (NOT bicycle_parking OR (NOT (bicycle_parking=wall_loops) AND NOT (bicycle_parking=stands)))
 
 		bicycle_parking : (amenity=bicycle_parking)
 	areas
