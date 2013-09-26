@@ -28,6 +28,7 @@ __weird_main_surface = weird_surface("surface")
 __weird_cycleway_surface = weird_surface("cycleway:surface")
 
 puts get_top
+puts "	lines"
 puts "		weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite"
 puts "		weird bicycle value : bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle = designated AND NOT bicycle = dismount"
 puts "		weird tags : cycleway:right OR cycleway:left"
@@ -44,6 +45,8 @@ puts "		contraflow : #{__contraflow}"
 puts "		bicycle allowed : #{__unexpected_allowed_cycling}"
 puts "		dismount from bicycle : #{__bicycle_dismount}"
 puts "		unexpected cycling ban : bicycle=no AND #{__typical_road}"
+puts "	points"
+puts "		bicycle_parking : amenity=bicycle_parking"
 puts get_bottom_before_bicycle_styles 
 puts get_bicycle_styles
 puts get_bottom_after_bicycle_styles 

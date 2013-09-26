@@ -71,12 +71,6 @@ rules
 				min-zoom : 16
 				icon-width : 16
 		draw : icon
-	target: railway station
-		define
-			icon-image : icons/SJJB/png/transport_train_station2.n.32.png
-			min-zoom : 15
-			icon-width : 16
-		draw : icon
 // texts
 	target : $featuretype(point)
 		define

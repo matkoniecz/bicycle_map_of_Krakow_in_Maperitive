@@ -23,6 +23,13 @@ def get_bicycle_styles
 "
 	end
 return returned + "
+	target: bicycle_parking
+		define
+			icon-image : icons/SJJB/png/transport_parking_bicycle.n.32.png
+			min-zoom : 1
+			icon-width : 10:8; 12:9; 13:10; 14:11; 15:12; 16:13; 17:14; 18:15; 19:16
+		draw : icon
+
 	target : proper cycleway
 		define
 			min-zoom : 9
@@ -45,7 +52,7 @@ return returned + "
 		define
 			min-zoom : 9
 			line-color : green
-			line-width : 3
+			line-width : 2
 			line-style : solid
 		draw : line
 		draw : text

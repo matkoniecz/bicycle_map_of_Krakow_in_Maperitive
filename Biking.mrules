@@ -31,6 +31,7 @@ features
 		path : @isOneOf(highway, path, footway, steps) OR (highway=track AND @isOneOf(tracktype, grade4, grade5))
 
 		water line : waterway=stream OR waterway=river
+	lines
 		weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite
 		weird bicycle value : bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle = designated AND NOT bicycle = dismount
 		weird tags : cycleway:right OR cycleway:left
@@ -47,6 +48,8 @@ features
 		bicycle allowed : ((bicycle=yes) AND NOT @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified) AND NOT highway=service)
 		dismount from bicycle : (bicycle=dismount)
 		unexpected cycling ban : bicycle=no AND @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)
+	points
+		bicycle_parking : amenity=bicycle_parking
 	areas
 		water : natural=water OR natural=wetland OR waterway=riverbank OR waterway=stream OR landuse=reservoir OR landuse=basin
 		aeroway area : aeroway
@@ -81,12 +84,6 @@ rules
 				icon-image : icons/SJJB/png/landuse_coniferous.p.32.png
 				min-zoom : 16
 				icon-width : 16
-		draw : icon
-	target: railway station
-		define
-			icon-image : icons/SJJB/png/transport_train_station2.n.32.png
-			min-zoom : 15
-			icon-width : 16
 		draw : icon
 // texts
 	target : $featuretype(point)
@@ -203,6 +200,13 @@ rules
 		draw : line
 		draw : text
 
+
+	target: bicycle_parking
+		define
+			icon-image : icons/SJJB/png/transport_parking_bicycle.n.32.png
+			min-zoom : 1
+			icon-width : 10:8; 12:9; 13:10; 14:11; 15:12; 16:13; 17:14; 18:15; 19:16
+		draw : icon
 
 	target : proper cycleway
 		define
