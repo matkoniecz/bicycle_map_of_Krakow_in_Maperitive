@@ -40,6 +40,7 @@ features
 		crossing_as_way_rather_than_node_bug : highway = crossing
 		no oneway for bicycle instead of opposite_lane : "oneway:bicycle" = "no" AND NOT cycleway=opposite_lane
 		no_surface_info : ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) OR ((bicycle=designated OR (highway=cycleway AND bicycle = yes)) AND NOT segregated = yes) OR (cycleway=opposite_lane) OR ((bicycle=yes) AND NOT @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified) AND NOT highway=service) OR (bicycle=dismount)) AND ((surface=paved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness))) AND (cycleway:surface=paved OR NOT cycleway:surface))
+		no maxspeed info : (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, unclassified) AND NOT maxspeed)
 
 		proper cycleway : (((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) AND (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)
 		proper cycleway with a bad surface : (((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) AND NOT (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)
@@ -233,6 +234,15 @@ rules
 			min-zoom : 9
 			line-color : green
 			line-width : 4
+			line-style : solid
+		draw : line
+		draw : text
+
+	target : no maxspeed info
+		define
+			min-zoom : 1
+			line-color : purple
+			line-width : 2
 			line-style : solid
 		draw : line
 		draw : text
