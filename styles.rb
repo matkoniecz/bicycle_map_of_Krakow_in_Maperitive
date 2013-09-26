@@ -27,15 +27,15 @@ return returned + "
 		define
 			min-zoom : 1
 			fill-color : red
-			shape-size : 5
+			shape-size : 3
 			line-width : 0
 		draw : shape
 
 	target: bicycle_parking_no_capacity
 		define
 			min-zoom : 1
-			fill-color : green
-			shape-size : 8
+			fill-color : violet
+			shape-size : 5
 			line-width : 0
 		draw : shape
 
