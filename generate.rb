@@ -54,6 +54,7 @@ puts "		bicycle_parking_no_type : #{__bicycle_parking} AND (NOT bicycle_parking 
 puts ""
 puts "		bicycle_parking : #{__bicycle_parking}"
 puts "		bicycle shop : shop=bicycle"
+puts "		drinking_water : amenity=drinking_water"
 puts get_bottom_before_bicycle_styles 
 puts get_bicycle_styles
 puts get_bottom_after_bicycle_styles 

@@ -53,6 +53,13 @@ return returned + "
 			icon-width : 10:8; 12:9; 13:10; 14:11; 15:12; 16:13; 17:14; 18:15; 19:16
 		draw : icon
 
+	target: drinking_water
+		define
+			icon-image : icons/SJJB/png/food_drinkingtap.n.32.png
+			min-zoom : 1
+			icon-width : 10:8; 12:9; 13:10; 14:11; 15:12; 16:13; 17:14; 18:15; 19:16
+		draw : icon
+
 	target : proper cycleway
 		define
 			min-zoom : 9

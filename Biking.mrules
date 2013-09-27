@@ -50,12 +50,13 @@ features
 		bicycle allowed : ((bicycle=yes) AND NOT @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified) AND NOT highway=service)
 		dismount from bicycle : (bicycle=dismount)
 		unexpected cycling ban : bicycle=no AND @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)
-	points
+	points, areas
 		bicycle_parking_no_capacity : (amenity=bicycle_parking) AND NOT (capacity)
 		bicycle_parking_no_type : (amenity=bicycle_parking) AND (NOT bicycle_parking OR (NOT (bicycle_parking=wall_loops) AND NOT (bicycle_parking=stands)))
 
 		bicycle_parking : (amenity=bicycle_parking)
 		bicycle shop : shop=bicycle
+		drinking_water : amenity=drinking_water
 	areas
 		water : natural=water OR natural=wetland OR waterway=riverbank OR waterway=stream OR landuse=reservoir OR landuse=basin
 		aeroway area : aeroway
@@ -233,6 +234,13 @@ rules
 	target: bicycle shop
 		define
 			icon-image : icons/SJJB/png/shopping_bicycle.n.32.png
+			min-zoom : 1
+			icon-width : 10:8; 12:9; 13:10; 14:11; 15:12; 16:13; 17:14; 18:15; 19:16
+		draw : icon
+
+	target: drinking_water
+		define
+			icon-image : icons/SJJB/png/food_drinkingtap.n.32.png
 			min-zoom : 1
 			icon-width : 10:8; 12:9; 13:10; 14:11; 15:12; 16:13; 17:14; 18:15; 19:16
 		draw : icon
