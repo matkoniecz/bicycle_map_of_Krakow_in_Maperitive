@@ -23,6 +23,33 @@ def get_bicycle_styles
 "
 	end
 return returned + "
+	target: not_defined_bicycle_crossing
+		define
+			min-zoom : 1
+			fill-color : violet
+			shape-size : 0:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			line-width : 0
+			//line-color : red
+		draw : shape
+
+	target: not_OK_bicycle_crossing
+		define
+			min-zoom : 1
+			fill-color : red
+			shape-size : 0:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			line-width : 0
+			//line-color : red
+		draw : shape
+
+	target: OK_bicycle_crossing
+		define
+			min-zoom : 1
+			fill-color : green
+			shape-size : 0:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			line-width : 0
+			//line-color : green
+		draw : shape
+
 	target: bicycle_parking_no_type
 		define
 			min-zoom : 1

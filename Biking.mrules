@@ -50,6 +50,10 @@ features
 		bicycle allowed : ((bicycle=yes) AND NOT @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified) AND NOT highway=service)
 		dismount from bicycle : (bicycle=dismount)
 		unexpected cycling ban : bicycle=no AND @isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)
+	points
+		OK_bicycle_crossing : way[((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) OR ((bicycle=designated OR highway=cycleway) AND NOT (((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))))) AND NOT (cycleway=opposite_lane)].node[highway=crossing AND bicycle=yes]
+		not_OK_bicycle_crossing : way[((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) OR ((bicycle=designated OR highway=cycleway) AND NOT (((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))))) AND NOT (cycleway=opposite_lane)].node[highway=crossing AND bicycle=no]
+		not_defined_bicycle_crossing : way[((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) OR ((bicycle=designated OR highway=cycleway) AND NOT (((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))))) AND NOT (cycleway=opposite_lane)].node[highway=crossing AND NOT bicycle=yes AND NOT bicycle=no]
 	points, areas
 		bicycle_parking_no_capacity : (amenity=bicycle_parking) AND NOT (capacity)
 		bicycle_parking_no_type : (amenity=bicycle_parking) AND (NOT bicycle_parking OR (NOT (bicycle_parking=wall_loops) AND NOT (bicycle_parking=stands)))
@@ -207,6 +211,33 @@ rules
 		draw : line
 		draw : text
 
+
+	target: not_defined_bicycle_crossing
+		define
+			min-zoom : 1
+			fill-color : violet
+			shape-size : 0:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			line-width : 0
+			//line-color : red
+		draw : shape
+
+	target: not_OK_bicycle_crossing
+		define
+			min-zoom : 1
+			fill-color : red
+			shape-size : 0:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			line-width : 0
+			//line-color : red
+		draw : shape
+
+	target: OK_bicycle_crossing
+		define
+			min-zoom : 1
+			fill-color : green
+			shape-size : 0:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			line-width : 0
+			//line-color : green
+		draw : shape
 
 	target: bicycle_parking_no_type
 		define
