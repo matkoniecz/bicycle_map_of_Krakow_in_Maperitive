@@ -12,7 +12,7 @@ __proper_surface = "(surface = asphalt OR smoothness = excellent OR smoothness =
 __cycleway = "("+__separate_cycleway + " OR " + __segregated_cycleway + ")"
 __no_surface_info_for_main_part = "(surface=paved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness)))"
 __no_surface_info_for_lane = "(cycleway:surface=paved OR NOT cycleway:surface)"
-__lame_cycleway = "((bicycle=designated OR (highway=cycleway AND bicycle = yes)) AND NOT segregated = yes)"
+__lame_cycleway = "((bicycle=designated OR highway=cycleway) AND NOT #{__cycleway})"
 __contraflow = "(cycleway=opposite_lane)"
 __unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + __typical_road + " AND NOT highway=service)"
 __bicycle_dismount = "(bicycle=dismount)"
