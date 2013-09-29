@@ -54,6 +54,8 @@ features
 		OK_bicycle_crossing : way[((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) OR ((bicycle=designated OR highway=cycleway) AND NOT (((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))))) AND NOT (cycleway=opposite_lane)].node[highway=crossing AND bicycle=yes]
 		not_OK_bicycle_crossing : way[((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) OR ((bicycle=designated OR highway=cycleway) AND NOT (((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))))) AND NOT (cycleway=opposite_lane)].node[highway=crossing AND bicycle=no]
 		not_defined_bicycle_crossing : way[((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))) OR ((bicycle=designated OR highway=cycleway) AND NOT (((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated)) OR ((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))))) AND NOT (cycleway=opposite_lane)].node[highway=crossing AND NOT bicycle=yes AND NOT bicycle=no]
+	points, lines, areas
+		fixme : fixme AND fixme:type:bicycle=yes
 	points, areas
 		bicycle_parking_no_capacity : (amenity=bicycle_parking) AND NOT (capacity)
 		bicycle_parking_no_type : (amenity=bicycle_parking) AND (NOT bicycle_parking OR (NOT (bicycle_parking=wall_loops) AND NOT (bicycle_parking=stands)))
@@ -211,6 +213,15 @@ rules
 		draw : line
 		draw : text
 
+
+	target: fixme
+		define
+			min-zoom : 1
+			fill-color : pink
+			shape-size : 6
+			line-width : 0
+		draw : shape
+		draw : text
 
 	target: not_defined_bicycle_crossing
 		define

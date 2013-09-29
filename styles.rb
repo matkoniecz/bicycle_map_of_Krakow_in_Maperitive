@@ -23,6 +23,15 @@ def get_bicycle_styles
 "
 	end
 return returned + "
+	target: fixme
+		define
+			min-zoom : 1
+			fill-color : pink
+			shape-size : 6
+			line-width : 0
+		draw : shape
+		draw : text
+
 	target: not_defined_bicycle_crossing
 		define
 			min-zoom : 1
