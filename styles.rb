@@ -108,8 +108,8 @@ return returned + "
 	target : no maxspeed info
 		define
 			min-zoom : 1
-			line-color : purple
-			line-width : 2
+			line-color : pink
+			line-width : 1
 			line-style : solid
 		draw : line
 		draw : text
