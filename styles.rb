@@ -10,6 +10,7 @@ def get_bicycle_styles
 				["no oneway for bicycle instead of opposite_lane", "yellow"],
 				["no_surface_info", "violet"],
 				["missing segregate", "blue"],
+				["weird segregate", "brown"],
 			]
 	bugs.each do |element|
 		returned += "	target : #{element[0]}
