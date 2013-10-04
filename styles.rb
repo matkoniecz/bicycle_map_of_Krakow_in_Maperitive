@@ -9,6 +9,7 @@ def get_bicycle_styles
 				["crossing_as_way_rather_than_node_bug", "red"],
 				["no oneway for bicycle instead of opposite_lane", "yellow"],
 				["no_surface_info", "violet"],
+				["missing segregate", "blue"],
 			]
 	bugs.each do |element|
 		returned += "	target : #{element[0]}
