@@ -88,8 +88,17 @@ return returned + "
 		define
 			icon-image : icons/SJJB/png/shopping_bicycle.n.32.png
 			min-zoom : 1
+			max-zoom : 15
 			icon-width : 10:8; 12:9; 13:10; 14:11; 15:12; 16:13; 17:14; 18:15; 19:16
 		draw : icon
+		define
+			text : \"Sklep rowerowy \" name \" - \" opening_hours
+			min-zoom : 15
+			max-zoom : 25
+			font-size : 13:9.5; 17:14
+			font-weight : normal
+			text-halo-color : #fffd8b
+		draw : text
 
 	target: drinking_water
 		define
