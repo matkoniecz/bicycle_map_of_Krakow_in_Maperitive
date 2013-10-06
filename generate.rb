@@ -4,18 +4,19 @@ load "styles.rb"
 #TODO handle cycleway=opposite (droga dwukierunkowa dla rowerzystów, dla reszty jednokierunkowa)
 #TODO find and kill "unpaved" as surface
 
-__cycleable = "(highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane)"
-__typical_road = "@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)"
-__separate_cycleway = "((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))"
-__segregated_cycleway = "((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))"
+__no_access = "(access=private OR access=no)"
+__cycleable = "((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT #{__no_access})"
+__typical_road = "(@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)  AND NOT #{__no_access})"
+__separate_cycleway = "(((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT #{__no_access})"
+__segregated_cycleway = "(((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT #{__no_access})"
 __proper_surface = "(surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)"
 __cycleway = "("+__separate_cycleway + " OR " + __segregated_cycleway + ")"
 __no_surface_info_for_main_part = "(surface=paved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness)))"
 __no_surface_info_for_lane = "(cycleway:surface=paved OR NOT cycleway:surface)"
-__lame_cycleway = "((bicycle=designated OR highway=cycleway) AND NOT #{__cycleway})"
-__contraflow = "(cycleway=opposite_lane)"
-__unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + __typical_road + " AND NOT highway=service)"
-__bicycle_dismount = "(bicycle=dismount)"
+__lame_cycleway = "(((bicycle=designated OR highway=cycleway) AND NOT #{__cycleway}) AND NOT #{__no_access})"
+__contraflow = "((cycleway=opposite_lane) AND NOT #{__no_access})"
+__unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + __typical_road + " AND NOT highway=service AND NOT #{__no_access})"
+__bicycle_dismount = "(bicycle=dismount AND NOT #{__no_access})"
 def weird_surface name
 	allowed = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "unpaved"]
 	returned = name
