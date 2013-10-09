@@ -143,6 +143,24 @@ return returned + "
 		draw : line
 		draw : text
 
+	target : proper cycleway with a terrible surface
+		define
+			min-zoom : 9
+			line-color : red
+			line-width : 4
+			line-style : solid
+		draw : line
+		draw : text
+
+	target : lame cycleway with a terrible surface
+		define
+			min-zoom : 9
+			line-color : red
+			line-width : 2
+			line-style : solid
+		draw : line
+		draw : text
+
 	target : lame cycleway with a good surface
 		define
 			min-zoom : 9
