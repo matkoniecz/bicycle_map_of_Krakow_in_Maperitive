@@ -19,7 +19,7 @@ __contraflow = "((cycleway=opposite_lane) AND NOT #{__no_access})"
 __unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + __typical_road + " AND NOT highway=service AND NOT #{__no_access})"
 __bicycle_dismount = "(bicycle=dismount AND NOT #{__no_access})"
 def weird_surface name
-	allowed = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "unpaved"]
+	allowed = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "unpaved", "cobblestone"]
 	returned = name
 	allowed.each do |value|
 		returned += " AND NOT #{name}=#{value}"
