@@ -17,7 +17,6 @@ __no_surface_info_for_lane = "(cycleway:surface=paved OR NOT cycleway:surface)"
 __lame_cycleway = "(((bicycle=designated OR highway=cycleway) AND NOT #{__cycleway}) AND NOT #{__no_access})"
 __contraflow = "((cycleway=opposite_lane) AND NOT #{__no_access})"
 __unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + __typical_road + " AND NOT highway=service AND NOT #{__no_access})"
-__bicycle_dismount = "(bicycle=dismount AND NOT #{__no_access})"
 def weird_surface name
 	allowed = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "unpaved", "cobblestone"]
 	returned = name
@@ -39,7 +38,7 @@ puts "		weird surface value : #{__cycleable} AND (#{__weird_main_surface} OR #{_
 puts "		no_and_yes_bug : #{__cycleable} AND bicycle=no"
 puts "		crossing_as_way_rather_than_node_bug : highway = crossing"
 puts "		no oneway for bicycle instead of opposite_lane : \"oneway:bicycle\" = \"no\" AND NOT cycleway=opposite_lane"
-puts "		no_surface_info : (#{__cycleway} OR #{__lame_cycleway} OR #{__contraflow} OR #{__unexpected_allowed_cycling} OR #{__bicycle_dismount}) AND (#{__no_surface_info_for_main_part} AND #{__no_surface_info_for_lane})"
+puts "		no_surface_info : (#{__cycleway} OR #{__lame_cycleway} OR #{__contraflow} OR #{__unexpected_allowed_cycling} AND (#{__no_surface_info_for_main_part} AND #{__no_surface_info_for_lane})"
 puts "		no maxspeed info : (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, unclassified) AND NOT maxspeed)"
 puts "		missing segregate : ((bicycle=designated OR highway=cycleway) AND (foot=yes OR bicycle=foot OR highway=footway) AND NOT segregated)"
 puts "		weird segregate : (segregated AND NOT segregated=yes AND NOT segregated=no)"
@@ -52,7 +51,6 @@ puts "		lame cycleway with a bad surface: #{__lame_cycleway} AND NOT #{__proper_
 puts "		lame cycleway with a terrible surface: #{__lame_cycleway} AND #{__terible_surface}"
 puts "		contraflow : #{__contraflow}"
 puts "		bicycle allowed : #{__unexpected_allowed_cycling}"
-puts "		dismount from bicycle : #{__bicycle_dismount}"
 puts "		unexpected cycling ban : bicycle=no AND #{__typical_road}"
 puts "	points"
 __bicycle_crossing_way = "((#{__cycleway} OR #{__lame_cycleway}) AND NOT #{__contraflow} AND NOT (cycleway=lane AND #{__typical_road}))"
