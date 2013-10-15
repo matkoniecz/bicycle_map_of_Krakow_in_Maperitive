@@ -17,6 +17,8 @@ __no_surface_info_for_lane = "(cycleway:surface=paved OR NOT cycleway:surface)"
 __lame_cycleway = "(((bicycle=designated OR highway=cycleway) AND NOT #{__cycleway}) AND NOT #{__no_access})"
 __contraflow = "((cycleway=opposite_lane) AND NOT #{__no_access})"
 __unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + __typical_road + " AND NOT highway=service AND NOT #{__no_access})"
+__unexpected_cycling_ban = "(bicycle=no AND #{__typical_road})"
+__valid_bicycle_source_value = "(source:bicycle=sign OR footway=sidewalk)" #footway=sidewalk is temporary as source:bicycle needs proper string for this status
 def weird_surface name
 	allowed = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "unpaved", "cobblestone"]
 	returned = name
@@ -51,7 +53,8 @@ puts "		lame cycleway with a bad surface: #{__lame_cycleway} AND NOT #{__proper_
 puts "		lame cycleway with a terrible surface: #{__lame_cycleway} AND #{__terible_surface}"
 puts "		contraflow : #{__contraflow}"
 puts "		bicycle allowed : #{__unexpected_allowed_cycling}"
-puts "		unexpected cycling ban : bicycle=no AND #{__typical_road}"
+puts "		unexpected cycling ban: #{__unexpected_cycling_ban}"
+puts "		bicycle unexpected status no source mentioned: (#{__unexpected_cycling_ban} OR #{__unexpected_allowed_cycling}) AND NOT #{__valid_bicycle_source_value}"
 puts "	points"
 __bicycle_crossing_way = "((#{__cycleway} OR #{__lame_cycleway}) AND NOT #{__contraflow} AND NOT (cycleway=lane AND #{__typical_road}))"
 puts "		OK_bicycle_crossing : way[#{__bicycle_crossing_way}].node[highway=crossing AND (bicycle=yes OR bicycle = designated)]"
