@@ -38,7 +38,7 @@ puts "		weird surface value : #{__cycleable} AND (#{__weird_main_surface} OR #{_
 puts "		no_and_yes_bug : #{__cycleable} AND bicycle=no"
 puts "		crossing_as_way_rather_than_node_bug : highway = crossing"
 puts "		no oneway for bicycle instead of opposite_lane : \"oneway:bicycle\" = \"no\" AND NOT cycleway=opposite_lane"
-puts "		no_surface_info : (#{__cycleway} OR #{__lame_cycleway} OR #{__contraflow} OR #{__unexpected_allowed_cycling} AND (#{__no_surface_info_for_main_part} AND #{__no_surface_info_for_lane})"
+puts "		no_surface_info : (#{__cycleway} OR #{__lame_cycleway} OR #{__contraflow}) AND (#{__no_surface_info_for_main_part} AND #{__no_surface_info_for_lane})"
 puts "		no maxspeed info : (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, unclassified) AND NOT maxspeed)"
 puts "		missing segregate : ((bicycle=designated OR highway=cycleway) AND (foot=yes OR bicycle=foot OR highway=footway) AND NOT segregated)"
 puts "		weird segregate : (segregated AND NOT segregated=yes AND NOT segregated=no)"
