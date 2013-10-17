@@ -4,6 +4,14 @@ load "styles.rb"
 #TODO handle cycleway=opposite (droga dwukierunkowa dla rowerzystów, dla reszty jednokierunkowa)
 #TODO find and kill "unpaved" as surface
 
+debug = false
+
+ARGV.each do|a|
+	if a == "debug"
+		debug = true
+	end
+end
+
 __no_access = "(access=private OR access=no)"
 __cycleable = "((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT #{__no_access})"
 __typical_road = "(@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)  AND NOT #{__no_access})"
@@ -33,18 +41,20 @@ __bicycle_parking = "(amenity=bicycle_parking)"
 
 puts get_top
 puts "	lines"
-puts "		weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite"
-puts "		weird bicycle value : bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle = designated AND NOT bicycle = dismount"
-puts "		weird tags : cycleway:right OR cycleway:left"
-puts "		weird surface value : #{__cycleable} AND (#{__weird_main_surface} OR #{__weird_cycleway_surface})"
-puts "		no_and_yes_bug : #{__cycleable} AND bicycle=no"
-puts "		crossing_as_way_rather_than_node_bug : highway = crossing"
-puts "		no oneway for bicycle instead of opposite_lane : \"oneway:bicycle\" = \"no\" AND NOT cycleway=opposite_lane"
-puts "		no_surface_info : (#{__cycleway} OR #{__lame_cycleway} OR #{__contraflow}) AND (#{__no_surface_info_for_main_part} AND #{__no_surface_info_for_lane})"
-puts "		no maxspeed info : (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, unclassified) AND NOT maxspeed)"
-puts "		missing segregate : ((bicycle=designated OR highway=cycleway) AND (foot=yes OR foot=designated OR bicycle=foot OR highway=footway) AND NOT segregated)"
-puts "		weird segregate : (segregated AND NOT segregated=yes AND NOT segregated=no)"
-puts ""
+if debug
+	puts "		weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite"
+	puts "		weird bicycle value : bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle = designated AND NOT bicycle = dismount"
+	puts "		weird tags : cycleway:right OR cycleway:left"
+	puts "		weird surface value : #{__cycleable} AND (#{__weird_main_surface} OR #{__weird_cycleway_surface})"
+	puts "		no_and_yes_bug : #{__cycleable} AND bicycle=no"
+	puts "		crossing_as_way_rather_than_node_bug : highway = crossing"
+	puts "		no oneway for bicycle instead of opposite_lane : \"oneway:bicycle\" = \"no\" AND NOT cycleway=opposite_lane"
+	puts "		no_surface_info : (#{__cycleway} OR #{__lame_cycleway} OR #{__contraflow}) AND (#{__no_surface_info_for_main_part} AND #{__no_surface_info_for_lane})"
+	puts "		no maxspeed info : (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, unclassified) AND NOT maxspeed)"
+	puts "		missing segregate : ((bicycle=designated OR highway=cycleway) AND (foot=yes OR foot=designated OR bicycle=foot OR highway=footway) AND NOT segregated)"
+	puts "		weird segregate : (segregated AND NOT segregated=yes AND NOT segregated=no)"
+	puts ""
+end
 puts "		proper cycleway : #{__cycleway} AND #{__proper_surface} AND NOT #{__terible_surface}"
 puts "		proper cycleway with a bad surface : #{__cycleway} AND NOT #{__proper_surface} AND NOT #{__terible_surface}"
 puts "		proper cycleway with a terrible surface : #{__cycleway} AND  #{__terible_surface}"
@@ -54,18 +64,24 @@ puts "		lame cycleway with a terrible surface: #{__lame_cycleway} AND #{__teribl
 puts "		contraflow : #{__contraflow}"
 puts "		bicycle allowed : #{__unexpected_allowed_cycling}"
 puts "		unexpected cycling ban: #{__unexpected_cycling_ban}"
-puts "		bicycle unexpected status no source mentioned: (#{__unexpected_cycling_ban} OR #{__unexpected_allowed_cycling}) AND NOT #{__valid_bicycle_source_value}"
+if debug
+	puts "		bicycle unexpected status no source mentioned: (#{__unexpected_cycling_ban} OR #{__unexpected_allowed_cycling}) AND NOT #{__valid_bicycle_source_value}"
+end
 puts "	points"
 __bicycle_crossing_way = "((#{__cycleway} OR #{__lame_cycleway} OR #{__unexpected_allowed_cycling}) AND NOT #{__contraflow} AND NOT (cycleway=lane AND #{__typical_road}))"
 puts "		OK_bicycle_crossing : way[#{__bicycle_crossing_way}].node[highway=crossing AND (bicycle=yes OR bicycle = designated)]"
 puts "		not_OK_bicycle_crossing : way[#{__bicycle_crossing_way}].node[highway=crossing AND bicycle=no]"
 puts "		not_defined_bicycle_crossing : way[#{__bicycle_crossing_way}].node[highway=crossing AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle=designated]"
 puts "	points, lines, areas"
-puts "		fixme : fixme AND fixme:type:bicycle=yes"
+if debug
+	puts "		fixme : fixme AND fixme:type:bicycle=yes"
+end
 puts "	points, areas"
-puts "		bicycle_parking_no_capacity : #{__bicycle_parking} AND NOT (capacity)"
-puts "		bicycle_parking_no_type : #{__bicycle_parking} AND (NOT bicycle_parking OR (NOT (bicycle_parking=wall_loops) AND NOT (bicycle_parking=stands)))"
-puts ""
+if debug
+	puts "		bicycle_parking_no_capacity : #{__bicycle_parking} AND NOT (capacity)"
+	puts "		bicycle_parking_no_type : #{__bicycle_parking} AND (NOT bicycle_parking OR (NOT (bicycle_parking=wall_loops) AND NOT (bicycle_parking=stands)))"
+	puts ""
+end
 puts "		bicycle_parking : #{__bicycle_parking}"
 puts "		bicycle shop : shop=bicycle"
 puts "		drinking_water : amenity=drinking_water"
