@@ -16,7 +16,7 @@ end
 __no_access = "(access=private OR access=no)"
 __cycleable = "((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT #{__no_access})"
 __typical_road = "(@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, pedestrian, residential, living_street, unclassified)  AND NOT #{__no_access})"
-__typical_road_accessible_to_bicycles = "((#{__typical_road} OR highway=track OR highway=service) AND NOT bicycle=no)"
+__typical_road_accessible_to_bicycles = "((#{__typical_road} OR highway=track OR highway=service) AND NOT bicycle=no AND NOT service=parking_aisle)"
 __separate_cycleway = "(((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT #{__no_access})"
 __segregated_cycleway = "(((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT #{__no_access})"
 __proper_surface = "(surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)"
