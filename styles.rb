@@ -101,7 +101,7 @@ return returned + "
 		define
 			fill-color : #6060ff
 			min-zoom : 1
-			shape-size : 10:3; 11:4; 12:6; 13:7; 14:8; 15:11; 16:13; 17:14; 18:16; 19:20
+			shape-size : 10:3; 11:4; 12:5; 13:7; 14:8; 15:11; 16:13; 17:14; 18:16; 19:20
 			line-width : 0
 			line-color : white
 			shape: square
