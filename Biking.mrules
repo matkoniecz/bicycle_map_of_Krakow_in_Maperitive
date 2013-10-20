@@ -190,16 +190,6 @@ rules
 			shape: circle
 		draw : shape
 
-	target: bicycle_parking
-		define
-			fill-color : #6060ff
-			min-zoom : 1
-			shape-size : 10:3; 11:4; 12:6; 13:7; 14:8; 15:11; 16:13; 17:14; 18:16; 19:20
-			line-width : 0
-			line-color : white
-			shape: square
-		draw : shape
-
 	target: bicycle shop
 		define
 			icon-image : icons/SJJB/png/shopping_bicycle.n.32.png
@@ -215,6 +205,16 @@ rules
 			font-weight : normal
 			text-halo-color : #fffd8b
 		draw : text
+
+	target: bicycle_parking
+		define
+			fill-color : #6060ff
+			min-zoom : 1
+			shape-size : 10:3; 11:4; 12:6; 13:7; 14:8; 15:11; 16:13; 17:14; 18:16; 19:20
+			line-width : 0
+			line-color : white
+			shape: square
+		draw : shape
 
 	target: drinking_water
 		define
