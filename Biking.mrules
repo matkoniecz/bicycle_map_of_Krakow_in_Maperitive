@@ -1,6 +1,7 @@
 
 features
 	lines
+		cycleable road : (((@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)  AND NOT (access=private OR access=no)) OR highway=track) AND NOT bicycle=no)
 		proper cycleway : ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no))) AND (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)
 		proper cycleway with a bad surface : ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no))) AND NOT (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)
 		proper cycleway with a terrible surface : ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no))) AND  (smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)
@@ -22,8 +23,8 @@ features
 
 properties
 	map-background-color	: white
-	text-halo-width : 10%
-	text-halo-opacity : 0.3
+	text-halo-width : 30%
+	text-halo-opacity : 0.8
 
 rules
 	target : weird cycleway value
@@ -320,3 +321,9 @@ rules
 		draw : line
 		draw : text
 
+	target: cycleable road
+		define
+			min-zoom : 1
+			line-width : 1
+			line-color : gray
+		draw: line

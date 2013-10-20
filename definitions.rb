@@ -15,5 +15,12 @@ rules
 "
 end
 def get_bottom_after_bicycle_styles 
-return ""
+return "
+	target: cycleable road
+		define
+			min-zoom : 1
+			line-width : 1
+			line-color : gray
+		draw: line
+"
 end
