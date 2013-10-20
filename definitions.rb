@@ -22,6 +22,9 @@ return "
 			line-width : 1
 			line-color : gray
 		draw: line
+	target: cycleable road
+		define
+			min-zoom : 16
 		draw: text
 "
 end
