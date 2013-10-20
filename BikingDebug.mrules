@@ -45,6 +45,33 @@ properties
 	text-halo-opacity : 0.8
 
 rules
+	target : missing segregate
+		define
+			min-zoom : 1
+			line-color : blue
+			line-width : 10
+			line-style : solid
+		draw : line
+		draw : text
+
+	target : no_surface_info
+		define
+			min-zoom : 1
+			line-color : violet
+			line-width : 10
+			line-style : solid
+		draw : line
+		draw : text
+
+	target : weird segregate
+		define
+			min-zoom : 1
+			line-color : brown
+			line-width : 10
+			line-style : solid
+		draw : line
+		draw : text
+
 	target : weird cycleway value
 		define
 			min-zoom : 1
@@ -90,10 +117,19 @@ rules
 		draw : line
 		draw : text
 
-	target : crossing_as_way_rather_than_node_bug
+	target : bicycle unexpected status no source mentioned
 		define
 			min-zoom : 1
-			line-color : red
+			line-color : gray
+			line-width : 10
+			line-style : solid
+		draw : line
+		draw : text
+
+	target : weird highway value
+		define
+			min-zoom : 1
+			line-color : lime
 			line-width : 10
 			line-style : solid
 		draw : line
@@ -108,46 +144,10 @@ rules
 		draw : line
 		draw : text
 
-	target : no_surface_info
+	target : crossing_as_way_rather_than_node_bug
 		define
 			min-zoom : 1
-			line-color : violet
-			line-width : 10
-			line-style : solid
-		draw : line
-		draw : text
-
-	target : missing segregate
-		define
-			min-zoom : 1
-			line-color : blue
-			line-width : 10
-			line-style : solid
-		draw : line
-		draw : text
-
-	target : weird segregate
-		define
-			min-zoom : 1
-			line-color : brown
-			line-width : 10
-			line-style : solid
-		draw : line
-		draw : text
-
-	target : bicycle unexpected status no source mentioned
-		define
-			min-zoom : 1
-			line-color : gray
-			line-width : 10
-			line-style : solid
-		draw : line
-		draw : text
-
-	target : weird highway value
-		define
-			min-zoom : 1
-			line-color : lime
+			line-color : red
 			line-width : 10
 			line-style : solid
 		draw : line

@@ -1,18 +1,18 @@
 def get_bicycle_styles
 	returned = ""
 	bugs = [
+				["missing segregate", "blue"],
+				["no_surface_info", "violet"],
+				["weird segregate", "brown"],
 				["weird cycleway value", "teal"],
 				["weird bicycle value", "orange"],
 				["weird tags", "black"],
 				["weird surface value", "green"],
 				["no_and_yes_bug", "purple"],
-				["crossing_as_way_rather_than_node_bug", "red"],
-				["no oneway for bicycle instead of opposite_lane", "yellow"],
-				["no_surface_info", "violet"],
-				["missing segregate", "blue"],
-				["weird segregate", "brown"],
 				["bicycle unexpected status no source mentioned", "gray"],
 				["weird highway value", "lime"],
+				["no oneway for bicycle instead of opposite_lane", "yellow"],
+				["crossing_as_way_rather_than_node_bug", "red"],
 			]
 	bugs.each do |element|
 		returned += "	target : #{element[0]}
