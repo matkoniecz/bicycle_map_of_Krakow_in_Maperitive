@@ -22,5 +22,6 @@ return "
 			line-width : 1
 			line-color : gray
 		draw: line
+		draw: text
 "
 end
