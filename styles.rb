@@ -132,6 +132,15 @@ return returned + "
 		draw : line
 		draw : text
 
+	target : plus 50 maxspeed
+		define
+			min-zoom : 1
+			line-color : red
+			line-width : 1
+			line-style : solid
+		draw : line
+		draw : text
+
 	target : proper cycleway with a bad surface
 		define
 			min-zoom : 9
