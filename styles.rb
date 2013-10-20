@@ -44,6 +44,14 @@ return returned + "
 			line-width : 0
 			//line-color : red
 		draw : shape
+	
+	target: badly_defined_crossing
+		define
+			min-zoom : 1
+			fill-color : black
+			shape-size : 14:6; 16:10; 17:15; 18:20; 19:25
+			line-width : 0
+		draw : shape			
 
 	target: not_OK_bicycle_crossing
 		define
