@@ -127,7 +127,7 @@ return returned + "
 		define
 			min-zoom : 14
 			line-color : pink
-			line-width : 1
+			line-width : 2
 			line-style : solid
 		draw : line
 		draw : text
@@ -135,8 +135,8 @@ return returned + "
 	target : plus 50 maxspeed
 		define
 			min-zoom : 1
-			line-color : red
-			line-width : 1
+			line-color : black
+			line-width : 2
 			line-style : solid
 		draw : line
 		draw : text
