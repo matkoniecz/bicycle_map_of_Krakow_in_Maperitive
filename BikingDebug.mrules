@@ -168,7 +168,7 @@ rules
 		define
 			min-zoom : 1
 			fill-color : violet
-			shape-size : 0:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			shape-size : 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
 			line-width : 0
 			//line-color : red
 		draw : shape
@@ -177,7 +177,7 @@ rules
 		define
 			min-zoom : 1
 			fill-color : red
-			shape-size : 0:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			shape-size : 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
 			line-width : 0
 			//line-color : red
 		draw : shape
