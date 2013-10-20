@@ -1,4 +1,4 @@
-Released under the Creative Commons Attribution-ShareAlike 3.0 License (http://creativecommons.org/licenses/by-sa/3.0/).
+Released under GPLv3 see http://www.gnu.org/licenses/gpl-3.0.html for licence.
 
 osmfilter executable included in this repository has GNU Affero General Public License version 3 license (see http://m.m.i24.cc/osmfilter.c for code with license)
 
