@@ -12,6 +12,7 @@ def get_bicycle_styles
 				["missing segregate", "blue"],
 				["weird segregate", "brown"],
 				["bicycle unexpected status no source mentioned", "gray"],
+				["weird highway value", "lime"],
 			]
 	bugs.each do |element|
 		returned += "	target : #{element[0]}

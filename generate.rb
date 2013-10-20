@@ -15,7 +15,7 @@ end
 #highway=motorway ignored as not relevant
 __no_access = "(access=private OR access=no)"
 __cycleable = "((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT #{__no_access})"
-__typical_road = "(@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, pedestrian, residential, living_street, unclassified)  AND NOT #{__no_access})"
+__typical_road = "(@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, pedestrian, residential, living_street, unclassified, service)  AND NOT #{__no_access})"
 __typical_road_accessible_to_bicycles = "((#{__typical_road} OR highway=track) AND NOT bicycle=no)"
 __separate_cycleway = "(((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT #{__no_access})"
 __segregated_cycleway = "(((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT #{__no_access})"
@@ -29,22 +29,24 @@ __contraflow = "((cycleway=opposite_lane) AND NOT #{__no_access})"
 __unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + __typical_road + " AND NOT highway=service AND NOT highway=track AND NOT #{__no_access})"
 __unexpected_cycling_ban = "(bicycle=no AND #{__typical_road})"
 __valid_bicycle_source_value = "(source:bicycle=sign OR source:bicycle=park_rules OR footway=sidewalk)" #footway=sidewalk is temporary as source:bicycle needs proper string for this status
-def weird_surface name
-	allowed = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "unpaved", "cobblestone"]
+def weird name, allowed
 	returned = name
 	allowed.each do |value|
 		returned += " AND NOT #{name}=#{value}"
 	end
 	return "(#{returned})"
 end
-__weird_main_surface = weird_surface("surface")
-__weird_cycleway_surface = weird_surface("cycleway:surface")
+OK_surface_values = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "unpaved", "cobblestone"]
+__weird_main_surface = weird("surface", OK_surface_values)
+__weird_highway_value = weird("highway", ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link", "pedestrian", "residential", "living_street", "unclassified", "service", "track", "footway", "cycleway", "steps", "path", "proposed", "construction", "bridleway"])
+__weird_cycleway_surface = weird("cycleway:surface", OK_surface_values)
 __bicycle_parking = "(amenity=bicycle_parking)"
 
 puts get_top
 puts "	lines"
 puts "		cycleable road : #{__typical_road_accessible_to_bicycles}"
 if debug
+	puts "		weird highway value : #{__weird_highway_value}"
 	puts "		weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite"
 	puts "		weird bicycle value : bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle = designated AND NOT bicycle = dismount"
 	puts "		weird tags : cycleway:right OR cycleway:left"
