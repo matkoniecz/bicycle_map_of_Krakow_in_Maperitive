@@ -321,7 +321,7 @@ rules
 			line-color : blue
 			line-width : 7:1;12:2.5;17:3
 			line-style : solid
-			line-offset : 14:0.5;15:1;16:2;17:3
+			line-offset : 14:1;15:2;16:3;17:3
 			line-offset-sides : left
 		for : oneway=-1
 			define
@@ -342,6 +342,10 @@ rules
 				line-offset-sides : right
 		draw : line
 		draw : text
+		define
+			line-width : 1
+			line-style : solid
+		draw : line
 
 	target : bicycle allowed
 		define
