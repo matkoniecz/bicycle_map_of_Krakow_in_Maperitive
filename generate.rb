@@ -41,7 +41,7 @@ __weird_main_surface = weird("surface", OK_surface_values)
 __weird_highway_value = weird("highway", ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link", "pedestrian", "residential", "living_street", "unclassified", "service", "track", "footway", "cycleway", "steps", "path", "proposed", "construction", "bridleway"])
 __weird_cycleway_surface = weird("cycleway:surface", OK_surface_values)
 __bicycle_parking = "(amenity=bicycle_parking)"
-
+__motorway = "(highway=motorway OR highway=motorway_link)"
 puts get_top
 puts "	lines"
 puts "		cycleable road : #{__typical_road_accessible_to_bicycles}"
@@ -55,7 +55,7 @@ if debug
 	puts "		crossing_as_way_rather_than_node_bug : highway = crossing"
 	puts "		no_surface_info : (#{__cycleway} OR #{__lame_cycleway}) AND (#{__no_surface_info_for_main_part} AND #{__no_surface_info_for_lane})"
 	puts "		no maxspeed info : (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, unclassified) AND NOT maxspeed)"
-	puts "		plus 50 maxspeed : (maxspeed > 50 AND NOT highway=motorway AND NOT highway=motorway_link)"
+	puts "		plus 50 maxspeed : (maxspeed > 50 AND NOT #{__motorway})"
 	puts "		missing segregate : ((bicycle=designated OR highway=cycleway) AND (foot=yes OR foot=designated OR bicycle=foot OR highway=footway) AND NOT segregated)"
 	puts "		weird segregate : (segregated AND NOT segregated=yes AND NOT segregated=no)"
 	puts ""
@@ -68,6 +68,7 @@ puts "		lame cycleway with a bad surface: #{__lame_cycleway} AND NOT #{__proper_
 puts "		lame cycleway with a terrible surface: #{__lame_cycleway} AND #{__terible_surface}"
 puts "		marked contraflow : #{__contraflow} AND cycleway=opposite_lane"
 puts "		unmarked contraflow : #{__contraflow} AND NOT cycleway=opposite_lane"
+puts "		oneway : oneway=yes AND NOT #{__contraflow} AND (#{__typical_road_accessible_to_bicycles} OR #{__cycleway})"
 puts "		bicycle allowed : #{__unexpected_allowed_cycling}"
 puts "		unexpected cycling ban: #{__unexpected_cycling_ban}"
 if debug
