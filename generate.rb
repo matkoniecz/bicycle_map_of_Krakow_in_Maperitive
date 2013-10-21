@@ -55,7 +55,7 @@ if debug
 	puts "		crossing_as_way_rather_than_node_bug : highway = crossing"
 	puts "		no_surface_info : (#{__cycleway} OR #{__lame_cycleway}) AND (#{__no_surface_info_for_main_part} AND #{__no_surface_info_for_lane})"
 	puts "		no maxspeed info : (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, unclassified) AND NOT maxspeed)"
-	puts "		plus 50 maxspeed : (maxspeed > 50)"
+	puts "		plus 50 maxspeed : (maxspeed > 50 AND NOT highway=motorway AND NOT highway=motorway_link)"
 	puts "		missing segregate : ((bicycle=designated OR highway=cycleway) AND (foot=yes OR foot=designated OR bicycle=foot OR highway=footway) AND NOT segregated)"
 	puts "		weird segregate : (segregated AND NOT segregated=yes AND NOT segregated=no)"
 	puts ""

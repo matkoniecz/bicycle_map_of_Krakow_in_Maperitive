@@ -11,7 +11,7 @@ features
 		crossing_as_way_rather_than_node_bug : highway = crossing
 		no_surface_info : (((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no))) OR (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no)))) AND NOT (access=private OR access=no))) AND ((surface=paved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness))) AND (cycleway:surface=paved OR NOT cycleway:surface))
 		no maxspeed info : (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, unclassified) AND NOT maxspeed)
-		plus 50 maxspeed : (maxspeed > 50)
+		plus 50 maxspeed : (maxspeed > 50 AND NOT highway=motorway AND NOT highway=motorway_link)
 		missing segregate : ((bicycle=designated OR highway=cycleway) AND (foot=yes OR foot=designated OR bicycle=foot OR highway=footway) AND NOT segregated)
 		weird segregate : (segregated AND NOT segregated=yes AND NOT segregated=no)
 
