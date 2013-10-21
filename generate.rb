@@ -69,7 +69,7 @@ puts "		lame cycleway with a terrible surface: #{__lame_cycleway} AND #{__teribl
 puts "		marked contraflow : #{__contraflow} AND cycleway=opposite_lane"
 puts "		unmarked contraflow : #{__contraflow} AND NOT cycleway=opposite_lane"
 puts "		oneway : oneway=yes AND NOT #{__contraflow} AND (#{__typical_road_accessible_to_bicycles} OR #{__cycleway})"
-puts "		bicycle allowed : #{__unexpected_allowed_cycling}"
+puts "		bicycle allowed : #{__unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes)"
 puts "		unexpected cycling ban: #{__unexpected_cycling_ban}"
 if debug
 	puts "		bicycle unexpected status no source mentioned: (#{__unexpected_cycling_ban} OR #{__unexpected_allowed_cycling}) AND NOT #{__valid_bicycle_source_value}"
