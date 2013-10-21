@@ -11,7 +11,6 @@ def get_bicycle_styles
 				["no_and_yes_bug", "purple"],
 				["bicycle unexpected status no source mentioned", "gray"],
 				["weird highway value", "lime"],
-				["no oneway for bicycle instead of opposite_lane", "yellow"],
 				["crossing_as_way_rather_than_node_bug", "red"],
 			]
 	bugs.each do |element|
@@ -194,12 +193,26 @@ return returned + "
 		draw : line
 		draw : text
 
-	target : contraflow
+	target : marked contraflow
 		define
 			min-zoom : 9
 			line-color : blue
 			line-width : 7:1;12:2.5;17:3
 			line-style : solid
+			line-offset : 14:0.5;15:1;16:2;17:3
+			line-offset-sides : left
+		for : oneway=-1
+			define
+				line-offset-sides : right
+		draw : line
+		draw : text
+
+	target : unmarked contraflow
+		define
+			min-zoom : 9
+			line-color : blue
+			line-width : 7:1;12:2.5;17:3
+			line-style : dot
 			line-offset : 14:0.5;15:1;16:2;17:3
 			line-offset-sides : left
 		for : oneway=-1

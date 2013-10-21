@@ -8,12 +8,14 @@ features
 		lame cycleway with a good surface: (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no)))) AND NOT (access=private OR access=no)) AND (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)
 		lame cycleway with a bad surface: (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no)))) AND NOT (access=private OR access=no)) AND NOT (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)
 		lame cycleway with a terrible surface: (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no)))) AND NOT (access=private OR access=no)) AND (smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)
-		contraflow : ((cycleway=opposite_lane) AND NOT (access=private OR access=no))
+		marked contraflow : ((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT (access=private OR access=no)) AND cycleway=opposite_lane
+		unmarked contraflow : ((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT (access=private OR access=no)) AND NOT cycleway=opposite_lane
+		no oneway for bicycle instead of opposite_lane : "oneway:bicycle" = "no" AND cycleway=opposite_lane
 		bicycle allowed : ((bicycle=yes) AND NOT (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, pedestrian, residential, living_street, unclassified)  AND NOT (access=private OR access=no)) AND NOT highway=service AND NOT highway=track AND NOT (access=private OR access=no))
 		unexpected cycling ban: (bicycle=no AND (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, pedestrian, residential, living_street, unclassified)  AND NOT (access=private OR access=no)))
 	points
-		OK_bicycle_crossing : way[((((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no))) OR (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no)))) AND NOT (access=private OR access=no)) OR ((bicycle=yes) AND NOT (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, pedestrian, residential, living_street, unclassified)  AND NOT (access=private OR access=no)) AND NOT highway=service AND NOT highway=track AND NOT (access=private OR access=no))) AND NOT ((cycleway=opposite_lane) AND NOT (access=private OR access=no)) AND NOT (cycleway=lane AND (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, pedestrian, residential, living_street, unclassified)  AND NOT (access=private OR access=no))))].node[highway=crossing AND (bicycle=yes)]
-		not_OK_bicycle_crossing : way[((((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no))) OR (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no)))) AND NOT (access=private OR access=no)) OR ((bicycle=yes) AND NOT (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, pedestrian, residential, living_street, unclassified)  AND NOT (access=private OR access=no)) AND NOT highway=service AND NOT highway=track AND NOT (access=private OR access=no))) AND NOT ((cycleway=opposite_lane) AND NOT (access=private OR access=no)) AND NOT (cycleway=lane AND (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, pedestrian, residential, living_street, unclassified)  AND NOT (access=private OR access=no))))].node[highway=crossing AND bicycle=no]
+		OK_bicycle_crossing : way[((((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no))) OR (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no)))) AND NOT (access=private OR access=no)) OR ((bicycle=yes) AND NOT (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, pedestrian, residential, living_street, unclassified)  AND NOT (access=private OR access=no)) AND NOT highway=service AND NOT highway=track AND NOT (access=private OR access=no))) AND NOT ((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT (access=private OR access=no)) AND NOT (cycleway=lane AND (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, pedestrian, residential, living_street, unclassified)  AND NOT (access=private OR access=no))))].node[highway=crossing AND (bicycle=yes)]
+		not_OK_bicycle_crossing : way[((((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no))) OR (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no)))) AND NOT (access=private OR access=no)) OR ((bicycle=yes) AND NOT (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, pedestrian, residential, living_street, unclassified)  AND NOT (access=private OR access=no)) AND NOT highway=service AND NOT highway=track AND NOT (access=private OR access=no))) AND NOT ((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT (access=private OR access=no)) AND NOT (cycleway=lane AND (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, pedestrian, residential, living_street, unclassified)  AND NOT (access=private OR access=no))))].node[highway=crossing AND bicycle=no]
 	points, lines, areas
 	points, areas
 		bicycle_parking : (amenity=bicycle_parking)
@@ -111,15 +113,6 @@ rules
 		define
 			min-zoom : 1
 			line-color : lime
-			line-width : 10
-			line-style : solid
-		draw : line
-		draw : text
-
-	target : no oneway for bicycle instead of opposite_lane
-		define
-			min-zoom : 1
-			line-color : yellow
 			line-width : 10
 			line-style : solid
 		draw : line
@@ -302,12 +295,26 @@ rules
 		draw : line
 		draw : text
 
-	target : contraflow
+	target : marked contraflow
 		define
 			min-zoom : 9
 			line-color : blue
 			line-width : 7:1;12:2.5;17:3
 			line-style : solid
+			line-offset : 14:0.5;15:1;16:2;17:3
+			line-offset-sides : left
+		for : oneway=-1
+			define
+				line-offset-sides : right
+		draw : line
+		draw : text
+
+	target : unmarked contraflow
+		define
+			min-zoom : 9
+			line-color : blue
+			line-width : 7:1;12:2.5;17:3
+			line-style : dot
 			line-offset : 14:0.5;15:1;16:2;17:3
 			line-offset-sides : left
 		for : oneway=-1
