@@ -245,7 +245,7 @@ return returned + "
 		define
 			min-zoom : 9
 			line-color : red
-			line-width : 4
+			line-width : 2
 			line-style : dot
 			border-width : 0%
 		draw : line
