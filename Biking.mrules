@@ -85,7 +85,7 @@ rules
 	target : weird surface value
 		define
 			min-zoom : 1
-			line-color : green
+			line-color : yellow
 			line-width : 10
 			line-style : solid
 		draw : line
