@@ -5,9 +5,14 @@ load "styles.rb"
 #TODO find and kill "unpaved" as surface
 
 debug = false
+heavy_debug = false
 
 ARGV.each do|a|
 	if a == "debug"
+		debug = true
+	end
+	if a == "heavy_debug"
+		heavy_debug = true
 		debug = true
 	end
 end
@@ -71,7 +76,7 @@ puts "		unmarked contraflow : #{__contraflow} AND NOT cycleway=opposite_lane"
 puts "		oneway : oneway=yes AND NOT #{__contraflow} AND (#{__typical_road_accessible_to_bicycles} OR #{__cycleway})"
 puts "		bicycle allowed : #{__unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes)"
 puts "		unexpected cycling ban: #{__unexpected_cycling_ban}"
-if debug
+if heavy_debug
 	puts "		bicycle unexpected status no source mentioned: (#{__unexpected_cycling_ban} OR #{__unexpected_allowed_cycling}) AND NOT #{__valid_bicycle_source_value}"
 end
 puts "	points"
