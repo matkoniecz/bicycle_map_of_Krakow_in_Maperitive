@@ -8,7 +8,10 @@ def get_bottom_before_bicycle_styles
 return "
 	lines
 		impassable: (railway=rail OR highway=motorway OR highway = motorway_link) AND NOT tunnel AND NOT bridge
-
+	areas
+		water: natural=water OR waterway=riverbank
+	lines
+		water-line: (waterway=stream OR waterway=river)
 properties
 	map-background-color	: white
 	text-halo-width : 30%
@@ -37,5 +40,17 @@ return "
 			line-color : #404040
 			line-style : solid
 		draw: line
+
+	target: water
+		define
+			fill-color: #b0b0ef
+			line-width : 0
+			line-color : #b0b0ef
+		draw : fill
+	target: water-line
+		define
+			line-width : 2
+			line-color : #b0b0ef
+		draw : line
 "
 end
