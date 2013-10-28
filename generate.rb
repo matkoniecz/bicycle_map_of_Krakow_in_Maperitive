@@ -20,7 +20,7 @@ end
 #highway=motorway ignored as not relevant
 __no_access = "(access=private OR access=no)"
 __cycleable = "((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT #{__no_access})"
-__typical_road = "(@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, pedestrian, residential, living_street, unclassified)  AND NOT #{__no_access})"
+__typical_road = "(@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, living_street, unclassified)  AND NOT #{__no_access})"
 __typical_road_accessible_to_bicycles = "((#{__typical_road} OR highway=track OR highway=service) AND NOT bicycle=no AND NOT service=parking_aisle AND NOT #{__no_access})"
 __separate_cycleway = "(((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT #{__no_access})"
 __segregated_cycleway = "(((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT #{__no_access})"
@@ -76,6 +76,9 @@ puts "		unmarked contraflow : #{__contraflow} AND NOT cycleway=opposite_lane"
 puts "		oneway : oneway=yes AND NOT #{__contraflow} AND (#{__typical_road_accessible_to_bicycles} OR #{__cycleway})"
 puts "		bicycle allowed : #{__unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes)"
 puts "		unexpected cycling ban: #{__unexpected_cycling_ban}"
+puts "	areas"
+puts "		unexpected cycling ban area: #{__unexpected_cycling_ban} AND area=yes"
+puts "	lines"
 if heavy_debug
 	puts "		bicycle unexpected status no source mentioned: (#{__unexpected_cycling_ban} OR #{__unexpected_allowed_cycling}) AND NOT #{__valid_bicycle_source_value}"
 end

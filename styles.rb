@@ -270,5 +270,12 @@ return returned + "
 			border-width : 0%
 		draw : line
 		draw : text
+
+	target: unexpected cycling ban area
+		define
+			fill-color: red
+			line-color : red
+			border-width : 0%
+		draw : fill
 "
 end
