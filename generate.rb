@@ -32,7 +32,7 @@ __no_surface_info_for_lane = "(cycleway:surface=paved OR NOT cycleway:surface)"
 __lame_cycleway = "(((bicycle=designated OR highway=cycleway) AND NOT #{__cycleway}) AND NOT #{__no_access})"
 __contraflow = "((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT #{__no_access})"
 __unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + __typical_road + " AND NOT highway=service AND NOT highway=track AND NOT #{__no_access})"
-__unexpected_cycling_ban = "(bicycle=no AND #{__typical_road})"
+__unexpected_cycling_ban = "((bicycle=no AND #{__typical_road}) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated))"
 __valid_bicycle_source_value = "(source:bicycle=sign OR source:bicycle=park_rules OR footway=sidewalk)" #footway=sidewalk is temporary as source:bicycle needs proper string for this status
 def weird name, allowed
 	returned = name
