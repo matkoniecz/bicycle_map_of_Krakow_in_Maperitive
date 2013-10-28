@@ -277,5 +277,12 @@ return returned + "
 			line-color : red
 			border-width : 0%
 		draw : fill
+
+	target: bicycle allowed area
+		define
+			fill-color: orange
+			line-color : orange
+			border-width : 0%
+		draw : fill
 "
 end

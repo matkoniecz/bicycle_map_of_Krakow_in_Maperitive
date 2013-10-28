@@ -43,7 +43,7 @@ def weird name, allowed
 end
 OK_surface_values = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "concrete:plates", "unpaved", "cobblestone"]
 __weird_main_surface = weird("surface", OK_surface_values)
-__weird_highway_value = weird("highway", ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link", "pedestrian", "residential", "living_street", "unclassified", "service", "track", "footway", "cycleway", "steps", "path", "proposed", "construction", "bridleway"])
+__weird_highway_value = weird("highway", ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link", "pedestrian", "residential", "living_street", "unclassified", "service", "track", "footway", "cycleway", "steps", "path", "proposed", "construction", "bridleway", "platform"])
 __weird_cycleway_surface = weird("cycleway:surface", OK_surface_values)
 __bicycle_parking = "(amenity=bicycle_parking)"
 __motorway = "(highway=motorway OR highway=motorway_link)"
@@ -74,10 +74,12 @@ puts "		lame cycleway with a terrible surface: #{__lame_cycleway} AND #{__teribl
 puts "		marked contraflow : #{__contraflow} AND cycleway=opposite_lane"
 puts "		unmarked contraflow : #{__contraflow} AND NOT cycleway=opposite_lane"
 puts "		oneway : oneway=yes AND NOT #{__contraflow} AND (#{__typical_road_accessible_to_bicycles} OR #{__cycleway})"
-puts "		bicycle allowed : #{__unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes)"
+__bicycle_allowed = "(#{__unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes))"
+puts "		bicycle allowed : #{__bicycle_allowed}"
 puts "		unexpected cycling ban: #{__unexpected_cycling_ban}"
 puts "	areas"
 puts "		unexpected cycling ban area: #{__unexpected_cycling_ban} AND area=yes"
+puts "		bicycle allowed area: #{__bicycle_allowed} AND area=yes"
 puts "	lines"
 if heavy_debug
 	puts "		bicycle unexpected status no source mentioned: (#{__unexpected_cycling_ban} OR #{__unexpected_allowed_cycling}) AND NOT #{__valid_bicycle_source_value}"
