@@ -21,6 +21,9 @@ def get_bicycle_styles
 			line-width : 10
 			line-style : solid
 		draw : line
+		define
+			min-zoom : 12
+			text : name \" - #{element[0]}\"
 		draw : text
 
 "

@@ -57,6 +57,9 @@ rules
 			line-width : 10
 			line-style : solid
 		draw : line
+		define
+			min-zoom : 12
+			text : name " - missing segregate"
 		draw : text
 
 	target : no_surface_info
@@ -66,6 +69,9 @@ rules
 			line-width : 10
 			line-style : solid
 		draw : line
+		define
+			min-zoom : 12
+			text : name " - no_surface_info"
 		draw : text
 
 	target : weird segregate
@@ -75,6 +81,9 @@ rules
 			line-width : 10
 			line-style : solid
 		draw : line
+		define
+			min-zoom : 12
+			text : name " - weird segregate"
 		draw : text
 
 	target : weird cycleway value
@@ -84,6 +93,9 @@ rules
 			line-width : 10
 			line-style : solid
 		draw : line
+		define
+			min-zoom : 12
+			text : name " - weird cycleway value"
 		draw : text
 
 	target : weird bicycle value
@@ -93,6 +105,9 @@ rules
 			line-width : 10
 			line-style : solid
 		draw : line
+		define
+			min-zoom : 12
+			text : name " - weird bicycle value"
 		draw : text
 
 	target : weird tags
@@ -102,6 +117,9 @@ rules
 			line-width : 10
 			line-style : solid
 		draw : line
+		define
+			min-zoom : 12
+			text : name " - weird tags"
 		draw : text
 
 	target : weird surface value
@@ -111,6 +129,9 @@ rules
 			line-width : 10
 			line-style : solid
 		draw : line
+		define
+			min-zoom : 12
+			text : name " - weird surface value"
 		draw : text
 
 	target : no_and_yes_bug
@@ -120,6 +141,9 @@ rules
 			line-width : 10
 			line-style : solid
 		draw : line
+		define
+			min-zoom : 12
+			text : name " - no_and_yes_bug"
 		draw : text
 
 	target : bicycle unexpected status no source mentioned
@@ -129,6 +153,9 @@ rules
 			line-width : 10
 			line-style : solid
 		draw : line
+		define
+			min-zoom : 12
+			text : name " - bicycle unexpected status no source mentioned"
 		draw : text
 
 	target : weird highway value
@@ -138,6 +165,9 @@ rules
 			line-width : 10
 			line-style : solid
 		draw : line
+		define
+			min-zoom : 12
+			text : name " - weird highway value"
 		draw : text
 
 	target : crossing_as_way_rather_than_node_bug
@@ -147,6 +177,9 @@ rules
 			line-width : 10
 			line-style : solid
 		draw : line
+		define
+			min-zoom : 12
+			text : name " - crossing_as_way_rather_than_node_bug"
 		draw : text
 
 
