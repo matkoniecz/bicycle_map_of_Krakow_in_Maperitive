@@ -9,9 +9,9 @@ return "
 	lines
 		impassable: (railway=rail OR highway=motorway OR highway = motorway_link) AND NOT tunnel AND NOT bridge
 	areas
-		water: natural=water OR waterway=riverbank
+		water: natural=water OR waterway=riverbank OR waterway=dock
 	lines
-		water-line: (waterway=stream OR waterway=river)
+		water-line: (waterway=stream OR waterway=river OR waterway=canal)
 properties
 	map-background-color	: white
 	text-halo-width : 30%
