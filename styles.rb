@@ -3,14 +3,14 @@ def get_bicycle_styles
 	bugs = [
 				["missing segregate", "blue"],
 				["no_surface_info", "violet"],
-				["weird segregate", "brown"],
-				["weird cycleway value", "teal"],
-				["weird bicycle value", "orange"],
+				["weird segregate", "brown", " segregate"],
+				["weird cycleway value", "teal", " cycleway"],
+				["weird bicycle value", "orange", " bicycle"],
 				["weird tags", "black"],
 				["weird surface value", "yellow"],
 				["no_and_yes_bug", "purple"],
 				["bicycle unexpected status no source mentioned", "gray"],
-				["weird highway value", "lime"],
+				["weird highway value", "lime", " highway"],
 				["crossing_as_way_rather_than_node_bug", "red"],
 			]
 	bugs.each do |element|
@@ -23,7 +23,7 @@ def get_bicycle_styles
 		draw : line
 		define
 			min-zoom : 12
-			text : name \" - #{element[0]}\"
+			text : name \" - #{element[0]} - \" #{element[2]}
 		draw : text
 
 "

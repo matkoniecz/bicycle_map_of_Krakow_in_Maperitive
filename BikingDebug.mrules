@@ -65,7 +65,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - missing segregate"
+			text : name " - missing segregate - " 
 		draw : text
 
 	target : no_surface_info
@@ -77,7 +77,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - no_surface_info"
+			text : name " - no_surface_info - " 
 		draw : text
 
 	target : weird segregate
@@ -89,7 +89,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - weird segregate"
+			text : name " - weird segregate - "  segregate
 		draw : text
 
 	target : weird cycleway value
@@ -101,7 +101,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - weird cycleway value"
+			text : name " - weird cycleway value - "  cycleway
 		draw : text
 
 	target : weird bicycle value
@@ -113,7 +113,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - weird bicycle value"
+			text : name " - weird bicycle value - "  bicycle
 		draw : text
 
 	target : weird tags
@@ -125,7 +125,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - weird tags"
+			text : name " - weird tags - " 
 		draw : text
 
 	target : weird surface value
@@ -137,7 +137,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - weird surface value"
+			text : name " - weird surface value - " 
 		draw : text
 
 	target : no_and_yes_bug
@@ -149,7 +149,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - no_and_yes_bug"
+			text : name " - no_and_yes_bug - " 
 		draw : text
 
 	target : bicycle unexpected status no source mentioned
@@ -161,7 +161,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - bicycle unexpected status no source mentioned"
+			text : name " - bicycle unexpected status no source mentioned - " 
 		draw : text
 
 	target : weird highway value
@@ -173,7 +173,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - weird highway value"
+			text : name " - weird highway value - "  highway
 		draw : text
 
 	target : crossing_as_way_rather_than_node_bug
@@ -185,7 +185,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - crossing_as_way_rather_than_node_bug"
+			text : name " - crossing_as_way_rather_than_node_bug - " 
 		draw : text
 
 
