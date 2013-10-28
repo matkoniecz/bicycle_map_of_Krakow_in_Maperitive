@@ -1,6 +1,10 @@
 This project is a tool to process data from OpenStreetMap into map about cycling infrastructure in city Kraków, using program Maperitive. It may be useful for other locations but it is untested.
 
-1) to generate map with updated data from OSM, using web browser
+1a) to download and filter map using ruby script:
+
+run download.rb.
+
+1b) to generate map with updated data from OSM, using web browser
 
 Go to http://overpass-api.de/query_form.html and paste following code in the first textarea:
 
@@ -16,14 +20,8 @@ and press Querry. Around 140MB file will be downloaded (from http://wiki.openstr
 	use-ruleset location=rules/cyclemap/BikingDebugMax.mrules as-alias=biking_heavy_debug
 commands).
 
-2) to download and filter map using ruby script (it makes map generation multiple times faster). Requires Ruby, tested on WIndows 7.
+2) to modify rendering rules. Requires Ruby.
 
-run download.rb.
+modify generate.rb and run generate.bat to generate a new version of .mrules files
 
-3) to modify rendering rules. Requires Ruby.
-
-modify and run generate.rb to generate a new version of .mrules file
-
-#) In case of problems, feedback, ideas (including pull requests) involving this project - open issue on Github (). In case of OSM problems - folks at http://irc.openstreetmap.org/irc.cgi are extremely helpful.
-
-*) Thanks to Igor Brejc and Michael for original .mrules file released under the Creative Commons Attribution-ShareAlike 3.0 License (http://creativecommons.org/licenses/by-sa/3.0/).
+#) In case of problems, feedback, ideas (including pull requests) involving this project - open issue on Github: https://github.com/Bulwersator/bicycle_map_of_Krakow/issues . In case of general OSM problems - folks at http://irc.openstreetmap.org/irc.cgi are extremely helpful.
