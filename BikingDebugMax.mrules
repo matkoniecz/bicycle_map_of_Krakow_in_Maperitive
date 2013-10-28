@@ -47,7 +47,7 @@ features
 	areas
 		water: natural=water OR waterway=riverbank OR waterway=dock
 	lines
-		water-line: (waterway=stream OR waterway=river OR waterway=canal)
+		water-line: (waterway=stream OR waterway=river OR waterway=canal) AND NOT tunnel
 properties
 	map-background-color	: white
 	text-halo-width : 30%
