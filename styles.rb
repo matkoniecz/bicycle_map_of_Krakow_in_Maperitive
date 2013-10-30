@@ -141,7 +141,6 @@ return returned + "
 			line-width : 2
 			line-style : solid
 		draw : line
-		draw : text
 
 	target : plus 50 maxspeed
 		define
