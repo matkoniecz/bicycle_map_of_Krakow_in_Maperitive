@@ -13,6 +13,7 @@ features
 		plus 50 maxspeed : (maxspeed > 50 AND NOT (highway=motorway OR highway=motorway_link))
 		missing segregate : ((bicycle=designated OR highway=cycleway) AND (foot=yes OR foot=designated OR bicycle=foot OR highway=footway) AND NOT segregated)
 		weird segregate : (segregated AND NOT segregated=yes AND NOT segregated=no)
+		footway should be path: (highway = footway AND bicycle = designated)
 
 		proper cycleway : ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no))) AND (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)
 		proper cycleway with a bad surface : ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no))) AND NOT (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)
@@ -175,6 +176,18 @@ rules
 		define
 			min-zoom : 12
 			text : name " - crossing_as_way_rather_than_node_bug - " 
+		draw : text
+
+	target : footway should be path
+		define
+			min-zoom : 1
+			line-color : black
+			line-width : 10
+			line-style : solid
+		draw : line
+		define
+			min-zoom : 12
+			text : name " - footway should be path - " 
 		draw : text
 
 
