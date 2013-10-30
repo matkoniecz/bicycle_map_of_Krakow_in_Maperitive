@@ -43,7 +43,7 @@ def weird name, allowed
 end
 OK_surface_values = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "concrete:plates", "unpaved", "cobblestone"]
 __weird_main_surface = weird("surface", OK_surface_values)
-__weird_highway_value = weird("highway", ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link", "pedestrian", "residential", "living_street", "unclassified", "service", "track", "footway", "cycleway", "steps", "path", "proposed", "construction", "bridleway", "platform"])
+__weird_highway_value = weird("highway", ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link", "pedestrian", "residential", "living_street", "unclassified", "service", "track", "footway", "cycleway", "steps", "path", "proposed", "construction", "bridleway", "platform", "bus_stop"])
 __weird_cycleway_surface = weird("cycleway:surface", OK_surface_values)
 __bicycle_parking = "(amenity=bicycle_parking)"
 __motorway = "(highway=motorway OR highway=motorway_link)"
