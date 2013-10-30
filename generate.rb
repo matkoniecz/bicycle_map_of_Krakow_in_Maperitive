@@ -63,6 +63,7 @@ if debug
 	puts "		missing segregate : ((bicycle=designated OR highway=cycleway) AND (foot=yes OR foot=designated OR bicycle=foot OR highway=footway) AND NOT segregated)"
 	puts "		weird segregate : (segregated AND NOT segregated=yes AND NOT segregated=no)"
 	puts "		footway should be path: (highway = footway AND bicycle = designated)"
+	puts "		cycleway should be path: (highway = cycleway AND foot = designated)"
 	puts ""
 end
 puts "		proper cycleway : #{__cycleway} AND #{__proper_surface} AND NOT #{__terible_surface}"

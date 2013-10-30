@@ -170,6 +170,18 @@ rules
 			text : name " - footway should be path - " 
 		draw : text
 
+	target : cycleway should be path
+		define
+			min-zoom : 1
+			line-color : black
+			line-width : 10
+			line-style : solid
+		draw : line
+		define
+			min-zoom : 12
+			text : name " - cycleway should be path - " 
+		draw : text
+
 
 	target: fixme
 		define

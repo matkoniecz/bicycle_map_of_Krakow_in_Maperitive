@@ -12,6 +12,7 @@ def get_bicycle_styles
 				["weird highway value", "lime", " highway"],
 				["crossing_as_way_rather_than_node_bug", "red"],
 				["footway should be path", "black"],
+				["cycleway should be path", "black"],
 			]
 	bugs.each do |element|
 		returned += "	target : #{element[0]}
