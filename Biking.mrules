@@ -98,18 +98,6 @@ rules
 			text : name " - weird bicycle value - "  bicycle
 		draw : text
 
-	target : weird tags
-		define
-			min-zoom : 1
-			line-color : black
-			line-width : 10
-			line-style : solid
-		draw : line
-		define
-			min-zoom : 12
-			text : name " - weird tags - " 
-		draw : text
-
 	target : weird surface value
 		define
 			min-zoom : 1

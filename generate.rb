@@ -54,7 +54,6 @@ if debug
 	puts "		weird highway value : #{__weird_highway_value}"
 	puts "		weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite"
 	puts "		weird bicycle value : bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle = designated AND NOT bicycle = dismount"
-	puts "		weird tags : cycleway:right OR cycleway:left"
 	puts "		weird surface value : #{__cycleable} AND (#{__weird_main_surface} OR #{__weird_cycleway_surface})"
 	puts "		no_and_yes_bug : (#{__cycleable} AND bicycle=no) OR (highway=cycleway AND bicycle AND NOT bicycle = designated AND NOT bicycle = dismount)"
 	puts "		crossing_as_way_rather_than_node_bug : highway = crossing"

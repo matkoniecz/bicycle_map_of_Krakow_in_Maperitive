@@ -6,7 +6,6 @@ def get_bicycle_styles
 				["weird segregate", "brown", " segregate"],
 				["weird cycleway value", "teal", " cycleway"],
 				["weird bicycle value", "orange", " bicycle"],
-				["weird tags", "black"],
 				["weird surface value", "yellow"],
 				["no_and_yes_bug", "purple"],
 				["bicycle unexpected status no source mentioned", "gray"],
