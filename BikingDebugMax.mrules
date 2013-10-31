@@ -60,6 +60,30 @@ properties
 	text-halo-opacity : 0.8
 
 rules
+	target : footway should be path
+		define
+			min-zoom : 1
+			line-color : black
+			line-width : 10
+			line-style : solid
+		draw : line
+		define
+			min-zoom : 12
+			text : name " - footway should be path - " 
+		draw : text
+
+	target : cycleway should be path
+		define
+			min-zoom : 1
+			line-color : black
+			line-width : 10
+			line-style : solid
+		draw : line
+		define
+			min-zoom : 12
+			text : name " - cycleway should be path - " 
+		draw : text
+
 	target : missing segregate
 		define
 			min-zoom : 1
@@ -190,30 +214,6 @@ rules
 		define
 			min-zoom : 12
 			text : name " - crossing_as_way_rather_than_node_bug - " 
-		draw : text
-
-	target : footway should be path
-		define
-			min-zoom : 1
-			line-color : black
-			line-width : 10
-			line-style : solid
-		draw : line
-		define
-			min-zoom : 12
-			text : name " - footway should be path - " 
-		draw : text
-
-	target : cycleway should be path
-		define
-			min-zoom : 1
-			line-color : black
-			line-width : 10
-			line-style : solid
-		draw : line
-		define
-			min-zoom : 12
-			text : name " - cycleway should be path - " 
 		draw : text
 
 
