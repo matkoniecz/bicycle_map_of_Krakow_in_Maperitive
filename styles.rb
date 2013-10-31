@@ -2,12 +2,13 @@ def get_bicycle_styles
 	returned = ""
 	bugs = [
 				["missing segregate", "blue"],
+				["no_and_yes_bug", "purple"],
+				["only_yes_bicycle_on_cycleway", "purple"],
 				["no_surface_info", "violet"],
 				["weird segregate", "brown", " segregate"],
 				["weird cycleway value", "teal", " cycleway"],
 				["weird bicycle value", "orange", " bicycle"],
 				["weird surface value", "yellow"],
-				["no_and_yes_bug", "purple"],
 				["bicycle unexpected status no source mentioned", "gray"],
 				["weird highway value", "lime", " highway"],
 				["crossing_as_way_rather_than_node_bug", "red"],
