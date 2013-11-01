@@ -10,6 +10,7 @@ return "
 		impassable: (railway=rail OR highway=motorway OR highway = motorway_link) AND NOT tunnel AND NOT bridge
 	areas
 		water: natural=water OR waterway=riverbank OR waterway=dock
+		trees: leisure=park or landuse=forest
 	lines
 		water-line: (waterway=stream OR waterway=river OR waterway=canal) AND NOT tunnel
 properties
@@ -52,5 +53,12 @@ return "
 			line-width : 2
 			line-color : #b0b0ef
 		draw : line
+
+	target: trees
+		define
+			fill-color: #a5ef9b
+			line-width : 0
+			line-color : #a5ef9b
+		draw : fill
 "
 end
