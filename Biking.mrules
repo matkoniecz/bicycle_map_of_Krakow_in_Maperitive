@@ -10,7 +10,7 @@ features
 		lame cycleway with a terrible surface: (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no)))) AND NOT (access=private OR access=no)) AND (smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)
 		marked contraflow : ((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT (access=private OR access=no)) AND cycleway=opposite_lane
 		unmarked contraflow : ((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT (access=private OR access=no)) AND NOT cycleway=opposite_lane
-		oneway : oneway=yes AND NOT ((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT (access=private OR access=no)) AND ((((@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, living_street, unclassified)  AND NOT (access=private OR access=no)) OR highway=track OR highway=service) AND NOT bicycle=no AND NOT service=parking_aisle AND NOT (access=private OR access=no)) OR ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no)) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no))))
+		oneway : (((oneway=yes AND NOT ((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT (access=private OR access=no))) OR (oneway:bicycle=yes)) AND (((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT (access=private OR access=no)) OR (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, living_street, unclassified)  AND NOT (access=private OR access=no))))
 		bicycle allowed : (((bicycle=yes) AND NOT (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, living_street, unclassified)  AND NOT (access=private OR access=no)) AND NOT highway=service AND NOT highway=track AND NOT (access=private OR access=no)) OR (highway=pedestrian AND bicycle=yes))
 		unexpected cycling ban: ((bicycle=no AND (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, living_street, unclassified)  AND NOT (access=private OR access=no))) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated)) AND NOT area = yes
 	areas
@@ -374,18 +374,14 @@ rules
 		draw : text
 		
 	target : oneway
-		for : oneway=yes OR oneway=true
-			define
-				min-zoom : 15
-				shape : custom
-				shape-def : 0,10, 10,0, 0,-10, 10,0;Z
-				shape-size : 7
-				shape-spacing : 4
-				line-width : 1
-			for : oneway=-1
-				define
-					angle : 180
-			draw : shape
+		define
+			min-zoom : 15
+			shape : custom
+			shape-def : 0,10, 10,0, 0,-10, 10,0;Z
+			shape-size : 7
+			shape-spacing : 4
+			line-width : 1
+		draw : shape
 
 	target : unmarked contraflow
 		define

@@ -211,18 +211,14 @@ return returned + "
 		draw : text
 		
 	target : oneway
-		for : oneway=yes OR oneway=true
-			define
-				min-zoom : 15
-				shape : custom
-				shape-def : 0,10, 10,0, 0,-10, 10,0;Z
-				shape-size : 7
-				shape-spacing : 4
-				line-width : 1
-			for : oneway=-1
-				define
-					angle : 180
-			draw : shape
+		define
+			min-zoom : 15
+			shape : custom
+			shape-def : 0,10, 10,0, 0,-10, 10,0;Z
+			shape-size : 7
+			shape-spacing : 4
+			line-width : 1
+		draw : shape
 
 	target : unmarked contraflow
 		define

@@ -75,7 +75,7 @@ puts "		lame cycleway with a bad surface: #{__lame_cycleway} AND NOT #{__proper_
 puts "		lame cycleway with a terrible surface: #{__lame_cycleway} AND #{__terible_surface}"
 puts "		marked contraflow : #{__contraflow} AND cycleway=opposite_lane"
 puts "		unmarked contraflow : #{__contraflow} AND NOT cycleway=opposite_lane"
-puts "		oneway : oneway=yes AND NOT #{__contraflow} AND (#{__typical_road_accessible_to_bicycles} OR #{__cycleway})"
+puts "		oneway : (((oneway=yes AND NOT #{__contraflow}) OR (oneway:bicycle=yes)) AND (#{__cycleable} OR #{__typical_road}))"
 __bicycle_allowed = "(#{__unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes))"
 puts "		bicycle allowed : #{__bicycle_allowed}"
 puts "		unexpected cycling ban: #{__unexpected_cycling_ban} AND NOT area = yes"
