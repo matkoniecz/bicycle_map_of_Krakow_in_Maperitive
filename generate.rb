@@ -95,7 +95,7 @@ if debug
 end
 puts "	points, lines, areas"
 if debug
-	puts "		fixme : fixme AND fixme:type:bicycle=yes"
+	puts "		fixme : (FIXME OR fixme) AND fixme:type:bicycle=yes"
 end
 puts "	points, areas"
 if debug

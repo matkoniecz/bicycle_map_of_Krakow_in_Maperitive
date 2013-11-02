@@ -28,8 +28,8 @@ features
 	lines
 		impassable: (railway=rail OR highway=motorway OR highway = motorway_link) AND NOT tunnel AND NOT bridge
 	areas
-		water: natural=water OR waterway=riverbank OR waterway=dock
-		trees: leisure=park or landuse=forest
+		water: natural=water OR waterway=riverbank OR waterway=dock OR landuse=reservoir
+		trees: leisure=park OR landuse=forest OR landuse=orchard OR natural=wood OR leisure=garden
 	lines
 		water-line: (waterway=stream OR waterway=river OR waterway=canal) AND NOT tunnel
 properties
