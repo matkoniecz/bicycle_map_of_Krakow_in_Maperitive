@@ -2,5 +2,6 @@
 /interpreter
 /interpreter2
 /*.osm
+/*.geojson
 /tmp
 /tmp2
