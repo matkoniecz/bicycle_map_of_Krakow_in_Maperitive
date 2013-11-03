@@ -18,7 +18,7 @@ ARGV.each do|a|
 end
 
 #highway=motorway ignored as not relevant
-__no_access = "(access=private OR access=no)"
+__no_access = "(access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))"
 __cycleable = "((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT #{__no_access})"
 __typical_road = "(@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, living_street, unclassified)  AND NOT #{__no_access})"
 __typical_road_accessible_to_bicycles = "((#{__typical_road} OR highway=track OR highway=service) AND NOT bicycle=no AND NOT service=parking_aisle AND NOT #{__no_access})"
