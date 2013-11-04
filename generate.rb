@@ -105,7 +105,7 @@ if debug
 	puts "		bicycle_parking_no_type : #{__bicycle_parking} AND (NOT bicycle_parking OR (NOT (bicycle_parking=wall_loops) AND NOT (bicycle_parking=stands)))"
 	puts ""
 end
-puts "		bicycle_parking : #{__bicycle_parking}"
+puts "		bicycle_parking : #{__bicycle_parking} AND NOT #{__no_access}"
 puts "		bicycle shop : shop=bicycle"
 puts "		drinking_water : amenity=drinking_water"
 

@@ -43,7 +43,7 @@ features
 		bicycle_parking_no_capacity : (amenity=bicycle_parking) AND NOT (capacity)
 		bicycle_parking_no_type : (amenity=bicycle_parking) AND (NOT bicycle_parking OR (NOT (bicycle_parking=wall_loops) AND NOT (bicycle_parking=stands)))
 
-		bicycle_parking : (amenity=bicycle_parking)
+		bicycle_parking : (amenity=bicycle_parking) AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))
 		bicycle shop : shop=bicycle
 		drinking_water : amenity=drinking_water
 
