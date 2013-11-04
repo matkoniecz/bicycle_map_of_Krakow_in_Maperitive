@@ -47,7 +47,6 @@ used = ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_
 discarded =["steps", "proposed", "construction", "bridleway", "platform", "bus_stop"]
 __weird_highway_value = weird("highway", used | discarded)
 __weird_cycleway_surface = weird("cycleway:surface", OK_surface_values)
-__bicycle_parking = "(amenity=bicycle_parking)"
 __motorway = "(highway=motorway OR highway=motorway_link)"
 puts get_top
 puts "	lines"
@@ -100,9 +99,12 @@ if debug
 	puts "		fixme : (FIXME OR fixme) AND fixme:type:bicycle=yes"
 end
 puts "	points, areas"
+__bicycle_parking = "(amenity=bicycle_parking)"
 if debug
 	puts "		bicycle_parking_no_capacity : #{__bicycle_parking} AND NOT (capacity)"
-	puts "		bicycle_parking_no_type : #{__bicycle_parking} AND (NOT bicycle_parking OR (NOT (bicycle_parking=wall_loops) AND NOT (bicycle_parking=stands)))"
+	OK_bicycle_parking_values = ["wall_loops", "stands", "shed"]
+	__weird_bicycle_parking = weird("bicycle_parking", OK_bicycle_parking_values)
+	puts "		bicycle_parking_no_type : #{__bicycle_parking} AND (NOT bicycle_parking OR (#{__weird_bicycle_parking}))"
 	puts ""
 end
 puts "		bicycle_parking : #{__bicycle_parking} AND NOT #{__no_access}"
