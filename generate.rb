@@ -62,7 +62,7 @@ if debug
 	puts "		no maxspeed info : (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, unclassified) AND NOT maxspeed)"
 	puts "		plus 50 maxspeed : (maxspeed > 50 AND NOT #{__motorway})"
 	puts "		missing segregate : ((bicycle=designated OR highway=cycleway) AND (foot=yes OR foot=designated OR bicycle=foot OR highway=footway) AND NOT segregated)"
-	puts "		weird segregate : (segregated AND NOT segregated=yes AND NOT segregated=no)"
+	puts "		weird segregate : #{weird("segregated", ["yes", "no"])}"
 	puts "		footway should be path: (highway = footway AND bicycle = designated)"
 	puts "		cycleway should be path: (highway = cycleway AND foot = designated)"
 	puts ""
