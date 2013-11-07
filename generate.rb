@@ -1,9 +1,6 @@
 load "definitions.rb"
 load "styles.rb"
 
-#TODO handle cycleway=opposite (droga dwukierunkowa dla rowerzystów, dla reszty jednokierunkowa)
-#TODO find and kill "unpaved" as surface
-
 debug = false
 heavy_debug = false
 
@@ -65,6 +62,7 @@ if debug
 	puts "		weird segregate: #{weird("segregated", ["yes", "no"])}"
 	puts "		footway should be path: (highway = footway AND bicycle = designated)"
 	puts "		cycleway should be path: (highway = cycleway AND foot = designated)"
+	puts "		bicycle oneway tag synch required: ((cycleway=opposite_lane OR cycleway=opposite) AND NOT \"oneway:bicycle\")"
 	puts ""
 end
 puts "		proper cycleway: #{__cycleway} AND #{__proper_surface} AND NOT #{__terible_surface}"

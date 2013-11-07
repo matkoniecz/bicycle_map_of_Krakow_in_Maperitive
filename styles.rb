@@ -13,6 +13,7 @@ def get_bicycle_styles
 				["bicycle unexpected status no source mentioned", "gray"],
 				["weird highway value", "lime", " highway"],
 				["crossing_as_way_rather_than_node_bug", "red"],
+				["bicycle oneway tag synch required", "#663300"], #bark brow
 			]
 	bugs.each do |element|
 		returned += "	target : #{element[0]}

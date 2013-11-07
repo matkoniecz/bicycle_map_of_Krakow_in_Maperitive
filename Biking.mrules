@@ -182,6 +182,18 @@ rules
 			text : name " - crossing_as_way_rather_than_node_bug - " 
 		draw : text
 
+	target : bicycle oneway tag synch required
+		define
+			min-zoom : 1
+			line-color : #663300
+			line-width : 10
+			line-style : solid
+		draw : line
+		define
+			min-zoom : 12
+			text : name " - bicycle oneway tag synch required - " 
+		draw : text
+
 
 	target: fixme
 		define
