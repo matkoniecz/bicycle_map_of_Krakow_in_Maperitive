@@ -86,18 +86,6 @@ rules
 			text : name " - no_and_yes_bug - " 
 		draw : text
 
-	target : only_yes_bicycle_on_cycleway
-		define
-			min-zoom : 1
-			line-color : purple
-			line-width : 10
-			line-style : solid
-		draw : line
-		define
-			min-zoom : 12
-			text : name " - only_yes_bicycle_on_cycleway - " 
-		draw : text
-
 	target : no_surface_info
 		define
 			min-zoom : 1

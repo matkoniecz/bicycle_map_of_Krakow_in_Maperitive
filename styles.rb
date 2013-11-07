@@ -5,7 +5,6 @@ def get_bicycle_styles
 				["cycleway should be path", "black"],
 				["missing segregate", "blue"],
 				["no_and_yes_bug", "purple"],
-				["only_yes_bicycle_on_cycleway", "purple"],
 				["no_surface_info", "violet"],
 				["weird segregate", "brown", " segregate"],
 				["weird cycleway value", "teal", " cycleway"],
