@@ -53,7 +53,7 @@ puts "	lines"
 puts "		cycleable road : #{__typical_road_accessible_to_bicycles}"
 if debug
 	puts "		weird highway value : #{__weird_highway_value}"
-	puts "		weird cycleway value : cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite"
+	puts "		weird cycleway value : #{weird("cycleway", ["lane", "opposite_lane", "no", "opposite"])}"
 	puts "		weird bicycle value : #{weird("bicycle", ["yes", "no", "designated", "dismount"])}"
 	puts "		weird surface value : #{__cycleable} AND (#{__weird_main_surface} OR #{__weird_cycleway_surface})"
 	puts "		no_and_yes_bug : (#{__cycleable} AND bicycle=no) OR (highway=cycleway AND bicycle AND NOT bicycle = designated AND NOT bicycle = dismount)"
