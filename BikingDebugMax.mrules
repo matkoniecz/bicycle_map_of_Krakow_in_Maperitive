@@ -17,6 +17,7 @@ features
 		cycleway should be path: (highway = cycleway AND foot = designated)
 		bicycle oneway tag synch oneway bicycle: ((cycleway=opposite_lane OR cycleway=opposite) AND NOT oneway:bicycle=no)
 		bicycle oneway tag synch cycleway: ((NOT cycleway=opposite_lane AND NOT cycleway=opposite) AND oneway:bicycle=no AND oneway=yes)
+		railway: railway=rail
 
 		proper cycleway: ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)
 		proper cycleway with a bad surface: ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)
@@ -49,10 +50,11 @@ features
 		drinking_water: amenity=drinking_water
 
 	lines
-		impassable: (railway=rail OR highway=motorway OR highway = motorway_link) AND NOT tunnel AND NOT bridge
+		motorway: (highway=motorway OR highway = motorway_link) AND NOT tunnel AND NOT bridge
 	areas
 		water: natural=water OR waterway=riverbank OR waterway=dock OR landuse=reservoir
 		trees: leisure=park OR landuse=forest OR landuse=orchard OR natural=wood OR leisure=garden
+		railway area: landuse=railway
 	lines
 		water-line: (waterway=stream OR waterway=river OR waterway=canal) AND NOT tunnel
 properties
@@ -230,6 +232,12 @@ rules
 		draw : text
 
 
+	target: railway
+		define
+			min-zoom : 1
+			line-color : #a1a1a1
+			line-width : 1
+		draw : line
 	target: fixme
 		define
 			min-zoom : 1
@@ -492,13 +500,20 @@ rules
 			min-zoom : 16
 		draw: text
 
-	target: impassable
+	target: motorway
 		define
 			min-zoom : 1
 			line-width : 2
 			line-color : #404040
 			line-style : solid
 		draw: line
+		
+	target: railway area
+		define
+			fill-color: #bfbfbf
+			line-width : 0
+			line-color : #bfbfbf
+		draw: fill
 
 	target: water
 		define

@@ -42,6 +42,12 @@ def get_bicycle_styles
 "
 	end
 return returned + "
+	target: railway
+		define
+			min-zoom : 1
+			line-color : #a1a1a1
+			line-width : 1
+		draw : line
 	target: fixme
 		define
 			min-zoom : 1

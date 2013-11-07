@@ -26,10 +26,11 @@ features
 		drinking_water: amenity=drinking_water
 
 	lines
-		impassable: (railway=rail OR highway=motorway OR highway = motorway_link) AND NOT tunnel AND NOT bridge
+		motorway: (highway=motorway OR highway = motorway_link) AND NOT tunnel AND NOT bridge
 	areas
 		water: natural=water OR waterway=riverbank OR waterway=dock OR landuse=reservoir
 		trees: leisure=park OR landuse=forest OR landuse=orchard OR natural=wood OR leisure=garden
+		railway area: landuse=railway
 	lines
 		water-line: (waterway=stream OR waterway=river OR waterway=canal) AND NOT tunnel
 properties
@@ -207,6 +208,12 @@ rules
 		draw : text
 
 
+	target: railway
+		define
+			min-zoom : 1
+			line-color : #a1a1a1
+			line-width : 1
+		draw : line
 	target: fixme
 		define
 			min-zoom : 1
@@ -469,13 +476,20 @@ rules
 			min-zoom : 16
 		draw: text
 
-	target: impassable
+	target: motorway
 		define
 			min-zoom : 1
 			line-width : 2
 			line-color : #404040
 			line-style : solid
 		draw: line
+		
+	target: railway area
+		define
+			fill-color: #bfbfbf
+			line-width : 0
+			line-color : #bfbfbf
+		draw: fill
 
 	target: water
 		define

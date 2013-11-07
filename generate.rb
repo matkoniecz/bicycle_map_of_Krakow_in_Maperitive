@@ -64,6 +64,7 @@ if debug
 	puts "		cycleway should be path: (highway = cycleway AND foot = designated)"
 	puts "		bicycle oneway tag synch oneway bicycle: ((cycleway=opposite_lane OR cycleway=opposite) AND NOT oneway:bicycle=no)"
 	puts "		bicycle oneway tag synch cycleway: ((NOT cycleway=opposite_lane AND NOT cycleway=opposite) AND oneway:bicycle=no AND oneway=yes)"
+	puts "		railway: railway=rail" #to check coverage of landuse=railway
 	puts ""
 end
 puts "		proper cycleway: #{__cycleway} AND #{__proper_surface} AND NOT #{__terible_surface}"
