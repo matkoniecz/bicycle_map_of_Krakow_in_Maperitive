@@ -62,7 +62,8 @@ if debug
 	puts "		weird segregate: #{weird("segregated", ["yes", "no"])}"
 	puts "		footway should be path: (highway = footway AND bicycle = designated)"
 	puts "		cycleway should be path: (highway = cycleway AND foot = designated)"
-	puts "		bicycle oneway tag synch required: ((cycleway=opposite_lane OR cycleway=opposite) AND NOT \"oneway:bicycle\")"
+	puts "		bicycle oneway tag synch oneway bicycle: ((cycleway=opposite_lane OR cycleway=opposite) AND NOT oneway:bicycle=no)"
+	puts "		bicycle oneway tag synch cycleway: ((NOT cycleway=opposite_lane AND NOT cycleway=opposite) AND oneway:bicycle=no AND oneway=yes)"
 	puts ""
 end
 puts "		proper cycleway: #{__cycleway} AND #{__proper_surface} AND NOT #{__terible_surface}"

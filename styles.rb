@@ -13,9 +13,20 @@ def get_bicycle_styles
 				["bicycle unexpected status no source mentioned", "gray"],
 				["weird highway value", "lime", " highway"],
 				["crossing_as_way_rather_than_node_bug", "red"],
-				["bicycle oneway tag synch required", "#663300"], #bark brow
+				["bicycle oneway tag synch oneway bicycle", "#663300", "", "bicycle oneway tag synch +(oneway:bicycle)"], #bark brown
+				["bicycle oneway tag synch cycleway", "#a61e00"], #bark brown + red
+				#
 			]
 	bugs.each do |element|
+		name = "name \" - #{element[0]}"
+		if (element[3] != nil)
+			name = "name \" - #{element[3]}"
+		end
+		if (element[2] != nil)
+			name += "- \" #{element[2]}"
+		else
+			name += '"'
+		end
 		returned += "	target : #{element[0]}
 		define
 			min-zoom : 1
@@ -25,7 +36,7 @@ def get_bicycle_styles
 		draw : line
 		define
 			min-zoom : 12
-			text : name \" - #{element[0]} - \" #{element[2]}
+			text : #{name}
 		draw : text
 
 "

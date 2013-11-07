@@ -15,7 +15,8 @@ features
 		weird segregate: (segregated AND NOT segregated=yes AND NOT segregated=no)
 		footway should be path: (highway = footway AND bicycle = designated)
 		cycleway should be path: (highway = cycleway AND foot = designated)
-		bicycle oneway tag synch required: ((cycleway=opposite_lane OR cycleway=opposite) AND NOT "oneway:bicycle")
+		bicycle oneway tag synch oneway bicycle: ((cycleway=opposite_lane OR cycleway=opposite) AND NOT oneway:bicycle=no)
+		bicycle oneway tag synch cycleway: ((NOT cycleway=opposite_lane AND NOT cycleway=opposite) AND oneway:bicycle=no AND oneway=yes)
 
 		proper cycleway: ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)
 		proper cycleway with a bad surface: ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)
@@ -69,7 +70,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - footway should be path - " 
+			text : name " - footway should be path"
 		draw : text
 
 	target : cycleway should be path
@@ -81,7 +82,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - cycleway should be path - " 
+			text : name " - cycleway should be path"
 		draw : text
 
 	target : missing segregate
@@ -93,7 +94,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - missing segregate - " 
+			text : name " - missing segregate"
 		draw : text
 
 	target : no_and_yes_bug
@@ -105,7 +106,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - no_and_yes_bug - " 
+			text : name " - no_and_yes_bug"
 		draw : text
 
 	target : no_surface_info
@@ -117,7 +118,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - no_surface_info - " 
+			text : name " - no_surface_info"
 		draw : text
 
 	target : weird segregate
@@ -129,7 +130,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - weird segregate - "  segregate
+			text : name " - weird segregate- "  segregate
 		draw : text
 
 	target : weird cycleway value
@@ -141,7 +142,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - weird cycleway value - "  cycleway
+			text : name " - weird cycleway value- "  cycleway
 		draw : text
 
 	target : weird bicycle value
@@ -153,7 +154,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - weird bicycle value - "  bicycle
+			text : name " - weird bicycle value- "  bicycle
 		draw : text
 
 	target : weird surface value
@@ -165,7 +166,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - weird surface value - " 
+			text : name " - weird surface value"
 		draw : text
 
 	target : bicycle unexpected status no source mentioned
@@ -177,7 +178,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - bicycle unexpected status no source mentioned - " 
+			text : name " - bicycle unexpected status no source mentioned"
 		draw : text
 
 	target : weird highway value
@@ -189,7 +190,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - weird highway value - "  highway
+			text : name " - weird highway value- "  highway
 		draw : text
 
 	target : crossing_as_way_rather_than_node_bug
@@ -201,10 +202,10 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - crossing_as_way_rather_than_node_bug - " 
+			text : name " - crossing_as_way_rather_than_node_bug"
 		draw : text
 
-	target : bicycle oneway tag synch required
+	target : bicycle oneway tag synch oneway bicycle
 		define
 			min-zoom : 1
 			line-color : #663300
@@ -213,7 +214,19 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - bicycle oneway tag synch required - " 
+			text : name " - bicycle oneway tag synch +(oneway:bicycle)- " 
+		draw : text
+
+	target : bicycle oneway tag synch cycleway
+		define
+			min-zoom : 1
+			line-color : #a61e00
+			line-width : 10
+			line-style : solid
+		draw : line
+		define
+			min-zoom : 12
+			text : name " - bicycle oneway tag synch cycleway"
 		draw : text
 
 
