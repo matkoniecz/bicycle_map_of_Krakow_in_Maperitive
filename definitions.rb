@@ -11,7 +11,7 @@ return "
 	areas
 		water: natural=water OR waterway=riverbank OR waterway=dock OR landuse=reservoir
 		trees: leisure=park OR landuse=forest OR landuse=orchard OR natural=wood OR leisure=garden
-		railway area: landuse=railway
+		blocked area: landuse=railway OR aeroway=aerodrome
 	lines
 		water-line: (waterway=stream OR waterway=river OR waterway=canal) AND NOT tunnel
 properties
@@ -43,7 +43,7 @@ return "
 			line-style : solid
 		draw: line
 		
-	target: railway area
+	target: blocked area
 		define
 			fill-color: #bfbfbf
 			line-width : 0
