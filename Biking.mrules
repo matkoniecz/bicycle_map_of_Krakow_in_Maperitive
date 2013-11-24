@@ -49,6 +49,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - footway should be path"
+			font-size: 12
 		draw : text
 
 	target : cycleway should be path
@@ -61,6 +62,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - cycleway should be path"
+			font-size: 12
 		draw : text
 
 	target : missing segregate
@@ -73,6 +75,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - missing segregate"
+			font-size: 12
 		draw : text
 
 	target : no_and_yes_bug
@@ -85,6 +88,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - no_and_yes_bug"
+			font-size: 12
 		draw : text
 
 	target : no_surface_info
@@ -97,6 +101,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - no_surface_info"
+			font-size: 12
 		draw : text
 
 	target : weird segregate
@@ -109,6 +114,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - weird segregate- "  segregate
+			font-size: 12
 		draw : text
 
 	target : weird cycleway value
@@ -121,6 +127,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - weird cycleway value- "  cycleway
+			font-size: 12
 		draw : text
 
 	target : weird bicycle value
@@ -133,6 +140,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - weird bicycle value- "  bicycle
+			font-size: 12
 		draw : text
 
 	target : weird surface value
@@ -145,6 +153,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - weird surface value"
+			font-size: 12
 		draw : text
 
 	target : bicycle unexpected status no source mentioned
@@ -157,6 +166,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - bicycle unexpected status no source mentioned"
+			font-size: 12
 		draw : text
 
 	target : weird highway value
@@ -169,6 +179,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - weird highway value- "  highway
+			font-size: 12
 		draw : text
 
 	target : crossing_as_way_rather_than_node_bug
@@ -181,6 +192,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - crossing_as_way_rather_than_node_bug"
+			font-size: 12
 		draw : text
 
 	target : bicycle oneway tag synch oneway bicycle
@@ -193,6 +205,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - bicycle oneway tag synch +(oneway:bicycle)- " 
+			font-size: 12
 		draw : text
 
 	target : bicycle oneway tag synch cycleway
@@ -205,6 +218,7 @@ rules
 		define
 			min-zoom : 12
 			text : name " - cycleway=opposite or cycleway=opposite is missing- " 
+			font-size: 12
 		draw : text
 
 

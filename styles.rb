@@ -37,6 +37,7 @@ def get_bicycle_styles
 		define
 			min-zoom : 12
 			text : #{name}
+			font-size: 12
 		draw : text
 
 "
