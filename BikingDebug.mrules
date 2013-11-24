@@ -227,7 +227,7 @@ rules
 		draw : line
 		define
 			min-zoom : 12
-			text : name " - bicycle oneway tag synch cycleway"
+			text : name " - cycleway=opposite or cycleway=opposite is missing- " 
 		draw : text
 
 
