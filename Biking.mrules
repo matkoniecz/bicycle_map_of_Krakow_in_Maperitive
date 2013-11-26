@@ -182,19 +182,6 @@ rules
 			font-size: 12
 		draw : text
 
-	target : crossing_as_way_rather_than_node_bug
-		define
-			min-zoom : 1
-			line-color : red
-			line-width : 10
-			line-style : solid
-		draw : line
-		define
-			min-zoom : 12
-			text : name " - crossing_as_way_rather_than_node_bug"
-			font-size: 12
-		draw : text
-
 	target : bicycle oneway tag synch oneway bicycle
 		define
 			min-zoom : 1

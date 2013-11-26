@@ -1,6 +1,7 @@
 def get_bicycle_styles
 	returned = ""
 	bugs = [
+	#free colours: red
 				["footway should be path", "black"],
 				["cycleway should be path", "black"],
 				["missing segregate", "blue"],
@@ -12,7 +13,6 @@ def get_bicycle_styles
 				["weird surface value", "yellow"],
 				["bicycle unexpected status no source mentioned", "gray"],
 				["weird highway value", "lime", " highway"],
-				["crossing_as_way_rather_than_node_bug", "red"],
 				["bicycle oneway tag synch oneway bicycle", "#663300", "", "bicycle oneway tag synch +(oneway:bicycle)"], #bark brown
 				["bicycle oneway tag synch cycleway", "#a61e00", "", "cycleway=opposite or cycleway=opposite is missing"], #bark brown + red
 				#

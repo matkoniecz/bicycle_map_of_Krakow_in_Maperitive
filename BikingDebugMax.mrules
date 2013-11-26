@@ -7,7 +7,6 @@ features
 		weird bicycle value: (bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle=designated AND NOT bicycle=dismount)
 		weird surface value: ((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND ((surface AND NOT surface=asphalt AND NOT surface=grass AND NOT surface=dirt AND NOT surface=compacted AND NOT surface=sett AND NOT surface=paved AND NOT surface=paving_stones AND NOT surface=gravel AND NOT surface=ground AND NOT surface=sand AND NOT surface=wood AND NOT surface=earth AND NOT surface=pebblestone AND NOT surface=concrete AND NOT surface=concrete:plates AND NOT surface=unpaved AND NOT surface=cobblestone) OR (cycleway:surface AND NOT cycleway:surface=asphalt AND NOT cycleway:surface=grass AND NOT cycleway:surface=dirt AND NOT cycleway:surface=compacted AND NOT cycleway:surface=sett AND NOT cycleway:surface=paved AND NOT cycleway:surface=paving_stones AND NOT cycleway:surface=gravel AND NOT cycleway:surface=ground AND NOT cycleway:surface=sand AND NOT cycleway:surface=wood AND NOT cycleway:surface=earth AND NOT cycleway:surface=pebblestone AND NOT cycleway:surface=concrete AND NOT cycleway:surface=concrete:plates AND NOT cycleway:surface=unpaved AND NOT cycleway:surface=cobblestone))
 		no_and_yes_bug: (((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND bicycle=no) OR (highway=cycleway AND bicycle AND NOT bicycle = designated AND NOT bicycle = dismount)
-		crossing_as_way_rather_than_node_bug: highway = crossing
 		no_surface_info: (((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) OR (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))))) AND NOT (access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND ((surface=paved OR surface=unpaved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness))) AND (cycleway:surface=paved OR cycleway:surface=unpaved OR NOT cycleway:surface))
 		no maxspeed info: (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, unclassified) AND NOT maxspeed)
 		plus 50 maxspeed: (maxspeed > 50 AND NOT (highway=motorway OR highway=motorway_link))
@@ -203,19 +202,6 @@ rules
 		define
 			min-zoom : 12
 			text : name " - weird highway value- "  highway
-			font-size: 12
-		draw : text
-
-	target : crossing_as_way_rather_than_node_bug
-		define
-			min-zoom : 1
-			line-color : red
-			line-width : 10
-			line-style : solid
-		draw : line
-		define
-			min-zoom : 12
-			text : name " - crossing_as_way_rather_than_node_bug"
 			font-size: 12
 		draw : text
 
