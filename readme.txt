@@ -14,11 +14,7 @@ Go to http://overpass-api.de/query_form.html and paste following code in the fir
 );
 out meta;
 
-and press Querry. Around 140MB file will be downloaded (from http://wiki.openstreetmap.org/wiki/Overpass_API - "You can safely assume that you don't disturb other users when you do less than 10.000 queries per day or download less than 5 GB data per day."). Now rename so that extension will be osm. Now install Maperitive. Open this program, disable default backround (click on star in right bottom panel titled "Map sources") use File|Open map sources and import prepared file. Than switch to ruleset that is main part of this repository, using following command: http://maperitive.net/docs/Commands/UseRuleset.html (this repository may reside in rules folder resulting in 
-	use-ruleset location=rules/cyclemap/Biking.mrules as-alias=biking
-	use-ruleset location=rules/cyclemap/BikingDebug.mrules as-alias=biking_debug
-	use-ruleset location=rules/cyclemap/BikingDebugMax.mrules as-alias=biking_heavy_debug
-commands).
+and press Querry. Around 140MB file will be downloaded (from http://wiki.openstreetmap.org/wiki/Overpass_API - "You can safely assume that you don't disturb other users when you do less than 10.000 queries per day or download less than 5 GB data per day."). Rename it to interpreter.osm and move to the repository.
 
 2) to modify rendering rules. Requires Ruby.
 
