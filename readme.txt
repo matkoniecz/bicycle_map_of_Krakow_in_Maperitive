@@ -1,12 +1,14 @@
 This project is a tool to process data from OpenStreetMap into map about cycling infrastructure in city Kraków, using program Maperitive. It may be useful for other locations but it is untested.
 
-1a) to download and filter map using ruby script:
+Retrieving mapa data fetches 140MB file. From http://wiki.openstreetmap.org/wiki/Overpass_API - "You can safely assume that you don't disturb other users when you do less than 10.000 queries per day or download less than 5 GB data per day.").
+
+1a) to download map using ruby script:
 
 run download.rb.
 
-1b) to generate map with updated data from OSM, using web browser
+1b) to fetch map data without installed ruby:
 
-Go to http://overpass-api.de/query_form.html and paste following code in the first textarea:
+Open http://overpass-api.de/query_form.html in web browser and paste following code in the first textarea:
 
 (
   node(50,19.78,50.11,20.09);
@@ -14,7 +16,7 @@ Go to http://overpass-api.de/query_form.html and paste following code in the fir
 );
 out meta;
 
-and press Querry. Around 140MB file will be downloaded (from http://wiki.openstreetmap.org/wiki/Overpass_API - "You can safely assume that you don't disturb other users when you do less than 10.000 queries per day or download less than 5 GB data per day."). Rename it to interpreter.osm and move to the repository.
+and press Querry. Name obtained file interpreter.osm and move to the repository.
 
 2) to modify rendering rules. Requires Ruby.
 
