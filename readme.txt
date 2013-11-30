@@ -18,7 +18,9 @@ out meta;
 
 and press Querry. Name obtained file interpreter.osm and move to the repository.
 
-2) to modify rendering rules. Requires Ruby.
+2) To see map: run Maperitive.exe in folder Maperitive.
+
+3) to modify rendering rules. Requires Ruby.
 
 modify generate.rb and run generate.bat to generate a new version of .mrules files
 
