@@ -51,7 +51,7 @@ weird_cycleway_surface = weird("cycleway:surface", OK_surface_values)
 motorway = "(highway=motorway OR highway=motorway_link)"
 puts get_top
 puts "	lines"
-puts "		cycleable road : #{typical_road_accessible_to_bicycles}"
+puts "		cycleable road: #{typical_road_accessible_to_bicycles}"
 if debug
 	puts "		weird highway value: #{weird_highway_value}"
 	puts "		weird cycleway value: #{weird("cycleway", ["lane", "opposite_lane", "no", "opposite"])}"
@@ -76,7 +76,7 @@ puts "		proper cycleway with a terrible surface: #{cycleway} AND  #{terible_surf
 puts "		lame cycleway with a good surface: #{lame_cycleway} AND #{proper_surface} AND NOT #{terible_surface}"
 puts "		lame cycleway with a bad surface: #{lame_cycleway} AND NOT #{proper_surface}"
 puts "		lame cycleway with a terrible surface: #{lame_cycleway} AND #{terible_surface}"
-puts "		marked contraflow : #{contraflow} AND cycleway=opposite_lane"
+puts "		marked contraflow: #{contraflow} AND cycleway=opposite_lane"
 puts "		unmarked contraflow: #{contraflow} AND NOT cycleway=opposite_lane"
 puts "		oneway: (((oneway=yes AND NOT #{contraflow}) OR (oneway:bicycle=yes)) AND (#{cycleable} OR #{typical_road}))"
 bicycle_allowed = "(#{unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes))"
