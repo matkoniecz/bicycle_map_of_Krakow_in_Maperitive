@@ -14,10 +14,14 @@ ARGV.each do|a|
 	end
 end
 
-#highway=motorway ignored as not relevant
-no_access = "(access=private OR access=no OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))"
+mtb_route = "(mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)"
+private_property = "(access=private OR access=no)" 
+no_access = "(#{private_property} OR #{mtb_route})"
 cycleable = "((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT #{no_access})"
-typical_road = "(@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, living_street, unclassified)  AND NOT #{no_access})"
+road_very_high_traffic = "((highway=motorway OR highway=motorway_link) AND NOT #{no_access})"
+road_high_traffic = "(@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link) AND NOT #{no_access})"
+road_typical = "(@isOneOf(highway, tertiary, tertiary_link, residential, living_street, unclassified) AND NOT #{no_access})"
+typical_road = "(#{road_high_traffic} OR #{road_typical})"
 typical_road_accessible_to_bicycles = "((#{typical_road} OR highway=track OR highway=service) AND NOT bicycle=no AND NOT service=parking_aisle AND NOT #{no_access})"
 separate_cycleway = "(((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT #{no_access})"
 segregated_cycleway = "(((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT #{no_access})"
