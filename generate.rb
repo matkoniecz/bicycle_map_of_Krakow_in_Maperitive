@@ -59,7 +59,7 @@ if debug
 	puts "		weird surface value: #{cycleable} AND (#{weird_main_surface} OR #{weird_cycleway_surface})"
 	puts "		no_and_yes_bug: (#{cycleable} AND bicycle=no) OR (highway=cycleway AND bicycle AND NOT bicycle = designated AND NOT bicycle = dismount)"
 	puts "		no_surface_info: (#{cycleway} OR #{lame_cycleway}) AND (#{no_surface_info_for_main_part} AND #{no_surface_info_for_lane})"
-	puts "		no maxspeed info: (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, tertiary, unclassified) AND NOT maxspeed)"
+	puts "		no maxspeed info: (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link) AND NOT maxspeed)"
 	puts "		plus 50 maxspeed: (maxspeed > 50 AND NOT #{motorway})"
 	puts "		missing segregate: ((bicycle=designated OR highway=cycleway) AND (foot=yes OR foot=designated OR bicycle=foot OR highway=footway) AND NOT segregated)"
 	puts "		weird segregate: #{weird("segregated", ["yes", "no"])}"
