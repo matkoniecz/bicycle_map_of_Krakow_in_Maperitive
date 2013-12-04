@@ -136,6 +136,10 @@ return returned + "
 			line-color: white
 			shape: square
 		draw: shape
+		define
+			min-zoom: 15
+			text: capacity
+		draw: text
 
 	target: drinking_water
 		define
