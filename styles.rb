@@ -93,11 +93,20 @@ return returned + "
 			//line-color: green
 		draw: shape
 
+	target: bicycle_parking_no_operator
+		define
+			min-zoom: 1
+			fill-color: yellow
+			shape-size: 2
+			line-width: 0
+			line-color: yellow
+			shape: circle
+		draw: shape
 	target: bicycle_parking_no_type
 		define
 			min-zoom: 1
 			fill-color: red
-			shape-size: 2
+			shape-size: 3
 			line-width: 0
 			shape: circle
 		draw: shape

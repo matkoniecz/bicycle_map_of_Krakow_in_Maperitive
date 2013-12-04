@@ -109,6 +109,9 @@ if debug
 	puts "		bicycle_parking_no_type: #{bicycle_parking} AND (NOT bicycle_parking OR (#{weird_bicycle_parking}))"
 	puts ""
 end
+if heavy_debug
+	puts "		bicycle_parking_no_operator: #{bicycle_parking} AND NOT operator"
+end
 puts "		bicycle_parking: #{bicycle_parking} AND NOT #{no_access}"
 puts "		bicycle shop: shop=bicycle"
 puts "		drinking_water: amenity=drinking_water"
