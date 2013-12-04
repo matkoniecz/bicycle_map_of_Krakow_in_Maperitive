@@ -98,7 +98,7 @@ if debug
 end
 puts "	points, lines, areas"
 if debug
-	puts "		fixme: (FIXME OR fixme) AND (fixme:type:bicycle=yes OR amenity=bicycle_parking OR bicycle)"
+	puts "		fixme: (FIXME OR fixme) AND (fixme:type:bicycle=yes OR amenity=bicycle_parking OR bicycle OR highway=cycleway)"
 end
 puts "	points, areas"
 bicycle_parking = "(amenity=bicycle_parking)"
