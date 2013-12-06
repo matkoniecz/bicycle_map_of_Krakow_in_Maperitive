@@ -89,7 +89,7 @@ if heavy_debug
 	puts "		bicycle unexpected status no source mentioned: (#{unexpected_cycling_ban} OR #{unexpected_allowed_cycling}) AND NOT #{valid_bicycle_source_value}"
 end
 puts "	points"
-bicycle_crossing_way = "((#{cycleway} OR #{lame_cycleway} OR #{unexpected_allowed_cycling}) AND NOT #{contraflow} AND NOT (cycleway=lane AND #{typical_road}))"
+bicycle_crossing_way = "((#{cycleway} OR #{lame_cycleway} OR #{unexpected_allowed_cycling}) AND NOT #{contraflow} AND NOT (cycleway=lane AND (highway=pedestrian OR #{typical_road})))" #it is an ugly hack as with Maperitive it is impossible to select nodes on way with condition A and on a separate way with condition B
 puts "		OK_bicycle_crossing: way[#{bicycle_crossing_way}].node[highway=crossing AND (bicycle=yes)]"
 puts "		not_OK_bicycle_crossing: way[#{bicycle_crossing_way}].node[highway=crossing AND bicycle=no]"
 if debug
