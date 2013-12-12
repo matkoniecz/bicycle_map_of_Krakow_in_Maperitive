@@ -56,6 +56,10 @@ return returned + "
 			shape-size: 6
 			line-width: 0
 		draw: shape
+		define
+			min-zoom: 12
+			text: fixme
+			font-size: 12
 		draw: text
 
 	target: not_defined_bicycle_crossing
