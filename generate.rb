@@ -101,7 +101,7 @@ if debug
 	puts "		fixme: (FIXME OR fixme) AND (fixme:type:bicycle=yes OR amenity=bicycle_parking OR bicycle OR highway=cycleway)"
 end
 puts "	points, areas"
-bicycle_parking = "(amenity=bicycle_parking)"
+bicycle_parking = "(amenity=bicycle_parking  AND NOT #{no_access})"
 if debug
 	puts "		bicycle_parking_no_capacity: #{bicycle_parking} AND NOT (capacity)"
 	OK_bicycle_parking_values = ["wall_loops", "stands", "shed"]
@@ -112,7 +112,7 @@ end
 if heavy_debug
 	puts "		bicycle_parking_no_operator: #{bicycle_parking} AND NOT operator"
 end
-puts "		bicycle_parking: #{bicycle_parking} AND NOT #{no_access}"
+puts "		bicycle_parking: #{bicycle_parking}"
 puts "		bicycle shop: shop=bicycle"
 puts "		drinking_water: amenity=drinking_water"
 
