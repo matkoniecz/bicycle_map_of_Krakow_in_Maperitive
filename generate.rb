@@ -32,7 +32,7 @@ no_surface_info_for_main_part = "(surface=paved OR surface=unpaved OR (NOT (surf
 no_surface_info_for_lane = "(cycleway:surface=paved OR cycleway:surface=unpaved OR NOT cycleway:surface)"
 lame_cycleway = "(((bicycle=designated OR highway=cycleway) AND NOT #{cycleway}) AND NOT #{no_access} AND NOT area:highway)"
 contraflow = "((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT #{no_access})"
-unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + typical_road + " AND NOT highway=track AND NOT #{no_access})"
+unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + typical_road + " AND NOT highway=track AND NOT #{no_access} AND NOT area=yes)"
 unexpected_cycling_ban = "((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane))"
 valid_bicycle_source_value = "(source:bicycle=sign OR source:bicycle=park_rules OR footway=sidewalk)" #footway=sidewalk is temporary as source:bicycle needs proper string for this status
 def weird name, allowed
@@ -82,8 +82,6 @@ puts "		oneway: (((oneway=yes AND NOT #{contraflow}) OR (oneway:bicycle=yes)) AN
 bicycle_allowed = "(#{unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes))"
 puts "		bicycle allowed: #{bicycle_allowed}"
 puts "		unexpected cycling ban: #{unexpected_cycling_ban} AND NOT area = yes"
-puts "	areas"
-puts "		bicycle allowed area: #{bicycle_allowed} AND area=yes"
 puts "	lines"
 if heavy_debug
 	puts "		bicycle unexpected status no source mentioned: ((#{unexpected_cycling_ban} AND NOT highway=pedestrian) OR #{unexpected_allowed_cycling}) AND NOT #{valid_bicycle_source_value}"
