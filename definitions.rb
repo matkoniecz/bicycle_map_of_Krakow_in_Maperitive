@@ -6,8 +6,6 @@ end
 
 def get_bottom_before_bicycle_styles 
 return "
-	lines
-		motorway: (highway=motorway OR highway = motorway_link) AND NOT tunnel AND NOT bridge
 	areas
 		water: natural=water OR waterway=riverbank OR waterway=dock OR landuse=reservoir
 		trees: leisure=park OR landuse=forest OR landuse=orchard OR natural=wood OR leisure=garden

@@ -18,8 +18,8 @@ mtb_route = "(mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)"
 private_property = "(access=private OR access=no)" 
 no_access = "(#{private_property} OR #{mtb_route})"
 cycleable = "((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT #{no_access}  AND NOT area:highway)"
-road_very_high_traffic = "((highway=motorway OR highway=motorway_link) AND NOT #{no_access})"
-road_high_traffic = "(@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link) AND NOT #{no_access})"
+motorway = "(highway=motorway OR highway=motorway_link OR highway=trunk OR highway=trunk_link)"
+road_high_traffic = "(@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT #{no_access})"
 road_typical = "(@isOneOf(highway, tertiary, tertiary_link, residential, living_street, unclassified, service) AND NOT #{no_access} AND NOT service=parking_aisle)"
 typical_road = "(#{road_high_traffic} OR #{road_typical})"
 typical_road_accessible_to_bicycles = "((#{typical_road} OR highway=track) AND NOT bicycle=no AND NOT #{no_access})"
@@ -48,7 +48,6 @@ used = ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_
 discarded =["steps", "proposed", "construction", "bridleway", "platform", "bus_stop"]
 weird_highway_value = weird("highway", used | discarded)
 weird_cycleway_surface = weird("cycleway:surface", OK_surface_values)
-motorway = "(highway=motorway OR highway=motorway_link)"
 puts get_top
 puts "	lines"
 puts "		cycleable road: #{typical_road_accessible_to_bicycles}"
@@ -70,6 +69,7 @@ if debug
 	puts "		railway: railway=rail" #to check coverage of landuse=railway
 	puts ""
 end
+puts "		motorway: #{motorway} AND NOT tunnel AND NOT bridge"
 puts "		proper cycleway: #{cycleway} AND #{proper_surface} AND NOT #{terible_surface}"
 puts "		proper cycleway with a bad surface: #{cycleway} AND NOT #{proper_surface} AND NOT #{terible_surface}"
 puts "		proper cycleway with a terrible surface: #{cycleway} AND  #{terible_surface}"
