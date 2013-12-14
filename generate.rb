@@ -1,4 +1,3 @@
-load "definitions.rb"
 load "styles.rb"
 
 debug = false
@@ -48,7 +47,7 @@ used = ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_
 discarded =["steps", "proposed", "construction", "bridleway", "platform", "bus_stop"]
 weird_highway_value = weird("highway", used | discarded)
 weird_cycleway_surface = weird("cycleway:surface", OK_surface_values)
-puts get_top
+puts "features"
 puts "	lines"
 puts "		cycleable road: #{typical_road_accessible_to_bicycles}"
 if debug
@@ -113,7 +112,17 @@ end
 puts "		bicycle_parking: #{bicycle_parking}"
 puts "		bicycle shop: shop=bicycle"
 puts "		drinking_water: amenity=drinking_water"
+puts "	areas"
+puts "		water: natural=water OR waterway=riverbank OR waterway=dock OR landuse=reservoir"
+puts "		trees: leisure=park OR landuse=forest OR landuse=orchard OR natural=wood OR leisure=garden"
+puts "		blocked area: landuse=railway OR aeroway=aerodrome"
+puts "	lines"
+puts "		water-line: (waterway=stream OR waterway=river OR waterway=canal) AND NOT tunnel"
+puts "properties"
+puts "	map-background-color: white"
+puts "	text-halo-width: 30%"
+puts "	text-halo-opacity: 0.8"
+puts ""
+puts "rules"
 
-puts get_bottom_before_bicycle_styles 
 puts get_bicycle_styles
-puts get_bottom_after_bicycle_styles 

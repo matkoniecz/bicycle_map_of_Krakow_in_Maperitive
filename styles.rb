@@ -302,5 +302,49 @@ return returned + "
 			border-width: 0%
 		draw: line
 		draw: text
+	target: cycleable road
+		define
+			min-zoom: 1
+			line-width: 1
+			line-color: #707070
+		draw: line
+	target: cycleable road
+		define
+			min-zoom: 16
+		draw: text
+
+	target: motorway
+		define
+			min-zoom: 1
+			line-width: 2
+			line-color: #404040
+			line-style: solid
+		draw: line
+		
+	target: blocked area
+		define
+			fill-color: #bfbfbf
+			line-width: 0
+			line-color: #bfbfbf
+		draw: fill
+
+	target: water
+		define
+			fill-color: #b0b0ef
+			line-width: 0
+			line-color: #b0b0ef
+		draw: fill
+	target: water-line
+		define
+			line-width: 2
+			line-color: #b0b0ef
+		draw: line
+
+	target: trees
+		define
+			fill-color: #a5ef9b
+			line-width: 0
+			line-color: #a5ef9b
+		draw: fill
 "
 end

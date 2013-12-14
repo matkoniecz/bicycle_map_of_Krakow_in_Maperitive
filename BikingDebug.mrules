@@ -1,4 +1,3 @@
-
 features
 	lines
 		cycleable road: ((((@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (@isOneOf(highway, tertiary, tertiary_link, residential, living_street, unclassified, service) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT service=parking_aisle)) OR highway=track) AND NOT bicycle=no AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))
@@ -45,7 +44,6 @@ features
 		bicycle_parking: (amenity=bicycle_parking  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))
 		bicycle shop: shop=bicycle
 		drinking_water: amenity=drinking_water
-
 	areas
 		water: natural=water OR waterway=riverbank OR waterway=dock OR landuse=reservoir
 		trees: leisure=park OR landuse=forest OR landuse=orchard OR natural=wood OR leisure=garden
@@ -487,7 +485,6 @@ rules
 			border-width: 0%
 		draw: line
 		draw: text
-
 	target: cycleable road
 		define
 			min-zoom: 1
