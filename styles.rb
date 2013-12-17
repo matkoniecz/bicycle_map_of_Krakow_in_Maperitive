@@ -302,11 +302,17 @@ return returned + "
 			border-width: 0%
 		draw: line
 		draw: text
+	target: high traffic cycleable road
+		define
+			min-zoom: 1
+			line-width: 2
+			line-color: #505050
+		draw: line
 	target: cycleable road
 		define
 			min-zoom: 1
 			line-width: 1
-			line-color: #707070
+			line-color: #505050
 		draw: line
 	target: cycleable road
 		define

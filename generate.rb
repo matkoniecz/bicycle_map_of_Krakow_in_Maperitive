@@ -22,6 +22,7 @@ road_high_traffic = "(@isOneOf(highway, primary, primary_link, secondary, second
 road_typical = "(@isOneOf(highway, tertiary, tertiary_link, residential, living_street, unclassified, service) AND NOT #{no_access} AND NOT service=parking_aisle)"
 typical_road = "(#{road_high_traffic} OR #{road_typical})"
 typical_road_accessible_to_bicycles = "((#{typical_road} OR highway=track) AND NOT bicycle=no AND NOT #{no_access})"
+high_traffic_road_accessible_to_bicycles = "((#{road_high_traffic}) AND NOT bicycle=no AND NOT #{no_access})"
 separate_cycleway = "(((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT #{no_access})"
 segregated_cycleway = "(((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT #{no_access})"
 proper_surface = "(surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)"
@@ -49,6 +50,7 @@ weird_highway_value = weird("highway", used | discarded)
 weird_cycleway_surface = weird("cycleway:surface", OK_surface_values)
 puts "features"
 puts "	lines"
+puts "		high traffic cycleable road: #{high_traffic_road_accessible_to_bicycles}"
 puts "		cycleable road: #{typical_road_accessible_to_bicycles}"
 if debug
 	puts "		weird highway value: #{weird_highway_value}"
