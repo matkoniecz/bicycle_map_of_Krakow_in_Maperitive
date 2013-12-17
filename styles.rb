@@ -317,7 +317,7 @@ return returned + "
 		define
 			min-zoom: 1
 			line-width: 2
-			line-color: #404040
+			line-color: #999999
 			line-style: solid
 		draw: line
 		

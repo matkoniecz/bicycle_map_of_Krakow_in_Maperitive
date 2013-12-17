@@ -68,7 +68,7 @@ if debug
 	puts "		railway: railway=rail" #to check coverage of landuse=railway
 	puts ""
 end
-puts "		motorway: #{motorway} AND NOT tunnel AND NOT bridge"
+puts "		motorway: #{motorway}"
 puts "		proper cycleway: #{cycleway} AND #{proper_surface} AND NOT #{terible_surface}"
 puts "		proper cycleway with a bad surface: #{cycleway} AND NOT #{proper_surface} AND NOT #{terible_surface}"
 puts "		proper cycleway with a terrible surface: #{cycleway} AND  #{terible_surface}"
