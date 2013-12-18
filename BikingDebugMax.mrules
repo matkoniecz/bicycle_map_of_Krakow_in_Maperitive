@@ -185,7 +185,7 @@ rules
 		draw: line
 		define
 			min-zoom: 12
-			text: name " - bicycle unexpected status no source mentioned"
+			text: name " - bicycle unexpected status without source:bicycle- " 
 			font-size: 12
 		draw: text
 
