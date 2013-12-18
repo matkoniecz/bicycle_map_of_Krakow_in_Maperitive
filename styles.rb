@@ -20,12 +20,12 @@ def get_bicycle_styles
 	bugs.each do |element|
 		name = "name \" - #{element[0]}"
 		if (element[3] != nil)
-			name = "name \" - #{element[3]}"
+			name = "name \" - #{element[3]}" #use name that contains special signs and was not usable as internal Maperitive name
 		end
 		if (element[2] != nil)
-			name += "- \" #{element[2]}"
+			name += "- \" #{element[2]}" #display value of this tag
 		else
-			name += '"'
+			name += '"' #final quote sign is anyway necessary
 		end
 		returned += "	target: #{element[0]}
 		define
