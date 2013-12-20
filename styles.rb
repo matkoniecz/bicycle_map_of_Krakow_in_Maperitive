@@ -273,6 +273,16 @@ return returned + "
 			line-style: solid
 		draw: line
 
+	target: bicycle allowed with a terrible surface
+		define
+			min-zoom: 9
+			line-color: red
+			line-width: 2
+			line-style: solid
+			border-width: 0%
+		draw: line
+		draw: text
+
 	target: bicycle allowed
 		define
 			min-zoom: 9
@@ -282,7 +292,7 @@ return returned + "
 			border-width: 0%
 		draw: line
 		draw: text
-
+	
 	target: unexpected cycling ban
 		define
 			min-zoom: 9

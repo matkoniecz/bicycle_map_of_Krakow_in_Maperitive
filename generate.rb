@@ -82,6 +82,7 @@ puts "		unmarked contraflow: #{contraflow} AND NOT cycleway=opposite_lane"
 puts "		oneway: (((oneway=yes AND NOT #{contraflow}) OR (oneway:bicycle=yes)) AND (#{cycleable} OR #{typical_road}))"
 bicycle_allowed = "(#{unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes))"
 puts "		bicycle allowed: #{bicycle_allowed}"
+puts "		bicycle allowed with a terrible surface: #{bicycle_allowed} AND #{terible_surface}"
 puts "		unexpected cycling ban: #{unexpected_cycling_ban} AND NOT area = yes"
 puts "	lines"
 if heavy_debug
