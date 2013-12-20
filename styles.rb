@@ -352,5 +352,8 @@ return returned + "
 			line-width: 0
 			line-color: #a5ef9b
 		draw: fill
+		define
+			min-zoom: 15
+		draw: text
 "
 end
