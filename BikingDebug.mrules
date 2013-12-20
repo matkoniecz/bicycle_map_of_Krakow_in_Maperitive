@@ -467,16 +467,6 @@ rules
 		draw: line
 		draw: text
 
-	target: dismount from bicycle
-		define
-			min-zoom: 9
-			line-color: yellow
-			line-width: 2
-			line-style: solid
-			border-width: 0%
-		draw: line
-		draw: text
-
 	target: unexpected cycling ban
 		define
 			min-zoom: 9
