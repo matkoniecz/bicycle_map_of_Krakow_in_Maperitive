@@ -392,7 +392,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: green
-			line-width: 4
+			line-width: 14:2; 15:3; 16:4
 			line-style: solid
 		draw: line
 		draw: text
@@ -401,7 +401,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: #A0522D
-			line-width: 4
+			line-width: 14:2; 15:3; 16:4
 			line-style: solid
 		draw: line
 		draw: text
@@ -410,7 +410,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: #A0522D
-			line-width: 2
+			line-width: 14:1; 15:2
 			line-style: solid
 		draw: line
 		draw: text
@@ -419,7 +419,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: red
-			line-width: 4
+			line-width: 14:2; 15:3; 16:4
 			line-style: solid
 		draw: line
 		draw: text
@@ -428,7 +428,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: red
-			line-width: 2
+			line-width: 14:1; 15:2
 			line-style: solid
 		draw: line
 		draw: text
@@ -437,7 +437,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: green
-			line-width: 2
+			line-width: 14:1; 15:2
 			line-style: solid
 		draw: line
 		draw: text
@@ -446,7 +446,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: red
-			line-width: 2
+			line-width: 14:1; 15:2
 			line-style: solid
 			border-width: 0%
 		draw: line
@@ -456,7 +456,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: orange
-			line-width: 2
+			line-width: 14:1; 15:2
 			line-style: solid
 			border-width: 0%
 		draw: line

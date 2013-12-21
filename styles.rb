@@ -42,7 +42,7 @@ def get_bicycle_styles
 
 "
 	end
-return returned + "
+returned += "
 	/////////////////////////////
 	//railway areas + debug for this
 	/////////////////////////////
@@ -196,7 +196,10 @@ return returned + "
 			min-zoom: 1
 			icon-width: 10:8; 12:9; 13:10; 14:11; 15:12; 16:13; 17:14; 18:15; 19:16
 		draw: icon
-
+"
+cycleway_wide_marker = "14:2; 15:3; 16:4"
+cycleway_narrow_marker = "14:1; 15:2"
+returned += "
 	/////////////////////////////
 	//cycleways
 	/////////////////////////////
@@ -204,7 +207,7 @@ return returned + "
 		define
 			min-zoom: 9
 			line-color: green
-			line-width: 4
+			line-width: #{cycleway_wide_marker}
 			line-style: solid
 		draw: line
 		draw: text
@@ -213,7 +216,7 @@ return returned + "
 		define
 			min-zoom: 9
 			line-color: #A0522D
-			line-width: 4
+			line-width: #{cycleway_wide_marker}
 			line-style: solid
 		draw: line
 		draw: text
@@ -222,7 +225,7 @@ return returned + "
 		define
 			min-zoom: 9
 			line-color: #A0522D
-			line-width: 2
+			line-width: #{cycleway_narrow_marker}
 			line-style: solid
 		draw: line
 		draw: text
@@ -231,7 +234,7 @@ return returned + "
 		define
 			min-zoom: 9
 			line-color: red
-			line-width: 4
+			line-width: #{cycleway_wide_marker}
 			line-style: solid
 		draw: line
 		draw: text
@@ -240,7 +243,7 @@ return returned + "
 		define
 			min-zoom: 9
 			line-color: red
-			line-width: 2
+			line-width: #{cycleway_narrow_marker}
 			line-style: solid
 		draw: line
 		draw: text
@@ -249,7 +252,7 @@ return returned + "
 		define
 			min-zoom: 9
 			line-color: green
-			line-width: 2
+			line-width: #{cycleway_narrow_marker}
 			line-style: solid
 		draw: line
 		draw: text
@@ -258,7 +261,7 @@ return returned + "
 		define
 			min-zoom: 9
 			line-color: red
-			line-width: 2
+			line-width: #{cycleway_narrow_marker}
 			line-style: solid
 			border-width: 0%
 		draw: line
@@ -268,7 +271,7 @@ return returned + "
 		define
 			min-zoom: 9
 			line-color: orange
-			line-width: 2
+			line-width: #{cycleway_narrow_marker}
 			line-style: solid
 			border-width: 0%
 		draw: line
@@ -406,4 +409,5 @@ return returned + "
 			min-zoom: 15
 		draw: text
 "
+return returned
 end
