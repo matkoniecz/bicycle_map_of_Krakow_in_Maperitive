@@ -316,11 +316,15 @@ returned += "
 		define
 			min-zoom: 9
 			line-color: red
-			line-width: 2
+			line-width: 14:1.5; 15:2
 			line-style: dot
 			border-width: 0%
 		draw: line
 		draw: text
+		define
+			line-width: 1
+			line-style: solid
+		draw: line
 
 	/////////////////////////////
 	//oneway arrows
