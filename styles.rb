@@ -114,6 +114,19 @@ return returned + "
 		draw: shape
 
 	/////////////////////////////
+	//advanced stop line
+	/////////////////////////////
+	target: advanced_stop_line
+		define
+			min-zoom: 1
+			fill-color: blue
+			shape: triangle
+			shape-size: 14:9; 15:14; 16:20; 17:24; 18:30; 19:35 
+			line-width: 0
+			//line-color: blue
+		draw: shape
+
+	/////////////////////////////
 	//bicycle parkings
 	/////////////////////////////
 	target: bicycle_parking_no_operator
