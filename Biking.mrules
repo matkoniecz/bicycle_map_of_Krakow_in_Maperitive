@@ -206,12 +206,25 @@ rules
 		draw: text
 
 
+	/////////////////////////////
+	//railway areas + debug for this
+	/////////////////////////////
+	target: blocked area
+		define
+			fill-color: #bfbfbf
+			line-width: 0
+			line-color: #bfbfbf
+		draw: fill
 	target: railway
 		define
 			min-zoom: 1
 			line-color: #a1a1a1
 			line-width: 1
 		draw: line
+
+	/////////////////////////////
+	//fixme
+	/////////////////////////////
 	target: fixme
 		define
 			min-zoom: 1
@@ -225,6 +238,9 @@ rules
 			font-size: 12
 		draw: text
 
+	/////////////////////////////
+	//bicycle crossings
+	/////////////////////////////
 	target: not_defined_bicycle_crossing
 		define
 			min-zoom: 1
@@ -260,6 +276,9 @@ rules
 			//line-color: green
 		draw: shape
 
+	/////////////////////////////
+	//bicycle parkings
+	/////////////////////////////
 	target: bicycle_parking_no_operator
 		define
 			min-zoom: 1
@@ -269,6 +288,7 @@ rules
 			line-color: yellow
 			shape: circle
 		draw: shape
+
 	target: bicycle_parking_no_type
 		define
 			min-zoom: 1
@@ -287,6 +307,23 @@ rules
 			shape: circle
 		draw: shape
 
+	target: bicycle_parking
+		define
+			fill-color: #6060ff
+			min-zoom: 1
+			shape-size: 10:3; 11:4; 12:5; 13:6; 14:7; 15:11; 16:13; 17:14; 18:16; 19:20
+			line-width: 0
+			line-color: white
+			shape: square
+		draw: shape
+		define
+			min-zoom: 15
+			text: capacity
+		draw: text
+
+	/////////////////////////////
+	//other bicycle amenities
+	/////////////////////////////
 	target: bicycle shop
 		define
 			icon-image: icons/SJJB/png/shopping_bicycle.n.32.png
@@ -303,20 +340,6 @@ rules
 			text-halo-color: #fffd8b
 		draw: text
 
-	target: bicycle_parking
-		define
-			fill-color: #6060ff
-			min-zoom: 1
-			shape-size: 10:3; 11:4; 12:5; 13:6; 14:7; 15:11; 16:13; 17:14; 18:16; 19:20
-			line-width: 0
-			line-color: white
-			shape: square
-		draw: shape
-		define
-			min-zoom: 15
-			text: capacity
-		draw: text
-
 	target: drinking_water
 		define
 			icon-image: icons/SJJB/png/food_drinkingtap.n.32.png
@@ -324,6 +347,9 @@ rules
 			icon-width: 10:8; 12:9; 13:10; 14:11; 15:12; 16:13; 17:14; 18:15; 19:16
 		draw: icon
 
+	/////////////////////////////
+	//cycleways
+	/////////////////////////////
 	target: proper cycleway
 		define
 			min-zoom: 9
@@ -332,22 +358,6 @@ rules
 			line-style: solid
 		draw: line
 		draw: text
-
-	target: no maxspeed info
-		define
-			min-zoom: 14
-			line-color: pink
-			line-width: 2
-			line-style: solid
-		draw: line
-
-	target: plus 50 maxspeed
-		define
-			min-zoom: 1
-			line-color: black
-			line-width: 2
-			line-style: solid
-		draw: line
 
 	target: proper cycleway with a bad surface
 		define
@@ -394,48 +404,6 @@ rules
 		draw: line
 		draw: text
 
-	target: marked contraflow
-		define
-			min-zoom: 9
-			line-color: blue
-			line-width: 7:1;12:2.5;17:3
-			line-style: solid
-			line-offset: 14:1;15:2;16:3;17:3
-			line-offset-sides: left
-		for: oneway=-1
-			define
-				line-offset-sides: right
-		draw: line
-		draw: text
-		
-	target: oneway
-		define
-			min-zoom: 15
-			shape: custom
-			shape-def: 0,10, 10,0, 0,-10, 10,0;Z
-			shape-size: 7
-			shape-spacing: 4
-			line-width: 1
-		draw: shape
-
-	target: unmarked contraflow
-		define
-			min-zoom: 9
-			line-color: blue
-			line-width: 7:1;12:2.5;17:3
-			line-style: dot
-			line-offset: 14:0.5;15:1;16:2;17:3
-			line-offset-sides: left
-		for: oneway=-1
-			define
-				line-offset-sides: right
-		draw: line
-		draw: text
-		define
-			line-width: 1
-			line-style: solid
-		draw: line
-
 	target: bicycle allowed with a terrible surface
 		define
 			min-zoom: 9
@@ -455,7 +423,42 @@ rules
 			border-width: 0%
 		draw: line
 		draw: text
-	
+
+	/////////////////////////////
+	//special cycleways
+	/////////////////////////////
+	target: marked contraflow
+		define
+			min-zoom: 9
+			line-color: blue
+			line-width: 7:1;12:2.5;17:3
+			line-style: solid
+			line-offset: 14:1;15:2;16:3;17:3
+			line-offset-sides: left
+		for: oneway=-1
+			define
+				line-offset-sides: right
+		draw: line
+		draw: text
+		
+	target: unmarked contraflow
+		define
+			min-zoom: 9
+			line-color: blue
+			line-width: 7:1;12:2.5;17:3
+			line-style: dot
+			line-offset: 14:0.5;15:1;16:2;17:3
+			line-offset-sides: left
+		for: oneway=-1
+			define
+				line-offset-sides: right
+		draw: line
+		draw: text
+		define
+			line-width: 1
+			line-style: solid
+		draw: line
+
 	target: unexpected cycling ban
 		define
 			min-zoom: 9
@@ -465,22 +468,57 @@ rules
 			border-width: 0%
 		draw: line
 		draw: text
+
+	/////////////////////////////
+	//oneway arrows
+	/////////////////////////////
+	target: oneway
+		define
+			min-zoom: 15
+			shape: custom
+			shape-def: 0,10, 10,0, 0,-10, 10,0;Z
+			shape-size: 7
+			shape-spacing: 4
+			line-width: 1
+		draw: shape
+	
+	/////////////////////////////
+	//roads
+	/////////////////////////////
 	target: high traffic cycleable road
 		define
 			min-zoom: 1
 			line-width: 2
 			line-color: #505050
 		draw: line
+	
 	target: cycleable road
 		define
 			min-zoom: 1
 			line-width: 1
 			line-color: #505050
 		draw: line
+	
 	target: cycleable road
 		define
 			min-zoom: 16
 		draw: text
+
+	target: no maxspeed info
+		define
+			min-zoom: 14
+			line-color: pink
+			line-width: 2
+			line-style: solid
+		draw: line
+
+	target: plus 50 maxspeed
+		define
+			min-zoom: 1
+			line-color: black
+			line-width: 2
+			line-style: solid
+		draw: line
 
 	target: motorway
 		define
@@ -489,14 +527,10 @@ rules
 			line-color: #999999
 			line-style: solid
 		draw: line
-		
-	target: blocked area
-		define
-			fill-color: #bfbfbf
-			line-width: 0
-			line-color: #bfbfbf
-		draw: fill
 
+	/////////////////////////////
+	//water
+	/////////////////////////////
 	target: water
 		define
 			fill-color: #b0b0ef
@@ -509,6 +543,9 @@ rules
 			line-color: #b0b0ef
 		draw: line
 
+	/////////////////////////////
+	//trees
+	/////////////////////////////
 	target: trees
 		define
 			fill-color: #a5ef9b
