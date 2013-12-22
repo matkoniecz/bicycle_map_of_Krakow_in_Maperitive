@@ -349,17 +349,19 @@ returned += "
 			line-color: black
 		draw: line
 	
-	target: cycleable road
+	target: normal traffic cycleable road
 		define
 			min-zoom: 1
 			line-width: 1
 			line-color: #999999
 		draw: line
 	
-	target: cycleable road
+	target: low traffic cycleable road
 		define
-			min-zoom: 16
-		draw: text
+			min-zoom: 13
+			line-width: 1
+			line-color: #bbbbbb
+		draw: line
 
 	target: no maxspeed info
 		define
