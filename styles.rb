@@ -345,15 +345,15 @@ returned += "
 	target: high traffic cycleable road
 		define
 			min-zoom: 1
-			line-width: 2
-			line-color: #505050
+			line-width: 1
+			line-color: black
 		draw: line
 	
 	target: cycleable road
 		define
 			min-zoom: 1
 			line-width: 1
-			line-color: #505050
+			line-color: #999999
 		draw: line
 	
 	target: cycleable road
