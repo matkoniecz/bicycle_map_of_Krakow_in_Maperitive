@@ -35,8 +35,6 @@ no_surface_info_for_main_part = "(surface=paved OR surface=unpaved OR (NOT (surf
 no_surface_info_for_lane = "(cycleway:surface=paved OR cycleway:surface=unpaved OR NOT cycleway:surface)"
 lame_cycleway = "(((bicycle=designated OR highway=cycleway) AND NOT #{cycleway}) AND NOT #{no_access} AND NOT area:highway)"
 contraflow = "((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT #{no_access})"
-unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + typical_road + " AND NOT #{no_access} AND NOT area=yes)"
-unexpected_cycling_ban = "((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane))"
 valid_bicycle_source_value = "(source:bicycle=sign OR source:bicycle=park_rules OR footway=sidewalk)" #footway=sidewalk is temporary as source:bicycle needs proper string for this status
 def weird name, allowed
 	returned = name
@@ -85,9 +83,14 @@ puts "		lame cycleway with a terrible surface: #{lame_cycleway} AND #{terible_su
 puts "		marked contraflow: #{contraflow} AND cycleway=opposite_lane"
 puts "		unmarked contraflow: #{contraflow} AND NOT cycleway=opposite_lane"
 puts "		oneway: (((oneway=yes AND NOT #{contraflow}) OR (oneway:bicycle=yes)) AND (#{cycleable} OR #{typical_road}))"
+unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + typical_road + " AND NOT #{no_access} AND NOT area=yes)"
 bicycle_allowed = "(#{unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes))"
-puts "		bicycle allowed: #{bicycle_allowed}"
+bicycle_allowed_not_in_park = "(#{bicycle_allowed} AND NOT source:bicycle=park_rules)"
+bicycle_allowed_in_park = "(#{bicycle_allowed} AND source:bicycle=park_rules)"
+puts "		bicycle_allowed_not_in_park: #{bicycle_allowed_not_in_park}"
+puts "		bicycle_allowed_in_park: #{bicycle_allowed_in_park}"
 puts "		bicycle allowed with a terrible surface: #{bicycle_allowed} AND #{terible_surface}"
+unexpected_cycling_ban = "((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane))"
 puts "		unexpected cycling ban: #{unexpected_cycling_ban} AND NOT area = yes"
 puts "	lines"
 if heavy_debug

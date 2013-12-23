@@ -198,7 +198,8 @@ returned += "
 		draw: icon
 "
 cycleway_wide_marker = "14:2; 15:3; 16:4"
-cycleway_narrow_marker = "14:1; 15:2"
+cycleway_narrow_marker = "14:2; 15:2"
+cycleway_very_narrow_marker = "14:1; 15:2"
 returned += "
 	/////////////////////////////
 	//cycleways
@@ -267,7 +268,17 @@ returned += "
 		draw: line
 		draw: text
 
-	target: bicycle allowed
+	target: bicycle_allowed_in_park
+		define
+			min-zoom: 9
+			line-color: orange
+			line-width: #{cycleway_very_narrow_marker}
+			line-style: solid
+			border-width: 0%
+		draw: line
+		draw: text
+
+	target: bicycle_allowed_not_in_park
 		define
 			min-zoom: 9
 			line-color: orange

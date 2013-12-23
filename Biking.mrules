@@ -14,7 +14,8 @@ features
 		marked contraflow: ((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND cycleway=opposite_lane
 		unmarked contraflow: ((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND NOT cycleway=opposite_lane
 		oneway: (((oneway=yes AND NOT ((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) OR (oneway:bicycle=yes)) AND (((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))  AND NOT area:highway) OR ((@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (@isOneOf(highway, tertiary, tertiary_link, residential, unclassified) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR ((highway=service OR highway=living_street OR highway=track) AND NOT service=parking_aisle AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))))))
-		bicycle allowed: (((bicycle=yes) AND NOT ((@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (@isOneOf(highway, tertiary, tertiary_link, residential, unclassified) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR ((highway=service OR highway=living_street OR highway=track) AND NOT service=parking_aisle AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area=yes) OR (highway=pedestrian AND bicycle=yes))
+		bicycle_allowed_not_in_park: ((((bicycle=yes) AND NOT ((@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (@isOneOf(highway, tertiary, tertiary_link, residential, unclassified) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR ((highway=service OR highway=living_street OR highway=track) AND NOT service=parking_aisle AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area=yes) OR (highway=pedestrian AND bicycle=yes)) AND NOT source:bicycle=park_rules)
+		bicycle_allowed_in_park: ((((bicycle=yes) AND NOT ((@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (@isOneOf(highway, tertiary, tertiary_link, residential, unclassified) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR ((highway=service OR highway=living_street OR highway=track) AND NOT service=parking_aisle AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area=yes) OR (highway=pedestrian AND bicycle=yes)) AND source:bicycle=park_rules)
 		bicycle allowed with a terrible surface: (((bicycle=yes) AND NOT ((@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (@isOneOf(highway, tertiary, tertiary_link, residential, unclassified) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR ((highway=service OR highway=living_street OR highway=track) AND NOT service=parking_aisle AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area=yes) OR (highway=pedestrian AND bicycle=yes)) AND (smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)
 		unexpected cycling ban: ((bicycle=no AND ((@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (@isOneOf(highway, tertiary, tertiary_link, residential, unclassified) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR ((highway=service OR highway=living_street OR highway=track) AND NOT service=parking_aisle AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))))) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane)) AND NOT area = yes
 	lines
@@ -388,7 +389,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: #A0522D
-			line-width: 14:1; 15:2
+			line-width: 14:2; 15:2
 			line-style: solid
 		draw: line
 		draw: text
@@ -406,7 +407,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: red
-			line-width: 14:1; 15:2
+			line-width: 14:2; 15:2
 			line-style: solid
 		draw: line
 		draw: text
@@ -415,7 +416,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: green
-			line-width: 14:1; 15:2
+			line-width: 14:2; 15:2
 			line-style: solid
 		draw: line
 		draw: text
@@ -424,17 +425,27 @@ rules
 		define
 			min-zoom: 9
 			line-color: red
+			line-width: 14:2; 15:2
+			line-style: solid
+			border-width: 0%
+		draw: line
+		draw: text
+
+	target: bicycle_allowed_in_park
+		define
+			min-zoom: 9
+			line-color: orange
 			line-width: 14:1; 15:2
 			line-style: solid
 			border-width: 0%
 		draw: line
 		draw: text
 
-	target: bicycle allowed
+	target: bicycle_allowed_not_in_park
 		define
 			min-zoom: 9
 			line-color: orange
-			line-width: 14:1; 15:2
+			line-width: 14:2; 15:2
 			line-style: solid
 			border-width: 0%
 		draw: line
