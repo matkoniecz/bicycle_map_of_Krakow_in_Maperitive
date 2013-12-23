@@ -93,7 +93,7 @@ puts "		bicycle allowed with a terrible surface: #{bicycle_allowed} AND #{teribl
 unexpected_cycling_ban = "((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane))"
 puts "		unexpected cycling ban: #{unexpected_cycling_ban} AND NOT area = yes"
 puts "	lines"
-if heavy_debug
+if debug
 	puts "		bicycle unexpected status no source mentioned: ((#{unexpected_cycling_ban} AND NOT highway=pedestrian) OR #{unexpected_allowed_cycling}) AND NOT #{valid_bicycle_source_value}"
 end
 puts "	points"
