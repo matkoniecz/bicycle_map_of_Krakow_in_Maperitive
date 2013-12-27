@@ -7,12 +7,12 @@ def get_bicycle_styles
 				["missing segregate", "blue"],
 				["no_and_yes_bug", "purple"],
 				["no_surface_info", "violet"],
-				["weird segregate", "brown", " segregate"],
-				["weird cycleway value", "teal", " cycleway"],
-				["weird bicycle value", "orange", " bicycle"],
+				["weird segregate", "brown", "segregate"],
+				["weird cycleway value", "teal", "cycleway"],
+				["weird bicycle value", "orange", "bicycle"],
 				["weird surface value", "yellow"],
 				["bicycle unexpected status no source mentioned", "gray", "", "bicycle unexpected status without source:bicycle"],
-				["weird highway value", "lime", " highway"],
+				["weird highway value", "lime", "highway"],
 				["bicycle oneway tag synch oneway bicycle", "#663300", "", "bicycle oneway tag synch +(oneway:bicycle)"], #bark brown
 				["bicycle oneway tag synch cycleway", "#a61e00", "", "cycleway=opposite or cycleway=opposite is missing"], #bark brown + red
 				#

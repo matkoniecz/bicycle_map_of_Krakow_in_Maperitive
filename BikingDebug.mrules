@@ -137,7 +137,7 @@ rules
 		draw: line
 		define
 			min-zoom: 12
-			text: name " - weird segregate- "  segregate
+			text: name " - weird segregate- " segregate
 			font-size: 12
 		draw: text
 
@@ -150,7 +150,7 @@ rules
 		draw: line
 		define
 			min-zoom: 12
-			text: name " - weird cycleway value- "  cycleway
+			text: name " - weird cycleway value- " cycleway
 			font-size: 12
 		draw: text
 
@@ -163,7 +163,7 @@ rules
 		draw: line
 		define
 			min-zoom: 12
-			text: name " - weird bicycle value- "  bicycle
+			text: name " - weird bicycle value- " bicycle
 			font-size: 12
 		draw: text
 
@@ -202,7 +202,7 @@ rules
 		draw: line
 		define
 			min-zoom: 12
-			text: name " - weird highway value- "  highway
+			text: name " - weird highway value- " highway
 			font-size: 12
 		draw: text
 
