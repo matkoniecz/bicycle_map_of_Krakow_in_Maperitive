@@ -110,4 +110,5 @@
     "map.rendering.shield-padding-bottom":"3", 
     "map.rendering.shield-resize-mode":"default", 
     "map.rendering.contour.label":"False"
+    "map.decoration.grid":"False"
 }
