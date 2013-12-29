@@ -34,7 +34,6 @@ cycleway = "("+separate_cycleway + " OR " + segregated_cycleway + ")"
 no_surface_info_for_main_part = "(surface=paved OR surface=unpaved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness)))"
 no_surface_info_for_lane = "(cycleway:surface=paved OR cycleway:surface=unpaved OR NOT cycleway:surface)"
 lame_cycleway = "(((bicycle=designated OR highway=cycleway) AND NOT #{cycleway}) AND NOT #{no_access} AND NOT area:highway)"
-contraflow = "((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT #{no_access})"
 valid_bicycle_source_value = "(source:bicycle=sign OR source:bicycle=park_rules OR footway=sidewalk)" #footway=sidewalk is temporary as source:bicycle needs proper string for this status
 def weird name, allowed
 	returned = name
@@ -80,10 +79,11 @@ puts "		proper cycleway with a terrible surface: #{cycleway} AND  #{terible_surf
 puts "		lame cycleway with a good surface: #{lame_cycleway} AND #{proper_surface} AND NOT #{terible_surface}"
 puts "		lame cycleway with a bad surface: #{lame_cycleway} AND NOT #{proper_surface}"
 puts "		lame cycleway with a terrible surface: #{lame_cycleway} AND #{terible_surface}"
-puts "		marked contraflow: #{contraflow} AND cycleway=opposite_lane"
-puts "		unmarked contraflow: #{contraflow} AND NOT cycleway=opposite_lane"
-puts "		oneway: (((oneway=yes AND NOT #{contraflow}) OR (oneway:bicycle=yes)) AND (#{cycleable} OR #{typical_road}))"
 unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + typical_road + " AND NOT #{no_access} AND NOT area=yes)"
+contraflow = "((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT #{no_access})"
+puts "		marked contraflow: #{contraflow} AND cycleway=opposite_lane"
+puts "		unmarked contraflow: #{contraflow} AND NOT cycleway=opposite_lane AND NOT #{unexpected_allowed_cycling}"
+puts "		oneway: (((oneway=yes AND NOT #{contraflow}) OR (oneway:bicycle=yes)) AND (#{cycleable} OR #{typical_road}))"
 bicycle_allowed = "(#{unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes))"
 bicycle_allowed_not_in_park = "(#{bicycle_allowed} AND NOT source:bicycle=park_rules)"
 bicycle_allowed_in_park = "(#{bicycle_allowed} AND source:bicycle=park_rules)"
