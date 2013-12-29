@@ -97,7 +97,7 @@ returned += "
 
 	target: not_OK_bicycle_crossing
 		define
-			min-zoom: 1
+			min-zoom: 12
 			fill-color: red
 			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
 			line-width: 0
@@ -121,7 +121,7 @@ returned += "
 			min-zoom: 1
 			fill-color: blue
 			shape: triangle
-			shape-size: 14:9; 15:14; 16:20; 17:24; 18:30; 19:35 
+			shape-size: 11:5; 13:7; 14:9; 15:14; 16:20; 17:24; 18:30; 19:35 
 			line-width: 0
 			//line-color: blue
 		draw: shape
@@ -167,7 +167,7 @@ returned += "
 			shape: square
 		draw: shape
 		define
-			min-zoom: 1
+			min-zoom: 11
 			max-zoom: 14
 			shape-size: 10:1; 11:1; 12:1; 13:2; 14:3
 			line-color: #6060ff
@@ -184,9 +184,9 @@ returned += "
 	target: bicycle shop
 		define
 			icon-image: icons/SJJB/png/shopping_bicycle.n.32.png
-			min-zoom: 1
+			min-zoom: 11
 			max-zoom: 15
-			icon-width: 10:8; 12:9; 13:10; 14:11; 15:12; 16:13; 17:14; 18:15; 19:16
+			icon-width: 10:2; 11:3; 12:4; 13:6; 14:9; 15:11; 16:13; 17:14; 18:15; 19:16
 		draw: icon
 		define
 			text: \"Sklep rowerowy \" name \" - \" opening_hours
@@ -277,7 +277,7 @@ returned += "
 
 	target: bicycle_allowed_in_park
 		define
-			min-zoom: 9
+			min-zoom: 11
 			line-color: orange
 			line-width: #{cycleway_very_narrow_marker}
 			line-style: solid
@@ -287,7 +287,7 @@ returned += "
 
 	target: bicycle_allowed_not_in_park
 		define
-			min-zoom: 9
+			min-zoom: 10
 			line-color: orange
 			line-width: #{cycleway_narrow_marker}
 			line-style: solid
@@ -332,7 +332,7 @@ returned += "
 
 	target: unexpected cycling ban
 		define
-			min-zoom: 9
+			min-zoom: 12
 			line-color: red
 			line-width: 14:1.5; 15:2
 			line-style: dot
@@ -386,9 +386,15 @@ returned += "
 
 	target: normal traffic cycleable road
 		define
-			min-zoom: 1
+			min-zoom: 11
 			line-width: 1
 			line-color: #7a7a7a
+		draw: line
+		define
+			min-zoom: 10.5
+			max-zoom: 11
+			line-width: 1
+			line-color: #999999
 		draw: line
 		define
 			min-zoom: 16
@@ -407,7 +413,7 @@ returned += "
 			line-color: #bbbbbb
 		draw: line
 		define
-			min-zoom: 1
+			min-zoom: 11.5
 			max-zoom: 13
 			line-width: 1
 			line-color: #dddddd
