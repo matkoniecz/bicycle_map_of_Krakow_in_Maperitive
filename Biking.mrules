@@ -27,6 +27,7 @@ features
 	points, areas
 		bicycle_parking: (amenity=bicycle_parking  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))
 		bicycle shop: shop=bicycle
+		drinking_water: amenity=drinking_water
 	areas
 		water: natural=water OR waterway=riverbank OR waterway=dock OR landuse=reservoir
 		trees: leisure=park OR landuse=forest OR landuse=orchard OR natural=wood OR leisure=garden
@@ -366,8 +367,8 @@ rules
 	target: drinking_water
 		define
 			icon-image: icons/SJJB/png/food_drinkingtap.n.32.png
-			min-zoom: 1
-			icon-width: 10:8; 12:9; 13:10; 14:11; 15:12; 16:13; 17:14; 18:15; 19:16
+			min-zoom: 13
+			icon-width: 10:1; 12:2; 13:2; 14:3; 15:6; 16:9; 17:12; 18:14; 19:16
 		draw: icon
 
 	/////////////////////////////

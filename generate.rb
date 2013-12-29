@@ -126,9 +126,7 @@ if heavy_debug
 end
 puts "		bicycle_parking: #{bicycle_parking}"
 puts "		bicycle shop: shop=bicycle"
-if debug
-	puts "		drinking_water: amenity=drinking_water"
-end
+puts "		drinking_water: amenity=drinking_water"
 puts "	areas"
 puts "		water: natural=water OR waterway=riverbank OR waterway=dock OR landuse=reservoir"
 puts "		trees: leisure=park OR landuse=forest OR landuse=orchard OR natural=wood OR leisure=garden"
