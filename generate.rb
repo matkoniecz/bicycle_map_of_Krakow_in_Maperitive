@@ -101,7 +101,7 @@ if debug
 end
 puts "	points"
 bicycle_crossing_way = "((#{cycleway} OR #{lame_cycleway} OR #{unexpected_allowed_cycling}) AND NOT #{contraflow} AND NOT (cycleway=lane AND (highway=pedestrian OR #{typical_road})))" #it is an ugly hack as with Maperitive it is impossible to select nodes on way with condition A and on a separate way with condition B
-puts "		OK_bicycle_crossing: way[#{bicycle_crossing_way}].node[highway=crossing AND (bicycle=yes)]"
+puts "		OK_bicycle_crossing: highway=crossing AND bicycle=yes"
 puts "		not_OK_bicycle_crossing: way[#{bicycle_crossing_way}].node[highway=crossing AND bicycle=no]"
 if debug
 	puts "		not_defined_bicycle_crossing: way[#{bicycle_crossing_way}].node[highway=crossing AND NOT bicycle=yes AND NOT bicycle=no]"
