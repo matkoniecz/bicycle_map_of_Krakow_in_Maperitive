@@ -84,7 +84,7 @@ contraflow = "((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT #{no_acce
 puts "		marked contraflow: #{contraflow} AND cycleway=opposite_lane"
 puts "		unmarked contraflow: #{contraflow} AND NOT cycleway=opposite_lane AND NOT #{unexpected_allowed_cycling}"
 puts "		oneway: (((oneway=yes AND NOT #{contraflow}) OR (oneway:bicycle=yes)) AND (#{cycleable} OR #{typical_road}))"
-bicycle_allowed = "(#{unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes))"
+bicycle_allowed = "(#{unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes AND NOT area=yes))"
 bicycle_allowed_not_in_park = "(#{bicycle_allowed} AND NOT source:bicycle=park_rules)"
 bicycle_allowed_in_park = "(#{bicycle_allowed} AND source:bicycle=park_rules)"
 puts "		bicycle_allowed_not_in_park: #{bicycle_allowed_not_in_park}"
