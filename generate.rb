@@ -110,7 +110,10 @@ end
 puts "		advanced_stop_line: cycleway=advanced_stop_line"
 puts "	points, lines, areas"
 if debug
-	puts "		fixme: (FIXME OR fixme) AND (fixme:type:bicycle=yes OR amenity=bicycle_parking OR bicycle OR highway=cycleway)"
+	bicycle_tags = "(amenity=bicycle_parking OR bicycle OR highway=cycleway)"
+	fixme = "(FIXME OR fixme)"
+	puts "		fixme: #{fixme} AND (fixme:type:bicycle=yes OR #{bicycle_tags})"
+	puts "		fixme: way[#{bicycle_tags}].node[#{fixme}]"
 end
 puts "	points, areas"
 bicycle_parking = "(amenity=bicycle_parking  AND NOT #{no_access})"

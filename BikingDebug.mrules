@@ -43,7 +43,8 @@ features
 		badly_defined_crossing: highway=crossing AND ((bicycle AND NOT bicycle=yes AND NOT bicycle=no) OR (foot AND NOT foot=yes AND NOT foot=no))
 		advanced_stop_line: cycleway=advanced_stop_line
 	points, lines, areas
-		fixme: (FIXME OR fixme) AND (fixme:type:bicycle=yes OR amenity=bicycle_parking OR bicycle OR highway=cycleway)
+		fixme: (FIXME OR fixme) AND (fixme:type:bicycle=yes OR (amenity=bicycle_parking OR bicycle OR highway=cycleway))
+		fixme: way[(amenity=bicycle_parking OR bicycle OR highway=cycleway)].node[(FIXME OR fixme)]
 	points, areas
 		bicycle_parking_no_capacity: (amenity=bicycle_parking  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND NOT (capacity)
 		bicycle_parking_no_type: (amenity=bicycle_parking  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND (NOT bicycle_parking OR ((bicycle_parking AND NOT bicycle_parking=wall_loops AND NOT bicycle_parking=stands AND NOT bicycle_parking=shed)))
