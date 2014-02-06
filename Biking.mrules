@@ -66,7 +66,7 @@ rules
 			font-size: 12
 		draw: text
 
-	target: missing segregate
+	target: missing segregated
 		define
 			min-zoom: 1
 			line-color: blue
@@ -75,7 +75,7 @@ rules
 		draw: line
 		define
 			min-zoom: 12
-			text: name " - missing segregate"
+			text: name " - missing segregated"
 			font-size: 12
 		draw: text
 
@@ -105,7 +105,7 @@ rules
 			font-size: 12
 		draw: text
 
-	target: weird segregate
+	target: weird segregated
 		define
 			min-zoom: 1
 			line-color: brown
@@ -114,7 +114,7 @@ rules
 		draw: line
 		define
 			min-zoom: 12
-			text: name " - weird segregate- " segregate
+			text: name " - weird segregated- " segregated
 			font-size: 12
 		draw: text
 

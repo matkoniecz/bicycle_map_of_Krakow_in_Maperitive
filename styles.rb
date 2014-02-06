@@ -4,10 +4,10 @@ def get_bicycle_styles
 	#free colours: red
 				["footway should be path", "black"],
 				["cycleway should be path", "black"],
-				["missing segregate", "blue"],
+				["missing segregated", "blue"],
 				["no_and_yes_bug", "purple"],
 				["no_surface_info", "violet"],
-				["weird segregate", "brown", "segregate"],
+				["weird segregated", "brown", "segregated"],
 				["weird cycleway value", "teal", "cycleway"],
 				["weird bicycle value", "orange", "bicycle"],
 				["weird surface value", "yellow"],

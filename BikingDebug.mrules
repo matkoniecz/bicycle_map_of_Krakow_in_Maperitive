@@ -12,8 +12,8 @@ features
 		no_surface_info: (((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) OR (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area:highway)) AND ((surface=paved OR surface=unpaved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness))) AND (cycleway:surface=paved OR cycleway:surface=unpaved OR NOT cycleway:surface))
 		no maxspeed info: (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link) AND NOT maxspeed)
 		plus 50 maxspeed: (maxspeed > 50 AND NOT (highway=motorway OR highway=motorway_link OR highway=trunk OR highway=trunk_link))
-		missing segregate: ((bicycle=designated OR highway=cycleway) AND (foot=yes OR foot=designated OR bicycle=foot OR highway=footway) AND NOT segregated AND NOT area:highway)
-		weird segregate: (segregated AND NOT segregated=yes AND NOT segregated=no)
+		missing segregated: ((bicycle=designated OR highway=cycleway) AND (foot=yes OR foot=designated OR bicycle=foot OR highway=footway) AND NOT segregated AND NOT area:highway)
+		weird segregated: (segregated AND NOT segregated=yes AND NOT segregated=no)
 		footway should be path: (highway = footway AND bicycle = designated)
 		cycleway should be path: (highway = cycleway AND foot = designated)
 		bicycle oneway tag synch oneway bicycle: ((cycleway=opposite_lane OR cycleway=opposite) AND NOT oneway:bicycle=no)
@@ -90,7 +90,7 @@ rules
 			font-size: 12
 		draw: text
 
-	target: missing segregate
+	target: missing segregated
 		define
 			min-zoom: 1
 			line-color: blue
@@ -99,7 +99,7 @@ rules
 		draw: line
 		define
 			min-zoom: 12
-			text: name " - missing segregate"
+			text: name " - missing segregated"
 			font-size: 12
 		draw: text
 
@@ -129,7 +129,7 @@ rules
 			font-size: 12
 		draw: text
 
-	target: weird segregate
+	target: weird segregated
 		define
 			min-zoom: 1
 			line-color: brown
@@ -138,7 +138,7 @@ rules
 		draw: line
 		define
 			min-zoom: 12
-			text: name " - weird segregate- " segregate
+			text: name " - weird segregated- " segregated
 			font-size: 12
 		draw: text
 
