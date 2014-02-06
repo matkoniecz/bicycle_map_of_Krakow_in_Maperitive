@@ -20,7 +20,7 @@ cycleable = "((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = d
 motorway = "(highway=motorway OR highway=motorway_link OR highway=trunk OR highway=trunk_link)"
 road_high_traffic = "(@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT #{no_access})"
 road_normal_traffic = "(@isOneOf(highway, tertiary, tertiary_link, residential, unclassified) AND NOT #{no_access})"
-road_low_traffic = "((highway=service OR highway=living_street OR highway=track) AND NOT service=parking_aisle AND NOT #{no_access})"
+road_low_traffic = "((highway=service OR highway=living_street OR highway=track) AND NOT service=driveway AND NOT service=parking_aisle AND NOT #{no_access})"
 typical_road = "(#{road_high_traffic} OR #{road_normal_traffic} OR #{road_low_traffic})"
 typical_road_accessible_to_bicycles = "(#{typical_road} AND NOT bicycle=no)"
 high_traffic_road_accessible_to_bicycles = "((#{road_high_traffic}) AND NOT bicycle=no AND NOT #{no_access})"
