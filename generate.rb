@@ -74,6 +74,8 @@ if debug
 	puts ""
 end
 puts "		motorway: #{motorway}"
+unexpected_cycling_ban = "((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane))"
+puts "		unexpected cycling ban: #{unexpected_cycling_ban} AND NOT area = yes"
 puts "		proper cycleway: #{cycleway} AND #{proper_surface} AND NOT #{terible_surface}"
 puts "		proper cycleway with a bad surface: #{cycleway} AND NOT #{proper_surface} AND NOT #{terible_surface}"
 puts "		proper cycleway with a terrible surface: #{cycleway} AND  #{terible_surface}"
@@ -84,15 +86,16 @@ unexpected_allowed_cycling = "((bicycle=yes) AND NOT " + typical_road + " AND NO
 contraflow = "((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT #{no_access})"
 puts "		marked contraflow: #{contraflow} AND cycleway=opposite_lane"
 puts "		unmarked contraflow: #{contraflow} AND NOT cycleway=opposite_lane AND NOT #{unexpected_allowed_cycling}"
-puts "		oneway: (((oneway=yes AND NOT #{contraflow}) OR (oneway:bicycle=yes)) AND (#{cycleable} OR #{typical_road}))"
+oneway = "(((oneway=yes AND NOT #{contraflow}) OR (oneway:bicycle=yes)) AND (#{cycleable} OR #{typical_road}))"
+link = "(highway=motorway_link OR highway=trunk_link OR highway=primary_link OR highway=secondary_link OR highway=tertiary_link)"
+separate_carriageway_rather_than_true_oneway = "(highway=motorway OR highway=primary OR highway=secondary OR #{link})"
+puts "		unexpected oneway: #{oneway} AND NOT #{separate_carriageway_rather_than_true_oneway} AND NOT junction=roundabout AND NOT highway=service AND (name OR highway=cycleway OR highway=path) AND NOT #{unexpected_cycling_ban}"
 bicycle_allowed = "(#{unexpected_allowed_cycling} OR (highway=pedestrian AND bicycle=yes AND NOT area=yes))"
 bicycle_allowed_not_in_park = "(#{bicycle_allowed} AND NOT source:bicycle=park_rules)"
 bicycle_allowed_in_park = "(#{bicycle_allowed} AND source:bicycle=park_rules)"
 puts "		bicycle_allowed_not_in_park: #{bicycle_allowed_not_in_park}"
 puts "		bicycle_allowed_in_park: #{bicycle_allowed_in_park}"
 puts "		bicycle allowed with a terrible surface: #{bicycle_allowed} AND #{terible_surface}"
-unexpected_cycling_ban = "((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane))"
-puts "		unexpected cycling ban: #{unexpected_cycling_ban} AND NOT area = yes"
 if heavy_debug
 	puts "		expected explicit cycling ban: bicycle=no AND NOT #{unexpected_cycling_ban} AND NOT area = yes"
 end
@@ -105,8 +108,7 @@ bicycle_crossing_way = "((#{cycleway} OR #{lame_cycleway} OR #{unexpected_allowe
 puts "		OK_bicycle_crossing: highway=crossing AND bicycle=yes"
 puts "		not_OK_bicycle_crossing: way[#{bicycle_crossing_way}].node[highway=crossing AND bicycle=no]"
 if debug
-	crossing_requires_information_about_cycling_status = "(highway=crossing AND NOT bicycle=yes AND NOT bicycle=no AND NOT crossing=unmarked)"
-	puts "		not_defined_bicycle_crossing: way[#{bicycle_crossing_way}].node[#{crossing_requires_information_about_cycling_status}]"
+	puts "		not_defined_bicycle_crossing: way[#{bicycle_crossing_way}].node[highway=crossing AND NOT bicycle=yes AND NOT bicycle=no]"
 	puts "		badly_defined_crossing: highway=crossing AND ((bicycle AND NOT bicycle=yes AND NOT bicycle=no) OR (foot AND NOT foot=yes AND NOT foot=no))"
 end
 puts "		advanced_stop_line: cycleway=advanced_stop_line"

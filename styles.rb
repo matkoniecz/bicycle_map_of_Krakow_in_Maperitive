@@ -298,38 +298,6 @@ returned += "
 	/////////////////////////////
 	//special cycleways
 	/////////////////////////////
-	target: marked contraflow
-		define
-			min-zoom: 9
-			line-color: blue
-			line-width: 7:1;12:2.5;17:3
-			line-style: solid
-			line-offset: 14:1;15:2;16:3;17:3
-			line-offset-sides: left
-		for: oneway=-1
-			define
-				line-offset-sides: right
-		draw: line
-		draw: text
-		
-	target: unmarked contraflow
-		define
-			min-zoom: 9
-			line-color: blue
-			line-width: 7:1;12:2.5;17:3
-			line-style: dot
-			line-offset: 14:0.5;15:1;16:2;17:3
-			line-offset-sides: left
-		for: oneway=-1
-			define
-				line-offset-sides: right
-		draw: line
-		draw: text
-		define
-			line-width: 1
-			line-style: solid
-		draw: line
-
 	target: unexpected cycling ban
 		define
 			min-zoom: 12
@@ -359,17 +327,53 @@ returned += "
 		draw: line
 
 	/////////////////////////////
-	//oneway arrows
+	//handling of oneway issues
 	/////////////////////////////
-	target: oneway
+	target: unexpected oneway
+		define
+			min-zoom: 12
+			line-color: red
+			line-width: 12:1;13:1.5;14:2;17:2.5
+			line-style: solid
+			line-offset: 14:1;15:2;16:3;17:3
+			line-offset-sides: left
+		for: oneway=-1
+			define
+				line-offset-sides: right
+		draw: line
+		draw: text
+
+	target: marked contraflow
 		define
 			min-zoom: 15
-			shape: custom
-			shape-def: 0,10, 10,0, 0,-10, 10,0;Z
-			shape-size: 7
-			shape-spacing: 4
+			line-color: blue
+			line-width: 7:1;12:2.5;17:3
+			line-style: solid
+			line-offset: 14:1;15:2;16:3;17:3
+			line-offset-sides: left
+		for: oneway=-1
+			define
+				line-offset-sides: right
+		draw: line
+		draw: text
+		
+	target: unmarked contraflow
+		define
+			min-zoom: 15
+			line-color: blue
+			line-width: 7:1;12:2.5;17:3
+			line-style: dot
+			line-offset: 14:0.5;15:1;16:2;17:3
+			line-offset-sides: left
+		for: oneway=-1
+			define
+				line-offset-sides: right
+		draw: line
+		draw: text
+		define
 			line-width: 1
-		draw: shape
+			line-style: solid
+		draw: line
 	
 	/////////////////////////////
 	//roads
