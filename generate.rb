@@ -105,7 +105,8 @@ bicycle_crossing_way = "((#{cycleway} OR #{lame_cycleway} OR #{unexpected_allowe
 puts "		OK_bicycle_crossing: highway=crossing AND bicycle=yes"
 puts "		not_OK_bicycle_crossing: way[#{bicycle_crossing_way}].node[highway=crossing AND bicycle=no]"
 if debug
-	puts "		not_defined_bicycle_crossing: way[#{bicycle_crossing_way}].node[highway=crossing AND NOT bicycle=yes AND NOT bicycle=no]"
+	crossing_requires_information_about_cycling_status = "(highway=crossing AND NOT bicycle=yes AND NOT bicycle=no AND NOT crossing=unmarked)"
+	puts "		not_defined_bicycle_crossing: way[#{bicycle_crossing_way}].node[#{crossing_requires_information_about_cycling_status}]"
 	puts "		badly_defined_crossing: highway=crossing AND ((bicycle AND NOT bicycle=yes AND NOT bicycle=no) OR (foot AND NOT foot=yes AND NOT foot=no))"
 end
 puts "		advanced_stop_line: cycleway=advanced_stop_line"
