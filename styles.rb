@@ -10,7 +10,7 @@ def get_bicycle_styles
 				["weird segregated", "brown", "segregated"],
 				["weird cycleway value", "teal", "cycleway"],
 				["weird bicycle value", "orange", "bicycle"],
-				["weird surface value", "yellow"],
+				["weird surface value", "yellow", "surface"],
 				["bicycle unexpected status no source mentioned", "gray", "bicycle", "bicycle unexpected status without source:bicycle"],
 				["weird highway value", "lime", "highway"],
 				["bicycle oneway tag synch oneway bicycle", "#663300", "", "bicycle oneway tag synch +(oneway:bicycle)"], #bark brown
