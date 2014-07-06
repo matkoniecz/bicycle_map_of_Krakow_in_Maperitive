@@ -1,6 +1,7 @@
 require 'rest_client'
 puts "downloading: start"
-text = RestClient.get(URI.escape("http://overpass-api.de/api/interpreter?data=(node(50,19.78,50.11,20.09);<;);out meta;"), :user_agent => "bulwersator@gmail.com").to_str
+bb = "50,19.78,50.11,20.09";
+text = RestClient.get(URI.escape("http://overpass-api.de/api/interpreter?data=(node(#{bb});rel(bn)->.x;way(bn);rel(bw););(._;way(r););(._;node(r)->.x;node(w););out meta;"), :user_agent => "bulwersator@gmail.com").to_str
 puts "downloading: end"
 
 filename = "interpreter.osm"
