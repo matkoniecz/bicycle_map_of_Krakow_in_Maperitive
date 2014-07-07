@@ -43,7 +43,7 @@ def weird name, allowed
 	end
 	return "(#{returned})"
 end
-OK_surface_values = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "concrete:plates", "unpaved", "cobblestone"]
+OK_surface_values = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "concrete:plates", "unpaved", "cobblestone", "mud"]
 weird_main_surface = weird("surface", OK_surface_values)
 used = ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link", "pedestrian", "residential", "living_street", "unclassified", "service", "track", "footway", "cycleway", "path"]
 discarded =["steps", "proposed", "construction", "bridleway", "platform", "bus_stop"]
