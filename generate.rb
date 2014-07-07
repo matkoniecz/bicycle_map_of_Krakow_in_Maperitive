@@ -46,7 +46,7 @@ end
 OK_surface_values = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "concrete:plates", "unpaved", "cobblestone", "mud"]
 weird_main_surface = weird("surface", OK_surface_values)
 used = ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link", "pedestrian", "residential", "living_street", "unclassified", "service", "track", "footway", "cycleway", "path"]
-discarded =["steps", "proposed", "construction", "bridleway", "platform", "bus_stop"]
+discarded =["steps", "proposed", "construction", "bridleway", "platform", "bus_stop", "raceway"]
 weird_highway_value = weird("highway", used | discarded)
 weird_cycleway_surface = weird("cycleway:surface", OK_surface_values)
 puts "features"
