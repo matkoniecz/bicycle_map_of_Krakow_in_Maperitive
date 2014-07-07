@@ -30,7 +30,7 @@ low_traffic_road_accessible_to_bicycles = "((#{road_low_traffic}) AND NOT bicycl
 separate_cycleway = "(((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT #{no_access})"
 segregated_cycleway = "(((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT #{no_access})"
 proper_surface = "(surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)"
-terible_surface = "(smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud)"
+terible_surface = "(smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud OR surface=cobblestone)"
 cycleway = "("+separate_cycleway + " OR " + segregated_cycleway + ")"
 no_surface_info_for_main_part = "(surface=paved OR surface=unpaved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness)))"
 no_surface_info_for_lane = "(cycleway:surface=paved OR cycleway:surface=unpaved OR NOT cycleway:surface)"
