@@ -87,6 +87,15 @@ returned += "
 			//line-color: red
 		draw: shape
 	
+	target: not_defined_segregated_on_bicycle_crossing
+		define
+			min-zoom: 1
+			fill-color: lime
+			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			line-width: 0
+			//line-color: red
+		draw: shape
+
 	target: badly_defined_crossing
 		define
 			min-zoom: 1
@@ -102,6 +111,15 @@ returned += "
 			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
 			line-width: 0
 			//line-color: red
+		draw: shape
+
+	target: OK_bicycle_crossing_but_not_segregated
+		define
+			min-zoom: 13
+			fill-color: orange
+			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			line-width: 0
+			//line-color: orange
 		draw: shape
 
 	target: OK_bicycle_crossing

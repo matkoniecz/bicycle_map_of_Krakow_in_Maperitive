@@ -102,12 +102,16 @@ if debug
 end
 puts "	points"
 bicycle_crossing_way = "((#{cycleway} OR #{lame_cycleway} OR #{unexpected_allowed_cycling}) AND NOT #{contraflow} AND NOT (cycleway=lane AND (highway=pedestrian OR #{typical_road})))" #it is an ugly hack as with Maperitive it is impossible to select nodes on way with condition A and on a separate way with condition B
-puts "		OK_bicycle_crossing: highway=crossing AND bicycle=yes"
+puts "		OK_bicycle_crossing: highway=crossing AND bicycle=yes AND NOT crossing=unmarked AND NOT segregated=no"
+puts "		OK_bicycle_crossing_but_not_segregated: highway=crossing AND bicycle=yes AND NOT crossing=unmarked AND segregated=no"
 puts "		not_OK_bicycle_crossing: way[#{bicycle_crossing_way}].node[highway=crossing AND bicycle=no]"
 if debug
 	crossing_requires_information_about_cycling_status = "(highway=crossing AND NOT bicycle=yes AND NOT bicycle=no AND NOT crossing=unmarked)"
 	puts "		not_defined_bicycle_crossing: way[#{bicycle_crossing_way}].node[#{crossing_requires_information_about_cycling_status}]"
-	puts "		badly_defined_crossing: highway=crossing AND ((bicycle AND NOT bicycle=yes AND NOT bicycle=no) OR (foot AND NOT foot=yes AND NOT foot=no))"
+	puts "		badly_defined_crossing: highway=crossing AND ((bicycle AND NOT bicycle=yes AND NOT bicycle=no) OR (foot AND NOT foot=yes AND NOT foot=no) OR (bicycle AND crossing=unmarked))"
+end
+if heavy_debug
+	puts "		not_defined_segregated_on_bicycle_crossing: highway=crossing AND bicycle=yes AND NOT segregated=yes AND NOT segregated=no AND NOT crossing=unmarked"
 end
 puts "		advanced_stop_line: cycleway=advanced_stop_line"
 puts "	points, lines, areas"

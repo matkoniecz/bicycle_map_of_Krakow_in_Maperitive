@@ -38,10 +38,12 @@ features
 	lines
 		bicycle unexpected status no source mentioned: ((((bicycle=no AND ((@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (@isOneOf(highway, tertiary, tertiary_link, residential, unclassified) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR ((highway=service OR highway=living_street OR highway=track) AND NOT (service=driveway OR service=parking_aisle) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))))) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane)) AND NOT highway=pedestrian) OR ((bicycle=yes) AND NOT ((@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (@isOneOf(highway, tertiary, tertiary_link, residential, unclassified) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR ((highway=service OR highway=living_street OR highway=track) AND NOT (service=driveway OR service=parking_aisle) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area=yes AND NOT (service=driveway OR service=parking_aisle))) AND NOT (source:bicycle=sign OR source:bicycle=park_rules OR footway=sidewalk OR footway=crossing)
 	points
-		OK_bicycle_crossing: highway=crossing AND bicycle=yes
+		OK_bicycle_crossing: highway=crossing AND bicycle=yes AND NOT crossing=unmarked AND NOT segregated=no
+		OK_bicycle_crossing_but_not_segregated: highway=crossing AND bicycle=yes AND NOT crossing=unmarked AND segregated=no
 		not_OK_bicycle_crossing: way[((((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) OR (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area:highway) OR ((bicycle=yes) AND NOT ((@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (@isOneOf(highway, tertiary, tertiary_link, residential, unclassified) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR ((highway=service OR highway=living_street OR highway=track) AND NOT (service=driveway OR service=parking_aisle) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area=yes AND NOT (service=driveway OR service=parking_aisle))) AND NOT ((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND NOT (cycleway=lane AND (highway=pedestrian OR ((@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (@isOneOf(highway, tertiary, tertiary_link, residential, unclassified) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR ((highway=service OR highway=living_street OR highway=track) AND NOT (service=driveway OR service=parking_aisle) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))))))].node[highway=crossing AND bicycle=no]
 		not_defined_bicycle_crossing: way[((((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) OR (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area:highway) OR ((bicycle=yes) AND NOT ((@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (@isOneOf(highway, tertiary, tertiary_link, residential, unclassified) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR ((highway=service OR highway=living_street OR highway=track) AND NOT (service=driveway OR service=parking_aisle) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area=yes AND NOT (service=driveway OR service=parking_aisle))) AND NOT ((cycleway=opposite_lane OR oneway:bicycle = no) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND NOT (cycleway=lane AND (highway=pedestrian OR ((@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (@isOneOf(highway, tertiary, tertiary_link, residential, unclassified) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR ((highway=service OR highway=living_street OR highway=track) AND NOT (service=driveway OR service=parking_aisle) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))))))].node[(highway=crossing AND NOT bicycle=yes AND NOT bicycle=no AND NOT crossing=unmarked)]
-		badly_defined_crossing: highway=crossing AND ((bicycle AND NOT bicycle=yes AND NOT bicycle=no) OR (foot AND NOT foot=yes AND NOT foot=no))
+		badly_defined_crossing: highway=crossing AND ((bicycle AND NOT bicycle=yes AND NOT bicycle=no) OR (foot AND NOT foot=yes AND NOT foot=no) OR (bicycle AND crossing=unmarked))
+		not_defined_segregated_on_bicycle_crossing: highway=crossing AND bicycle=yes AND NOT segregated=yes AND NOT segregated=no AND NOT crossing=unmarked
 		advanced_stop_line: cycleway=advanced_stop_line
 	points, lines, areas
 		fixme: (FIXME OR fixme) AND (fixme:type:bicycle=yes OR (amenity=bicycle_parking OR bicycle OR highway=cycleway))
@@ -280,6 +282,15 @@ rules
 			//line-color: red
 		draw: shape
 	
+	target: not_defined_segregated_on_bicycle_crossing
+		define
+			min-zoom: 1
+			fill-color: lime
+			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			line-width: 0
+			//line-color: red
+		draw: shape
+
 	target: badly_defined_crossing
 		define
 			min-zoom: 1
@@ -295,6 +306,15 @@ rules
 			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
 			line-width: 0
 			//line-color: red
+		draw: shape
+
+	target: OK_bicycle_crossing_but_not_segregated
+		define
+			min-zoom: 13
+			fill-color: orange
+			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			line-width: 0
+			//line-color: orange
 		draw: shape
 
 	target: OK_bicycle_crossing
