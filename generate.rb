@@ -91,7 +91,7 @@ bicycle_allowed_in_park = "(#{bicycle_allowed} AND source:bicycle=park_rules)"
 puts "		bicycle_allowed_not_in_park: #{bicycle_allowed_not_in_park}"
 puts "		bicycle_allowed_in_park: #{bicycle_allowed_in_park}"
 puts "		bicycle allowed with a terrible surface: #{bicycle_allowed} AND #{terible_surface}"
-unexpected_cycling_ban = "((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane))"
+unexpected_cycling_ban = "(((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane)) AND NOT source:bicycle=cemetery_rules)"
 puts "		unexpected cycling ban: #{unexpected_cycling_ban} AND NOT area = yes"
 if heavy_debug
 	puts "		expected explicit cycling ban: bicycle=no AND NOT #{unexpected_cycling_ban} AND NOT area = yes"
