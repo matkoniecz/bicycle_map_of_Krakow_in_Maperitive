@@ -485,9 +485,9 @@ returned += "
 	/////////////////////////////
 	target: trees
 		define
-			fill-color: #a5ef9b
+			fill-color: #D0DCAE
 			line-width: 0
-			line-color: #a5ef9b
+			line-color: #D0DCAE
 		draw: fill
 		define
 			min-zoom: 15
