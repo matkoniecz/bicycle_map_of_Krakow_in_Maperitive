@@ -443,7 +443,7 @@ returned += "
 
 	target: no maxspeed info
 		define
-			min-zoom: 14
+			min-zoom: 13
 			line-color: pink
 			line-width: 2
 			line-style: solid
