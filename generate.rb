@@ -35,7 +35,7 @@ cycleway = "("+separate_cycleway + " OR " + segregated_cycleway + ")"
 no_surface_info_for_main_part = "(surface=paved OR surface=unpaved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness)))"
 no_surface_info_for_lane = "(cycleway:surface=paved OR cycleway:surface=unpaved OR NOT cycleway:surface)"
 lame_cycleway = "(((bicycle=designated OR highway=cycleway) AND NOT #{cycleway}) AND NOT #{no_access} AND NOT area:highway)"
-valid_bicycle_source_value = "(source:bicycle=sign OR source:bicycle=park_rules OR source:bicycle=cemetery_rules OR footway=sidewalk OR footway=crossing)" #footway=sidewalk, footway=crossing hack is temporary as source:bicycle needs proper string for this status (but it probably will be checked anyway)
+valid_bicycle_source_value = "(source:bicycle=sign OR source:bicycle=park_rules OR source:bicycle=forest_rules OR source:bicycle=cemetery_rules OR footway=sidewalk OR footway=crossing)" #footway=sidewalk, footway=crossing hack is temporary as source:bicycle needs proper string for this status (but it probably will be checked anyway)
 def weird name, allowed
 	returned = name
 	allowed.each do |value|
