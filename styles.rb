@@ -470,13 +470,21 @@ returned += "
 	/////////////////////////////
 	target: water
 		define
+			min-zoom: 1
 			fill-color: #b0b0ef
 			line-width: 0
 			line-color: #b0b0ef
 		draw: fill
 	target: water-line
 		define
+			min-zoom: 1
 			line-width: 2
+			line-color: #b0b0ef
+		draw: line
+	target: water-line-small
+		define
+			min-zoom: 12
+			line-width: 1
 			line-color: #b0b0ef
 		draw: line
 

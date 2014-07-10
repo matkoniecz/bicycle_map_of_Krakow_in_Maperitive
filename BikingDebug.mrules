@@ -58,7 +58,8 @@ features
 		trees: leisure=park OR landuse=forest OR landuse=orchard OR natural=wood OR leisure=garden
 		blocked area: landuse=railway OR aeroway=aerodrome
 	lines
-		water-line: (waterway=stream OR waterway=river OR waterway=canal) AND NOT tunnel
+		water-line: (waterway=river OR waterway=canal) AND NOT tunnel
+		water-line-small: (waterway=stream OR waterway=ditch) AND NOT tunnel
 properties
 	map-background-color: white
 	text-halo-width: 30%
@@ -658,13 +659,21 @@ rules
 	/////////////////////////////
 	target: water
 		define
+			min-zoom: 1
 			fill-color: #b0b0ef
 			line-width: 0
 			line-color: #b0b0ef
 		draw: fill
 	target: water-line
 		define
+			min-zoom: 1
 			line-width: 2
+			line-color: #b0b0ef
+		draw: line
+	target: water-line-small
+		define
+			min-zoom: 12
+			line-width: 1
 			line-color: #b0b0ef
 		draw: line
 
