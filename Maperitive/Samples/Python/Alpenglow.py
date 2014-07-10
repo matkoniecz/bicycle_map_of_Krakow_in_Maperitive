@@ -84,7 +84,7 @@ custom_layer = Map.add_custom_layer()
 # Fetch Viewfinder's Alps DEM for that area...
 print "Fetching the DEM..."
 
-dem = ReliefUtils.viewfinder_alps1.fetch_dem(relief_bbox)
+dem = ReliefUtils.nasa_srtmv3r3.fetch_dem(relief_bbox)
 
 # Execute the hillshading.
 print "Generating the hillshading..."

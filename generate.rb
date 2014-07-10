@@ -30,12 +30,12 @@ low_traffic_road_accessible_to_bicycles = "((#{road_low_traffic}) AND NOT bicycl
 separate_cycleway = "(((highway=cycleway AND NOT segregated = no AND NOT foot = yes AND NOT foot = designated))  AND NOT #{no_access})"
 segregated_cycleway = "(((highway=cycleway AND segregated = yes) OR (bicycle=designated AND segregated = yes) OR (cycleway = lane))  AND NOT #{no_access})"
 proper_surface = "(surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)"
-terible_surface = "(smoothness = bad OR smoothness = very_bad OR smoothness = horrible  OR smoothness = very_horrible OR smoothness = impassable)"
+terible_surface = "(smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud OR surface=cobblestone)"
 cycleway = "("+separate_cycleway + " OR " + segregated_cycleway + ")"
 no_surface_info_for_main_part = "(surface=paved OR surface=unpaved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness)))"
 no_surface_info_for_lane = "(cycleway:surface=paved OR cycleway:surface=unpaved OR NOT cycleway:surface)"
 lame_cycleway = "(((bicycle=designated OR highway=cycleway) AND NOT #{cycleway}) AND NOT #{no_access} AND NOT area:highway)"
-valid_bicycle_source_value = "(source:bicycle=sign OR source:bicycle=park_rules OR footway=sidewalk OR footway=crossing)" #footway=sidewalk, footway=crossing hack is temporary as source:bicycle needs proper string for this status (but it probably will be checked anyway)
+valid_bicycle_source_value = "(source:bicycle=sign OR source:bicycle=park_rules OR source:bicycle=forest_rules OR source:bicycle=cemetery_rules OR footway=sidewalk OR footway=crossing)" #footway=sidewalk, footway=crossing hack is temporary as source:bicycle needs proper string for this status (but it probably will be checked anyway)
 def weird name, allowed
 	returned = name
 	allowed.each do |value|
@@ -43,10 +43,10 @@ def weird name, allowed
 	end
 	return "(#{returned})"
 end
-OK_surface_values = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "concrete:plates", "unpaved", "cobblestone"]
+OK_surface_values = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "concrete:plates", "unpaved", "cobblestone", "mud"]
 weird_main_surface = weird("surface", OK_surface_values)
 used = ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link", "pedestrian", "residential", "living_street", "unclassified", "service", "track", "footway", "cycleway", "path"]
-discarded =["steps", "proposed", "construction", "bridleway", "platform", "bus_stop"]
+discarded =["steps", "proposed", "construction", "bridleway", "platform", "bus_stop", "raceway"]
 weird_highway_value = weird("highway", used | discarded)
 weird_cycleway_surface = weird("cycleway:surface", OK_surface_values)
 puts "features"
@@ -96,6 +96,8 @@ bicycle_allowed_in_park = "(#{bicycle_allowed} AND source:bicycle=park_rules)"
 puts "		bicycle_allowed_not_in_park: #{bicycle_allowed_not_in_park}"
 puts "		bicycle_allowed_in_park: #{bicycle_allowed_in_park}"
 puts "		bicycle allowed with a terrible surface: #{bicycle_allowed} AND #{terible_surface}"
+unexpected_cycling_ban = "(((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane)) AND NOT source:bicycle=cemetery_rules)"
+puts "		unexpected cycling ban: #{unexpected_cycling_ban} AND NOT area = yes"
 if heavy_debug
 	puts "		expected explicit cycling ban: bicycle=no AND NOT #{unexpected_cycling_ban} AND NOT area = yes"
 end
@@ -105,11 +107,16 @@ if debug
 end
 puts "	points"
 bicycle_crossing_way = "((#{cycleway} OR #{lame_cycleway} OR #{unexpected_allowed_cycling}) AND NOT #{contraflow} AND NOT (cycleway=lane AND (highway=pedestrian OR #{typical_road})))" #it is an ugly hack as with Maperitive it is impossible to select nodes on way with condition A and on a separate way with condition B
-puts "		OK_bicycle_crossing: highway=crossing AND bicycle=yes"
+puts "		OK_bicycle_crossing: highway=crossing AND bicycle=yes AND NOT crossing=unmarked AND NOT segregated=no"
+puts "		OK_bicycle_crossing_but_not_segregated: highway=crossing AND bicycle=yes AND NOT crossing=unmarked AND segregated=no"
 puts "		not_OK_bicycle_crossing: way[#{bicycle_crossing_way}].node[highway=crossing AND bicycle=no]"
 if debug
-	puts "		not_defined_bicycle_crossing: way[#{bicycle_crossing_way}].node[highway=crossing AND NOT bicycle=yes AND NOT bicycle=no]"
-	puts "		badly_defined_crossing: highway=crossing AND ((bicycle AND NOT bicycle=yes AND NOT bicycle=no) OR (foot AND NOT foot=yes AND NOT foot=no))"
+	crossing_requires_information_about_cycling_status = "(highway=crossing AND NOT bicycle=yes AND NOT bicycle=no AND NOT crossing=unmarked)"
+	puts "		not_defined_bicycle_crossing: way[#{bicycle_crossing_way}].node[#{crossing_requires_information_about_cycling_status}]"
+	puts "		badly_defined_crossing: highway=crossing AND ((bicycle AND NOT bicycle=yes AND NOT bicycle=no) OR (foot AND NOT foot=yes AND NOT foot=no) OR (bicycle AND crossing=unmarked))"
+end
+if heavy_debug
+	puts "		not_defined_segregated_on_bicycle_crossing: highway=crossing AND bicycle=yes AND NOT segregated=yes AND NOT segregated=no AND NOT crossing=unmarked"
 end
 puts "		advanced_stop_line: cycleway=advanced_stop_line"
 puts "	points, lines, areas"
@@ -139,7 +146,8 @@ puts "		water: natural=water OR waterway=riverbank OR waterway=dock OR landuse=r
 puts "		trees: leisure=park OR landuse=forest OR landuse=orchard OR natural=wood OR leisure=garden"
 puts "		blocked area: landuse=railway OR aeroway=aerodrome"
 puts "	lines"
-puts "		water-line: (waterway=stream OR waterway=river OR waterway=canal) AND NOT tunnel"
+puts "		water-line: (waterway=river OR waterway=canal) AND NOT tunnel"
+puts "		water-line-small: (waterway=stream OR waterway=ditch) AND NOT tunnel"
 puts "properties"
 puts "	map-background-color: white"
 puts "	text-halo-width: 30%"

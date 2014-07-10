@@ -48,7 +48,7 @@ custom_layer = Map.add_custom_layer()
 contour_color = Color("#511900")
 
 # Fetch SRTM3 DEM for that area...
-dem = ReliefUtils.nasa_srtm3.fetch_dem(relief_bbox)
+dem = ReliefUtils.nasa_srtmv3r3.fetch_dem(relief_bbox)
 
 # ... and now generate contours from that DEM (with 20m interval)
 contours = ReliefUtils.generate_contours(dem, relief_bbox, 20)

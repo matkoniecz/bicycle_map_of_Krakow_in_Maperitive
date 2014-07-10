@@ -10,7 +10,7 @@ def get_bicycle_styles
 				["weird segregated", "brown", "segregated"],
 				["weird cycleway value", "teal", "cycleway"],
 				["weird bicycle value", "orange", "bicycle"],
-				["weird surface value", "yellow"],
+				["weird surface value", "yellow", "surface"],
 				["bicycle unexpected status no source mentioned", "gray", "bicycle", "bicycle unexpected status without source:bicycle"],
 				["weird highway value", "lime", "highway"],
 				["bicycle oneway tag synch oneway bicycle", "#663300", "", "bicycle oneway tag synch +(oneway:bicycle)"], #bark brown
@@ -87,6 +87,15 @@ returned += "
 			//line-color: red
 		draw: shape
 	
+	target: not_defined_segregated_on_bicycle_crossing
+		define
+			min-zoom: 1
+			fill-color: lime
+			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			line-width: 0
+			//line-color: red
+		draw: shape
+
 	target: badly_defined_crossing
 		define
 			min-zoom: 1
@@ -102,6 +111,15 @@ returned += "
 			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
 			line-width: 0
 			//line-color: red
+		draw: shape
+
+	target: OK_bicycle_crossing_but_not_segregated
+		define
+			min-zoom: 13
+			fill-color: orange
+			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
+			line-width: 0
+			//line-color: orange
 		draw: shape
 
 	target: OK_bicycle_crossing
@@ -429,7 +447,7 @@ returned += "
 
 	target: no maxspeed info
 		define
-			min-zoom: 14
+			min-zoom: 13
 			line-color: pink
 			line-width: 2
 			line-style: solid
@@ -456,13 +474,21 @@ returned += "
 	/////////////////////////////
 	target: water
 		define
+			min-zoom: 1
 			fill-color: #b0b0ef
 			line-width: 0
 			line-color: #b0b0ef
 		draw: fill
 	target: water-line
 		define
+			min-zoom: 1
 			line-width: 2
+			line-color: #b0b0ef
+		draw: line
+	target: water-line-small
+		define
+			min-zoom: 12
+			line-width: 1
 			line-color: #b0b0ef
 		draw: line
 
@@ -471,9 +497,9 @@ returned += "
 	/////////////////////////////
 	target: trees
 		define
-			fill-color: #a5ef9b
+			fill-color: #D0DCAE
 			line-width: 0
-			line-color: #a5ef9b
+			line-color: #D0DCAE
 		draw: fill
 		define
 			min-zoom: 15
