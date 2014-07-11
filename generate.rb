@@ -70,7 +70,6 @@ puts "		cycleable road: #{typical_road_accessible_to_bicycles}"
 if debug
 	puts "		missing designated: cycleway=lane AND NOT bicycle=designated"
 	puts "		invalid designated: bicycle=designated AND NOT (cycleway=lane OR highway=path OR highway=cycleway)"
-	puts "		weird highway value: #{weird_highway_value}"
 	puts "		weird cycleway value: #{weird("cycleway", ["lane", "opposite_lane", "no", "opposite", "crossing"])}"
 	puts "		weird bicycle value: #{weird("bicycle", ["yes", "no", "designated", "permissive", "use_sidepath"])}"
 	puts "		weird surface value: #{cycleable} AND (#{weird_main_surface} OR #{weird_cycleway_surface})"
@@ -86,6 +85,9 @@ if debug
 	puts "		bicycle oneway tag synch cycleway: ((NOT cycleway=opposite_lane AND NOT cycleway=opposite) AND oneway:bicycle=no AND oneway=yes)"
 	puts "		railway: railway=rail" #to check coverage of landuse=railway
 	puts ""
+end
+if heavy_debug
+	puts "		weird highway value: #{weird_highway_value}"
 end
 puts "		motorway: #{motorway}"
 puts "		proper cycleway: #{cycleway} AND #{proper_surface} AND NOT #{terible_surface}"
