@@ -43,7 +43,6 @@ features
 		not_OK_bicycle_crossing: way[(highway=cycleway OR (highway=path AND bicycle=designated) OR (bicycle=yes AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area=yes AND (highway=footway OR highway=path OR highway=pedestrian)))].node[highway=crossing AND bicycle=no]
 		not_defined_bicycle_crossing: way[(highway=cycleway OR (highway=path AND bicycle=designated) OR (bicycle=yes AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area=yes AND (highway=footway OR highway=path OR highway=pedestrian)))].node[(highway=crossing AND NOT bicycle=yes AND NOT bicycle=no AND NOT crossing=unmarked)]
 		badly_defined_crossing: highway=crossing AND ((bicycle AND NOT bicycle=yes AND NOT bicycle=no) OR (foot AND NOT foot=yes AND NOT foot=no) OR (bicycle AND crossing=unmarked))
-		not_defined_segregated_on_bicycle_crossing: highway=crossing AND bicycle=yes AND NOT segregated=yes AND NOT segregated=no AND NOT crossing=unmarked
 		advanced_stop_line: cycleway=advanced_stop_line
 	points, lines, areas
 		fixme: (FIXME OR fixme) AND (fixme:type:bicycle=yes OR (amenity=bicycle_parking OR bicycle OR highway=cycleway))
@@ -283,15 +282,6 @@ rules
 			//line-color: red
 		draw: shape
 	
-	target: not_defined_segregated_on_bicycle_crossing
-		define
-			min-zoom: 1
-			fill-color: lime
-			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
-			line-width: 0
-			//line-color: red
-		draw: shape
-
 	target: badly_defined_crossing
 		define
 			min-zoom: 1

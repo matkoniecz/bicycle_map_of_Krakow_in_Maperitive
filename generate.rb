@@ -115,9 +115,6 @@ if debug
 	puts "		not_defined_bicycle_crossing: way[#{bicycle_crossing_way}].node[#{crossing_requires_information_about_cycling_status}]"
 	puts "		badly_defined_crossing: highway=crossing AND ((bicycle AND NOT bicycle=yes AND NOT bicycle=no) OR (foot AND NOT foot=yes AND NOT foot=no) OR (bicycle AND crossing=unmarked))"
 end
-if heavy_debug
-	puts "		not_defined_segregated_on_bicycle_crossing: highway=crossing AND bicycle=yes AND NOT segregated=yes AND NOT segregated=no AND NOT crossing=unmarked"
-end
 puts "		advanced_stop_line: cycleway=advanced_stop_line"
 puts "	points, lines, areas"
 if debug
