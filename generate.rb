@@ -86,7 +86,7 @@ if debug
 	puts ""
 end
 puts "		motorway: #{motorway}"
-unexpected_cycling_ban = "((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane))"
+unexpected_cycling_ban = "(((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane)) AND NOT source:bicycle=cemetery_rules)"
 puts "		unexpected cycling ban: #{unexpected_cycling_ban} AND NOT area = yes"
 puts "		proper cycleway: #{cycleway} AND #{proper_surface} AND NOT #{terible_surface}"
 puts "		proper cycleway with a bad surface: #{cycleway} AND NOT #{proper_surface} AND NOT #{terible_surface}"
