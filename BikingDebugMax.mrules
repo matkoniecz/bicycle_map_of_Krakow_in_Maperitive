@@ -2,14 +2,15 @@ features
 	lines
 		high traffic cycleable road: ((@isOneOf(highway, primary, primary_link, secondary, secondary_link)) AND NOT bicycle=no AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))
 		normal traffic cycleable road: (((@isOneOf(highway, tertiary, tertiary_link, residential, unclassified))) AND NOT bicycle=no AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))
-		low traffic cycleable road: ((@isOneOf(highway, service, living_street, track)) AND NOT bicycle=no AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))
+		low traffic cycleable road: ((@isOneOf(highway, service, living_street, track)) AND NOT bicycle=no AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT (service=driveway OR service=parking_aisle))
+		minor service cycleable road: ((@isOneOf(highway, service, living_street, track)) AND NOT bicycle=no AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND (service=driveway OR service=parking_aisle))
 		cycleable road: (((@isOneOf(highway, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, unclassified, service, living_street, track)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND NOT bicycle=no)
 		weird highway value: (highway AND NOT highway=motorway AND NOT highway=motorway_link AND NOT highway=trunk AND NOT highway=trunk_link AND NOT highway=primary AND NOT highway=primary_link AND NOT highway=secondary AND NOT highway=secondary_link AND NOT highway=tertiary AND NOT highway=tertiary_link AND NOT highway=pedestrian AND NOT highway=residential AND NOT highway=living_street AND NOT highway=unclassified AND NOT highway=service AND NOT highway=track AND NOT highway=footway AND NOT highway=cycleway AND NOT highway=path AND NOT highway=steps AND NOT highway=proposed AND NOT highway=construction AND NOT highway=bridleway AND NOT highway=platform AND NOT highway=bus_stop AND NOT highway=raceway)
 		weird cycleway value: (cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite)
 		weird bicycle value: (bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle=designated AND NOT bicycle=permissive)
 		weird surface value: ((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))  AND NOT area:highway) AND ((surface AND NOT surface=asphalt AND NOT surface=grass AND NOT surface=dirt AND NOT surface=compacted AND NOT surface=sett AND NOT surface=paved AND NOT surface=paving_stones AND NOT surface=gravel AND NOT surface=ground AND NOT surface=sand AND NOT surface=wood AND NOT surface=earth AND NOT surface=pebblestone AND NOT surface=concrete AND NOT surface=concrete:plates AND NOT surface=unpaved AND NOT surface=cobblestone AND NOT surface=mud) OR (cycleway:surface AND NOT cycleway:surface=asphalt AND NOT cycleway:surface=grass AND NOT cycleway:surface=dirt AND NOT cycleway:surface=compacted AND NOT cycleway:surface=sett AND NOT cycleway:surface=paved AND NOT cycleway:surface=paving_stones AND NOT cycleway:surface=gravel AND NOT cycleway:surface=ground AND NOT cycleway:surface=sand AND NOT cycleway:surface=wood AND NOT cycleway:surface=earth AND NOT cycleway:surface=pebblestone AND NOT cycleway:surface=concrete AND NOT cycleway:surface=concrete:plates AND NOT cycleway:surface=unpaved AND NOT cycleway:surface=cobblestone AND NOT cycleway:surface=mud))
 		no_and_yes_bug: (((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))  AND NOT area:highway) AND bicycle=no) OR (highway=cycleway AND bicycle AND NOT bicycle = designated AND NOT bicycle = dismount)
-		no_surface_info: (((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((bicycle=designated OR highway=cycleway) AND NOT ((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area:highway)) AND ((surface=paved OR surface=unpaved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness))) AND (cycleway:surface=paved OR cycleway:surface=unpaved OR NOT cycleway:surface))
+		no_surface_info: (((((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated))) OR cycleway=lane) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) OR (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated))) OR cycleway=lane) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area:highway)) AND ((surface=paved OR surface=unpaved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness))) AND (cycleway:surface=paved OR cycleway:surface=unpaved OR NOT cycleway:surface))
 		no maxspeed info: (@isOneOf(highway, trunk, trunk_link, primary, primary_link, secondary, secondary_link) AND NOT maxspeed)
 		plus 50 maxspeed: (maxspeed > 50 AND NOT (highway=motorway OR highway=motorway_link OR highway=trunk OR highway=trunk_link))
 		missing segregated: ((bicycle=designated OR highway=cycleway) AND (foot=yes OR foot=designated OR bicycle=foot OR highway=footway) AND NOT segregated AND NOT area:highway)
@@ -22,12 +23,12 @@ features
 
 		motorway: (highway=motorway OR highway=motorway_link OR highway=trunk OR highway=trunk_link)
 		unexpected cycling ban: ((bicycle=no AND ((@isOneOf(highway, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, unclassified, service, living_street, track)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane)) AND NOT area = yes
-		proper cycleway: ((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud OR surface=cobblestone)
-		proper cycleway with a bad surface: ((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND NOT (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud OR surface=cobblestone)
-		proper cycleway with a terrible surface: ((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND  (smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud OR surface=cobblestone)
-		not segregated cycleway with a good surface: (((bicycle=designated OR highway=cycleway) AND NOT ((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area:highway) AND (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud OR surface=cobblestone)
-		not segregated cycleway with a bad surface: (((bicycle=designated OR highway=cycleway) AND NOT ((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area:highway) AND NOT (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)
-		not segregated cycleway with a terrible surface: (((bicycle=designated OR highway=cycleway) AND NOT ((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area:highway) AND (smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud OR surface=cobblestone)
+		proper cycleway: ((((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated))) OR cycleway=lane) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud OR surface=cobblestone)
+		proper cycleway with a bad surface: ((((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated))) OR cycleway=lane) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND NOT (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud OR surface=cobblestone)
+		proper cycleway with a terrible surface: ((((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated))) OR cycleway=lane) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND  (smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud OR surface=cobblestone)
+		not segregated cycleway with a good surface: (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated))) OR cycleway=lane) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area:highway) AND (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt) AND NOT (smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud OR surface=cobblestone)
+		not segregated cycleway with a bad surface: (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated))) OR cycleway=lane) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area:highway) AND NOT (surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)
+		not segregated cycleway with a terrible surface: (((bicycle=designated OR highway=cycleway) AND NOT ((((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated))) OR cycleway=lane) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area:highway) AND (smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud OR surface=cobblestone)
 		marked contraflow: cycleway=opposite_lane AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))
 		unmarked contraflow: cycleway=opposite AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT (bicycle=yes AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area=yes AND (highway=footway OR highway=path OR highway=pedestrian))
 		unexpected oneway: (((oneway=yes AND NOT oneway:bicycle=no) OR (oneway:bicycle=yes)) AND (((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))  AND NOT area:highway) OR ((@isOneOf(highway, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, unclassified, service, living_street, track)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))))) AND NOT (highway=motorway OR highway=primary OR highway=secondary OR (highway=motorway_link OR highway=trunk_link OR highway=primary_link OR highway=secondary_link OR highway=tertiary_link) OR dual_carriageway=yes OR dual_carriageway:bicycle=yes OR bicycle=use_sidepath) AND NOT junction=roundabout AND NOT highway=service AND (name OR highway=cycleway OR highway=path) AND NOT ((bicycle=no AND ((@isOneOf(highway, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, unclassified, service, living_street, track)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))) OR (highway=pedestrian AND NOT bicycle=yes AND NOT bicycle = designated AND NOT cycleway=lane))
@@ -244,13 +245,14 @@ rules
 	/////////////////////////////
 	target: blocked area
 		define
-			fill-color: #bfbfbf
+			min-zoom: 10
+			fill-color: #E8DACC
 			line-width: 0
-			line-color: #bfbfbf
+			line-color: #E8DACC
 		draw: fill
 	target: railway
 		define
-			min-zoom: 1
+			min-zoom: 10
 			line-color: #a1a1a1
 			line-width: 1
 		draw: line
@@ -293,7 +295,7 @@ rules
 
 	target: not_OK_bicycle_crossing
 		define
-			min-zoom: 12
+			min-zoom: 13
 			fill-color: red
 			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
 			line-width: 0
@@ -323,7 +325,7 @@ rules
 	/////////////////////////////
 	target: advanced_stop_line
 		define
-			min-zoom: 1
+			min-zoom: 12
 			fill-color: blue
 			shape: triangle
 			shape-size: 11:5; 13:7; 14:9; 15:14; 16:20; 17:24; 18:30; 19:35 
@@ -374,7 +376,7 @@ rules
 		define
 			min-zoom: 11
 			max-zoom: 14
-			shape-size: 10:1; 11:1; 12:1; 13:2; 14:3
+			shape-size: 10:0.5; 11:0.5; 12:1; 13:2; 14:3
 			line-color: #6060ff
 		draw: shape
 		define
@@ -389,9 +391,9 @@ rules
 	target: bicycle shop
 		define
 			icon-image: icons/SJJB/png/shopping_bicycle.n.32.png
-			min-zoom: 11
+			min-zoom: 13
 			max-zoom: 15
-			icon-width: 10:2; 11:3; 12:4; 13:6; 14:9; 15:11; 16:13; 17:14; 18:15; 19:16
+			icon-width: 13:6; 14:9; 15:11; 16:13; 17:14; 18:15; 19:16
 		draw: icon
 		define
 			text: "Sklep rowerowy " name " - " opening_hours
@@ -416,7 +418,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: green
-			line-width: 14:2; 15:3; 16:4
+			line-width: 1:1; 12:1.5; 14:2; 15:3; 16:4
 			line-style: solid
 		draw: line
 		draw: text
@@ -425,7 +427,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: #A0522D
-			line-width: 14:2; 15:3; 16:4
+			line-width: 1:1; 12:1.5; 14:2; 15:3; 16:4
 			line-style: solid
 		draw: line
 		draw: text
@@ -434,7 +436,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: #A0522D
-			line-width: 14:2; 15:2
+			line-width: 1:1; 12:1.5; 14:2; 15:2
 			line-style: solid
 		draw: line
 		draw: text
@@ -443,7 +445,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: red
-			line-width: 14:2; 15:3; 16:4
+			line-width: 1:1; 12:1.5; 14:2; 15:3; 16:4
 			line-style: solid
 		draw: line
 		draw: text
@@ -452,7 +454,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: red
-			line-width: 14:2; 15:2
+			line-width: 1:1; 12:1.5; 14:2; 15:2
 			line-style: solid
 		draw: line
 		draw: text
@@ -461,16 +463,16 @@ rules
 		define
 			min-zoom: 9
 			line-color: green
-			line-width: 14:2; 15:2
+			line-width: 1:1; 12:1.5; 14:2; 15:2
 			line-style: solid
 		draw: line
 		draw: text
 
 	target: bicycle allowed with a terrible surface
 		define
-			min-zoom: 9
+			min-zoom: 11.5
 			line-color: red
-			line-width: 14:2; 15:2
+			line-width: 1:1; 12:1.5; 14:2; 15:2
 			line-style: solid
 			border-width: 0%
 		draw: line
@@ -478,9 +480,9 @@ rules
 
 	target: bicycle_allowed_in_park
 		define
-			min-zoom: 11
+			min-zoom: 11.5
 			line-color: orange
-			line-width: 14:1; 15:2
+			line-width: 1:1; 13:1; 14:1; 15:2
 			line-style: solid
 			border-width: 0%
 		draw: line
@@ -488,9 +490,9 @@ rules
 
 	target: bicycle_allowed_not_in_park
 		define
-			min-zoom: 10
+			min-zoom: 11
 			line-color: orange
-			line-width: 14:2; 15:2
+			line-width: 1:1; 12:1.5; 14:2; 15:2
 			line-style: solid
 			border-width: 0%
 		draw: line
@@ -501,7 +503,7 @@ rules
 	/////////////////////////////
 	target: unexpected cycling ban
 		define
-			min-zoom: 12
+			min-zoom: 12.5
 			line-color: red
 			line-width: 14:1.5; 15:2
 			line-style: dot
@@ -581,9 +583,19 @@ rules
 	/////////////////////////////
 	target: high traffic cycleable road
 		define
-			min-zoom: 1
+			min-zoom: 14
 			line-width: 1
 			line-color: black
+		draw: line
+		define
+			min-zoom: 12
+			line-width: 1
+			line-color: #7a7a7a
+		draw: line
+		define
+			min-zoom: 1
+			line-width: 1
+			line-color: #bbbbbb
 		draw: line
 		define
 			min-zoom: 16
@@ -591,15 +603,39 @@ rules
 
 	target: normal traffic cycleable road
 		define
-			min-zoom: 11
+			min-zoom: 12.5
 			line-width: 1
 			line-color: #7a7a7a
 		draw: line
 		define
-			min-zoom: 10.5
-			max-zoom: 11
+			min-zoom: 12.5
+			max-zoom: 13
 			line-width: 1
 			line-color: #999999
+		draw: line
+		define
+			min-zoom: 12
+			max-zoom: 12.5
+			line-width: 1
+			line-color: #bbbbbb
+		draw: line
+		define
+			min-zoom: 11.4
+			max-zoom: 12
+			line-width: 1
+			line-color: #dddddd
+		draw: line
+		define
+			min-zoom: 10.9
+			max-zoom: 11.4
+			line-width: 1
+			line-color: #dddddd
+		draw: line
+		define
+			min-zoom: 10.6
+			max-zoom: 10.9
+			line-width: 1
+			line-color: #eeeeee
 		draw: line
 		define
 			min-zoom: 16
@@ -618,8 +654,37 @@ rules
 			line-color: #bbbbbb
 		draw: line
 		define
-			min-zoom: 11.5
+			min-zoom: 12
 			max-zoom: 13
+			line-width: 1
+			line-color: #dddddd
+		draw: line
+		define
+			min-zoom: 11
+			max-zoom: 12
+			line-width: 1
+			line-color: #eeeeee
+		draw: line
+		define
+			min-zoom: 16
+			max-zoom: 25
+		draw: text
+
+	target: minor service cycleable road
+		define
+			min-zoom: 14.5
+			line-width: 1
+			line-color: #999999
+		draw: line
+		define
+			min-zoom: 14
+			max-zoom: 14.5
+			line-width: 1
+			line-color: #bbbbbb
+		draw: line
+		define
+			min-zoom: 13.5
+			max-zoom: 14
 			line-width: 1
 			line-color: #dddddd
 		draw: line
@@ -658,21 +723,21 @@ rules
 	target: water
 		define
 			min-zoom: 1
-			fill-color: #b0b0ef
+			fill-color: #CFCFF9
 			line-width: 0
-			line-color: #b0b0ef
+			line-color: #CFCFF9
 		draw: fill
 	target: water-line
 		define
 			min-zoom: 1
 			line-width: 2
-			line-color: #b0b0ef
+			line-color: #CFCFF9
 		draw: line
 	target: water-line-small
 		define
 			min-zoom: 12
 			line-width: 1
-			line-color: #b0b0ef
+			line-color: #CFCFF9
 		draw: line
 
 	/////////////////////////////

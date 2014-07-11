@@ -48,13 +48,14 @@ returned += "
 	/////////////////////////////
 	target: blocked area
 		define
-			fill-color: #bfbfbf
+			min-zoom: 10
+			fill-color: #E8DACC
 			line-width: 0
-			line-color: #bfbfbf
+			line-color: #E8DACC
 		draw: fill
 	target: railway
 		define
-			min-zoom: 1
+			min-zoom: 10
 			line-color: #a1a1a1
 			line-width: 1
 		draw: line
@@ -97,7 +98,7 @@ returned += "
 
 	target: not_OK_bicycle_crossing
 		define
-			min-zoom: 12
+			min-zoom: 13
 			fill-color: red
 			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
 			line-width: 0
@@ -127,7 +128,7 @@ returned += "
 	/////////////////////////////
 	target: advanced_stop_line
 		define
-			min-zoom: 1
+			min-zoom: 12
 			fill-color: blue
 			shape: triangle
 			shape-size: 11:5; 13:7; 14:9; 15:14; 16:20; 17:24; 18:30; 19:35 
@@ -178,7 +179,7 @@ returned += "
 		define
 			min-zoom: 11
 			max-zoom: 14
-			shape-size: 10:1; 11:1; 12:1; 13:2; 14:3
+			shape-size: 10:0.5; 11:0.5; 12:1; 13:2; 14:3
 			line-color: #6060ff
 		draw: shape
 		define
@@ -193,9 +194,9 @@ returned += "
 	target: bicycle shop
 		define
 			icon-image: icons/SJJB/png/shopping_bicycle.n.32.png
-			min-zoom: 11
+			min-zoom: 13
 			max-zoom: 15
-			icon-width: 10:2; 11:3; 12:4; 13:6; 14:9; 15:11; 16:13; 17:14; 18:15; 19:16
+			icon-width: 13:6; 14:9; 15:11; 16:13; 17:14; 18:15; 19:16
 		draw: icon
 		define
 			text: \"Sklep rowerowy \" name \" - \" opening_hours
@@ -213,9 +214,9 @@ returned += "
 			icon-width: 10:1; 12:2; 13:2; 14:3; 15:6; 16:9; 17:12; 18:14; 19:16
 		draw: icon
 "
-cycleway_wide_marker = "14:2; 15:3; 16:4"
-cycleway_narrow_marker = "14:2; 15:2"
-cycleway_very_narrow_marker = "14:1; 15:2"
+cycleway_wide_marker = "1:1; 12:1.5; 14:2; 15:3; 16:4"
+cycleway_narrow_marker = "1:1; 12:1.5; 14:2; 15:2"
+cycleway_very_narrow_marker = "1:1; 13:1; 14:1; 15:2"
 returned += "
 	/////////////////////////////
 	//cycleways
@@ -276,7 +277,7 @@ returned += "
 
 	target: bicycle allowed with a terrible surface
 		define
-			min-zoom: 9
+			min-zoom: 11.5
 			line-color: red
 			line-width: #{cycleway_narrow_marker}
 			line-style: solid
@@ -286,7 +287,7 @@ returned += "
 
 	target: bicycle_allowed_in_park
 		define
-			min-zoom: 11
+			min-zoom: 11.5
 			line-color: orange
 			line-width: #{cycleway_very_narrow_marker}
 			line-style: solid
@@ -296,7 +297,7 @@ returned += "
 
 	target: bicycle_allowed_not_in_park
 		define
-			min-zoom: 10
+			min-zoom: 11
 			line-color: orange
 			line-width: #{cycleway_narrow_marker}
 			line-style: solid
@@ -309,7 +310,7 @@ returned += "
 	/////////////////////////////
 	target: unexpected cycling ban
 		define
-			min-zoom: 12
+			min-zoom: 12.5
 			line-color: red
 			line-width: 14:1.5; 15:2
 			line-style: dot
@@ -389,9 +390,19 @@ returned += "
 	/////////////////////////////
 	target: high traffic cycleable road
 		define
-			min-zoom: 1
+			min-zoom: 14
 			line-width: 1
 			line-color: black
+		draw: line
+		define
+			min-zoom: 12
+			line-width: 1
+			line-color: #7a7a7a
+		draw: line
+		define
+			min-zoom: 1
+			line-width: 1
+			line-color: #bbbbbb
 		draw: line
 		define
 			min-zoom: 16
@@ -399,15 +410,39 @@ returned += "
 
 	target: normal traffic cycleable road
 		define
-			min-zoom: 11
+			min-zoom: 12.5
 			line-width: 1
 			line-color: #7a7a7a
 		draw: line
 		define
-			min-zoom: 10.5
-			max-zoom: 11
+			min-zoom: 12.5
+			max-zoom: 13
 			line-width: 1
 			line-color: #999999
+		draw: line
+		define
+			min-zoom: 12
+			max-zoom: 12.5
+			line-width: 1
+			line-color: #bbbbbb
+		draw: line
+		define
+			min-zoom: 11.4
+			max-zoom: 12
+			line-width: 1
+			line-color: #dddddd
+		draw: line
+		define
+			min-zoom: 10.9
+			max-zoom: 11.4
+			line-width: 1
+			line-color: #dddddd
+		draw: line
+		define
+			min-zoom: 10.6
+			max-zoom: 10.9
+			line-width: 1
+			line-color: #eeeeee
 		draw: line
 		define
 			min-zoom: 16
@@ -426,8 +461,37 @@ returned += "
 			line-color: #bbbbbb
 		draw: line
 		define
-			min-zoom: 11.5
+			min-zoom: 12
 			max-zoom: 13
+			line-width: 1
+			line-color: #dddddd
+		draw: line
+		define
+			min-zoom: 11
+			max-zoom: 12
+			line-width: 1
+			line-color: #eeeeee
+		draw: line
+		define
+			min-zoom: 16
+			max-zoom: 25
+		draw: text
+
+	target: minor service cycleable road
+		define
+			min-zoom: 14.5
+			line-width: 1
+			line-color: #999999
+		draw: line
+		define
+			min-zoom: 14
+			max-zoom: 14.5
+			line-width: 1
+			line-color: #bbbbbb
+		draw: line
+		define
+			min-zoom: 13.5
+			max-zoom: 14
 			line-width: 1
 			line-color: #dddddd
 		draw: line
@@ -466,21 +530,21 @@ returned += "
 	target: water
 		define
 			min-zoom: 1
-			fill-color: #b0b0ef
+			fill-color: #CFCFF9
 			line-width: 0
-			line-color: #b0b0ef
+			line-color: #CFCFF9
 		draw: fill
 	target: water-line
 		define
 			min-zoom: 1
 			line-width: 2
-			line-color: #b0b0ef
+			line-color: #CFCFF9
 		draw: line
 	target: water-line-small
 		define
 			min-zoom: 12
 			line-width: 1
-			line-color: #b0b0ef
+			line-color: #CFCFF9
 		draw: line
 
 	/////////////////////////////
