@@ -247,7 +247,7 @@ returned += "
 		draw: line
 		draw: text
 
-	target: lame cycleway with a bad surface
+	target: not segregated cycleway with a bad surface
 		define
 			min-zoom: 9
 			line-color: #A0522D
@@ -265,7 +265,7 @@ returned += "
 		draw: line
 		draw: text
 
-	target: lame cycleway with a terrible surface
+	target: not segregated cycleway with a terrible surface
 		define
 			min-zoom: 9
 			line-color: red
@@ -274,7 +274,7 @@ returned += "
 		draw: line
 		draw: text
 
-	target: lame cycleway with a good surface
+	target: not segregated cycleway with a good surface
 		define
 			min-zoom: 9
 			line-color: green
