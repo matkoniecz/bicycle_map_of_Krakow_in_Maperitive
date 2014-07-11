@@ -48,13 +48,14 @@ returned += "
 	/////////////////////////////
 	target: blocked area
 		define
+			min-zoom: 10
 			fill-color: #E8DACC
 			line-width: 0
 			line-color: #E8DACC
 		draw: fill
 	target: railway
 		define
-			min-zoom: 1
+			min-zoom: 10
 			line-color: #a1a1a1
 			line-width: 1
 		draw: line
@@ -178,7 +179,7 @@ returned += "
 		define
 			min-zoom: 11
 			max-zoom: 14
-			shape-size: 10:1; 11:1; 12:1; 13:2; 14:3
+			shape-size: 10:0.5; 11:0.5; 12:1; 13:2; 14:3
 			line-color: #6060ff
 		draw: shape
 		define
@@ -213,9 +214,9 @@ returned += "
 			icon-width: 10:1; 12:2; 13:2; 14:3; 15:6; 16:9; 17:12; 18:14; 19:16
 		draw: icon
 "
-cycleway_wide_marker = "14:2; 15:3; 16:4"
-cycleway_narrow_marker = "14:2; 15:2"
-cycleway_very_narrow_marker = "14:1; 15:2"
+cycleway_wide_marker = "1:1; 12:1.5; 14:2; 15:3; 16:4"
+cycleway_narrow_marker = "1:1; 12:1.5; 14:2; 15:2"
+cycleway_very_narrow_marker = "1:1; 13:1; 14:1; 15:2"
 returned += "
 	/////////////////////////////
 	//cycleways
@@ -286,7 +287,7 @@ returned += "
 
 	target: bicycle_allowed_in_park
 		define
-			min-zoom: 11
+			min-zoom: 11.5
 			line-color: orange
 			line-width: #{cycleway_very_narrow_marker}
 			line-style: solid
@@ -296,7 +297,7 @@ returned += "
 
 	target: bicycle_allowed_not_in_park
 		define
-			min-zoom: 10
+			min-zoom: 11
 			line-color: orange
 			line-width: #{cycleway_narrow_marker}
 			line-style: solid
@@ -309,7 +310,7 @@ returned += "
 	/////////////////////////////
 	target: marked contraflow
 		define
-			min-zoom: 9
+			min-zoom: 12
 			line-color: blue
 			line-width: 7:1;12:2.5;17:3
 			line-style: solid
@@ -323,7 +324,7 @@ returned += "
 		
 	target: unmarked contraflow
 		define
-			min-zoom: 9
+			min-zoom: 12
 			line-color: blue
 			line-width: 7:1;12:2.5;17:3
 			line-style: dot
@@ -385,9 +386,19 @@ returned += "
 	/////////////////////////////
 	target: high traffic cycleable road
 		define
-			min-zoom: 1
+			min-zoom: 14
 			line-width: 1
 			line-color: black
+		draw: line
+		define
+			min-zoom: 12
+			line-width: 1
+			line-color: #7a7a7a
+		draw: line
+		define
+			min-zoom: 1
+			line-width: 1
+			line-color: #bbbbbb
 		draw: line
 		define
 			min-zoom: 16
@@ -400,7 +411,7 @@ returned += "
 			line-color: #7a7a7a
 		draw: line
 		define
-			min-zoom: 10.5
+			min-zoom: 10.4
 			max-zoom: 11
 			line-width: 1
 			line-color: #999999
@@ -422,8 +433,31 @@ returned += "
 			line-color: #bbbbbb
 		draw: line
 		define
-			min-zoom: 11.5
+			min-zoom: 11
 			max-zoom: 13
+			line-width: 1
+			line-color: #dddddd
+		draw: line
+		define
+			min-zoom: 16
+			max-zoom: 25
+		draw: text
+
+	target: minor service cycleable road
+		define
+			min-zoom: 14.5
+			line-width: 1
+			line-color: #999999
+		draw: line
+		define
+			min-zoom: 14
+			max-zoom: 14.5
+			line-width: 1
+			line-color: #bbbbbb
+		draw: line
+		define
+			min-zoom: 13.5
+			max-zoom: 14
 			line-width: 1
 			line-color: #dddddd
 		draw: line

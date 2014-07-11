@@ -2,7 +2,8 @@ features
 	lines
 		high traffic cycleable road: ((@isOneOf(highway, primary, primary_link, secondary, secondary_link)) AND NOT bicycle=no AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))
 		normal traffic cycleable road: (((@isOneOf(highway, tertiary, tertiary_link, residential, unclassified))) AND NOT bicycle=no AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))
-		low traffic cycleable road: ((@isOneOf(highway, service, living_street, track)) AND NOT bicycle=no AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))
+		low traffic cycleable road: ((@isOneOf(highway, service, living_street, track)) AND NOT bicycle=no AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT (service=driveway OR service=parking_aisle))
+		minor service cycleable road: ((@isOneOf(highway, service, living_street, track)) AND NOT bicycle=no AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND (service=driveway OR service=parking_aisle))
 		cycleable road: (((@isOneOf(highway, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, unclassified, service, living_street, track)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND NOT bicycle=no)
 		weird highway value: (highway AND NOT highway=motorway AND NOT highway=motorway_link AND NOT highway=trunk AND NOT highway=trunk_link AND NOT highway=primary AND NOT highway=primary_link AND NOT highway=secondary AND NOT highway=secondary_link AND NOT highway=tertiary AND NOT highway=tertiary_link AND NOT highway=pedestrian AND NOT highway=residential AND NOT highway=living_street AND NOT highway=unclassified AND NOT highway=service AND NOT highway=track AND NOT highway=footway AND NOT highway=cycleway AND NOT highway=path AND NOT highway=steps AND NOT highway=proposed AND NOT highway=construction AND NOT highway=bridleway AND NOT highway=platform AND NOT highway=bus_stop AND NOT highway=raceway)
 		weird cycleway value: (cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite)
@@ -241,13 +242,14 @@ rules
 	/////////////////////////////
 	target: blocked area
 		define
+			min-zoom: 10
 			fill-color: #E8DACC
 			line-width: 0
 			line-color: #E8DACC
 		draw: fill
 	target: railway
 		define
-			min-zoom: 1
+			min-zoom: 10
 			line-color: #a1a1a1
 			line-width: 1
 		draw: line
@@ -371,7 +373,7 @@ rules
 		define
 			min-zoom: 11
 			max-zoom: 14
-			shape-size: 10:1; 11:1; 12:1; 13:2; 14:3
+			shape-size: 10:0.5; 11:0.5; 12:1; 13:2; 14:3
 			line-color: #6060ff
 		draw: shape
 		define
@@ -413,7 +415,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: green
-			line-width: 14:2; 15:3; 16:4
+			line-width: 1:1; 12:1.5; 14:2; 15:3; 16:4
 			line-style: solid
 		draw: line
 		draw: text
@@ -422,7 +424,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: #A0522D
-			line-width: 14:2; 15:3; 16:4
+			line-width: 1:1; 12:1.5; 14:2; 15:3; 16:4
 			line-style: solid
 		draw: line
 		draw: text
@@ -431,7 +433,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: #A0522D
-			line-width: 14:2; 15:2
+			line-width: 1:1; 12:1.5; 14:2; 15:2
 			line-style: solid
 		draw: line
 		draw: text
@@ -440,7 +442,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: red
-			line-width: 14:2; 15:3; 16:4
+			line-width: 1:1; 12:1.5; 14:2; 15:3; 16:4
 			line-style: solid
 		draw: line
 		draw: text
@@ -449,7 +451,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: red
-			line-width: 14:2; 15:2
+			line-width: 1:1; 12:1.5; 14:2; 15:2
 			line-style: solid
 		draw: line
 		draw: text
@@ -458,7 +460,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: green
-			line-width: 14:2; 15:2
+			line-width: 1:1; 12:1.5; 14:2; 15:2
 			line-style: solid
 		draw: line
 		draw: text
@@ -467,7 +469,7 @@ rules
 		define
 			min-zoom: 9
 			line-color: red
-			line-width: 14:2; 15:2
+			line-width: 1:1; 12:1.5; 14:2; 15:2
 			line-style: solid
 			border-width: 0%
 		draw: line
@@ -475,9 +477,9 @@ rules
 
 	target: bicycle_allowed_in_park
 		define
-			min-zoom: 11
+			min-zoom: 11.5
 			line-color: orange
-			line-width: 14:1; 15:2
+			line-width: 1:1; 13:1; 14:1; 15:2
 			line-style: solid
 			border-width: 0%
 		draw: line
@@ -485,9 +487,9 @@ rules
 
 	target: bicycle_allowed_not_in_park
 		define
-			min-zoom: 10
+			min-zoom: 11
 			line-color: orange
-			line-width: 14:2; 15:2
+			line-width: 1:1; 12:1.5; 14:2; 15:2
 			line-style: solid
 			border-width: 0%
 		draw: line
@@ -498,7 +500,7 @@ rules
 	/////////////////////////////
 	target: marked contraflow
 		define
-			min-zoom: 9
+			min-zoom: 12
 			line-color: blue
 			line-width: 7:1;12:2.5;17:3
 			line-style: solid
@@ -512,7 +514,7 @@ rules
 		
 	target: unmarked contraflow
 		define
-			min-zoom: 9
+			min-zoom: 12
 			line-color: blue
 			line-width: 7:1;12:2.5;17:3
 			line-style: dot
@@ -574,9 +576,19 @@ rules
 	/////////////////////////////
 	target: high traffic cycleable road
 		define
-			min-zoom: 1
+			min-zoom: 14
 			line-width: 1
 			line-color: black
+		draw: line
+		define
+			min-zoom: 12
+			line-width: 1
+			line-color: #7a7a7a
+		draw: line
+		define
+			min-zoom: 1
+			line-width: 1
+			line-color: #bbbbbb
 		draw: line
 		define
 			min-zoom: 16
@@ -589,7 +601,7 @@ rules
 			line-color: #7a7a7a
 		draw: line
 		define
-			min-zoom: 10.5
+			min-zoom: 10.4
 			max-zoom: 11
 			line-width: 1
 			line-color: #999999
@@ -611,8 +623,31 @@ rules
 			line-color: #bbbbbb
 		draw: line
 		define
-			min-zoom: 11.5
+			min-zoom: 11
 			max-zoom: 13
+			line-width: 1
+			line-color: #dddddd
+		draw: line
+		define
+			min-zoom: 16
+			max-zoom: 25
+		draw: text
+
+	target: minor service cycleable road
+		define
+			min-zoom: 14.5
+			line-width: 1
+			line-color: #999999
+		draw: line
+		define
+			min-zoom: 14
+			max-zoom: 14.5
+			line-width: 1
+			line-color: #bbbbbb
+		draw: line
+		define
+			min-zoom: 13.5
+			max-zoom: 14
 			line-width: 1
 			line-color: #dddddd
 		draw: line
