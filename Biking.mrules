@@ -82,6 +82,19 @@ rules
 			font-size: 12
 		draw: text
 
+	target: no_surface_info
+		define
+			min-zoom: 1
+			line-color: violet
+			line-width: 10
+			line-style: solid
+		draw: line
+		define
+			min-zoom: 12
+			text: name " - no_surface_info"
+			font-size: 12
+		draw: text
+
 	target: no_and_yes_bug
 		define
 			min-zoom: 1
@@ -95,16 +108,29 @@ rules
 			font-size: 12
 		draw: text
 
-	target: no_surface_info
+	target: missing designated
 		define
 			min-zoom: 1
-			line-color: violet
+			line-color: purple
 			line-width: 10
 			line-style: solid
 		draw: line
 		define
 			min-zoom: 12
-			text: name " - no_surface_info"
+			text: name " - missing designated"
+			font-size: 12
+		draw: text
+
+	target: invalid designated
+		define
+			min-zoom: 1
+			line-color: purple
+			line-width: 10
+			line-style: solid
+		draw: line
+		define
+			min-zoom: 12
+			text: name " - invalid designated"
 			font-size: 12
 		draw: text
 

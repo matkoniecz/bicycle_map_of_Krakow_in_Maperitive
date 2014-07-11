@@ -5,6 +5,8 @@ features
 		low traffic cycleable road: ((@isOneOf(highway, service, living_street, track)) AND NOT bicycle=no AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT (service=driveway OR service=parking_aisle))
 		minor service cycleable road: ((@isOneOf(highway, service, living_street, track)) AND NOT bicycle=no AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND (service=driveway OR service=parking_aisle))
 		cycleable road: (((@isOneOf(highway, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, unclassified, service, living_street, track)) AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-))) AND NOT bicycle=no)
+		missing designated: cycleway=lane AND NOT bicycle=designated
+		invalid designated: bicycle=designated AND NOT (cycleway=lane OR highway=path OR highway=cycleway)
 		weird highway value: (highway AND NOT highway=motorway AND NOT highway=motorway_link AND NOT highway=trunk AND NOT highway=trunk_link AND NOT highway=primary AND NOT highway=primary_link AND NOT highway=secondary AND NOT highway=secondary_link AND NOT highway=tertiary AND NOT highway=tertiary_link AND NOT highway=pedestrian AND NOT highway=residential AND NOT highway=living_street AND NOT highway=unclassified AND NOT highway=service AND NOT highway=track AND NOT highway=footway AND NOT highway=cycleway AND NOT highway=path AND NOT highway=steps AND NOT highway=proposed AND NOT highway=construction AND NOT highway=bridleway AND NOT highway=platform AND NOT highway=bus_stop AND NOT highway=raceway)
 		weird cycleway value: (cycleway AND NOT cycleway=lane AND NOT cycleway=opposite_lane AND NOT cycleway=no AND NOT cycleway=opposite)
 		weird bicycle value: (bicycle AND NOT bicycle=yes AND NOT bicycle=no AND NOT bicycle=designated AND NOT bicycle=permissive)
@@ -108,6 +110,19 @@ rules
 			font-size: 12
 		draw: text
 
+	target: no_surface_info
+		define
+			min-zoom: 1
+			line-color: violet
+			line-width: 10
+			line-style: solid
+		draw: line
+		define
+			min-zoom: 12
+			text: name " - no_surface_info"
+			font-size: 12
+		draw: text
+
 	target: no_and_yes_bug
 		define
 			min-zoom: 1
@@ -121,16 +136,29 @@ rules
 			font-size: 12
 		draw: text
 
-	target: no_surface_info
+	target: missing designated
 		define
 			min-zoom: 1
-			line-color: violet
+			line-color: purple
 			line-width: 10
 			line-style: solid
 		draw: line
 		define
 			min-zoom: 12
-			text: name " - no_surface_info"
+			text: name " - missing designated"
+			font-size: 12
+		draw: text
+
+	target: invalid designated
+		define
+			min-zoom: 1
+			line-color: purple
+			line-width: 10
+			line-style: solid
+		draw: line
+		define
+			min-zoom: 12
+			text: name " - invalid designated"
 			font-size: 12
 		draw: text
 
