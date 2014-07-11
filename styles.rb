@@ -87,15 +87,6 @@ returned += "
 			//line-color: red
 		draw: shape
 	
-	target: not_defined_segregated_on_bicycle_crossing
-		define
-			min-zoom: 1
-			fill-color: lime
-			shape-size: 14:2; 16:3; 17:4; 18:5; 19:6; 20:7; 21:8
-			line-width: 0
-			//line-color: red
-		draw: shape
-
 	target: badly_defined_crossing
 		define
 			min-zoom: 1
@@ -247,7 +238,7 @@ returned += "
 		draw: line
 		draw: text
 
-	target: lame cycleway with a bad surface
+	target: not segregated cycleway with a bad surface
 		define
 			min-zoom: 9
 			line-color: #A0522D
@@ -265,7 +256,7 @@ returned += "
 		draw: line
 		draw: text
 
-	target: lame cycleway with a terrible surface
+	target: not segregated cycleway with a terrible surface
 		define
 			min-zoom: 9
 			line-color: red
@@ -274,7 +265,7 @@ returned += "
 		draw: line
 		draw: text
 
-	target: lame cycleway with a good surface
+	target: not segregated cycleway with a good surface
 		define
 			min-zoom: 9
 			line-color: green
