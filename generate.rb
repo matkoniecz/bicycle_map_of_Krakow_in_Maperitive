@@ -72,7 +72,7 @@ if debug
 	puts "		invalid designated: bicycle=designated AND NOT (cycleway=lane OR highway=path OR highway=cycleway)"
 	puts "		weird highway value: #{weird_highway_value}"
 	puts "		weird cycleway value: #{weird("cycleway", ["lane", "opposite_lane", "no", "opposite"])}"
-	puts "		weird bicycle value: #{weird("bicycle", ["yes", "no", "designated", "permissive"])}"
+	puts "		weird bicycle value: #{weird("bicycle", ["yes", "no", "designated", "permissive", "use_sidepath"])}"
 	puts "		weird surface value: #{cycleable} AND (#{weird_main_surface} OR #{weird_cycleway_surface})"
 	puts "		no_and_yes_bug: (#{cycleable} AND bicycle=no) OR (highway=cycleway AND bicycle AND NOT bicycle = designated AND NOT bicycle = dismount)"
 	puts "		no_surface_info: (#{cycleway} OR #{not_segregated_cycleway}) AND (#{no_surface_info_for_main_part} AND #{no_surface_info_for_lane})"
