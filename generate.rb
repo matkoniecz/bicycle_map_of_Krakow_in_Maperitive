@@ -120,7 +120,7 @@ if debug
 	puts "		not_defined_bicycle_crossing: way[#{bicycle_crossing_way}].node[#{crossing_requires_information_about_cycling_status}]"
 	puts "		badly_defined_crossing: highway=crossing AND ((bicycle AND NOT bicycle=yes AND NOT bicycle=no) OR (foot AND NOT foot=yes AND NOT foot=no) OR (bicycle AND crossing=unmarked))"
 end
-puts "		advanced_stop_line: cycleway=advanced_stop_line"
+puts "		advanced_stop_line: cycleway=asl"
 puts "	points, lines, areas"
 if debug
 	bicycle_tags = "(amenity=bicycle_parking OR bicycle OR highway=cycleway)"

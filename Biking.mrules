@@ -24,7 +24,7 @@ features
 		OK_bicycle_crossing: highway=crossing AND bicycle=yes AND NOT crossing=unmarked AND NOT segregated=no
 		OK_bicycle_crossing_but_not_segregated: highway=crossing AND bicycle=yes AND NOT crossing=unmarked AND segregated=no
 		not_OK_bicycle_crossing: way[(highway=cycleway OR (highway=path AND bicycle=designated) OR (bicycle=yes AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)) AND NOT area=yes AND (highway=footway OR highway=path OR highway=pedestrian)))].node[highway=crossing AND bicycle=no]
-		advanced_stop_line: cycleway=advanced_stop_line
+		advanced_stop_line: cycleway=asl
 	points, lines, areas
 	points, areas
 		bicycle_parking: (amenity=bicycle_parking  AND NOT ((access=private OR access=no) OR (mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)))
