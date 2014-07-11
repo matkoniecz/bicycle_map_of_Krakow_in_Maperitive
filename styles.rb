@@ -1,14 +1,13 @@
 def get_bicycle_styles
 	returned = ""
 	bugs = [
-	#free colours: red
 				["footway should be path", "black"],
 				["cycleway should be path", "black"],
 				["missing segregated", "blue"],
 				["no_surface_info", "violet"],
 				["no_and_yes_bug", "purple"],
-				["missing designated", "purple"],
-				["invalid designated", "purple"],
+				["missing designated", "red"],
+				["invalid designated", "red"],
 				["weird segregated", "brown", "segregated"],
 				["weird cycleway value", "teal", "cycleway"],
 				["weird bicycle value", "orange", "bicycle"],
@@ -17,7 +16,6 @@ def get_bicycle_styles
 				["weird highway value", "lime", "highway"],
 				["bicycle oneway tag synch oneway bicycle", "#663300", "", "bicycle oneway tag synch +(oneway:bicycle)"], #bark brown
 				["bicycle oneway tag synch cycleway", "#a61e00", "", "cycleway=opposite or cycleway=opposite is missing"], #bark brown + red
-				#
 			]
 	bugs.each do |element|
 		name = "name \" - #{element[0]}"
@@ -37,14 +35,36 @@ def get_bicycle_styles
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: #{element[1]}
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: #{name}
-			font-size: 12
+			font-size: 10
 		draw: text
 
 "
 	end
 returned += "
+	/////////////////////////////
+	//fixme
+	/////////////////////////////
+	target: fixme
+		define
+			min-zoom: 1
+			fill-color: pink
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 12
+			text: fixme
+			font-size: 12
+		draw: text
+
 	/////////////////////////////
 	//railway areas + debug for this
 	/////////////////////////////
@@ -61,22 +81,6 @@ returned += "
 			line-color: #a1a1a1
 			line-width: 1
 		draw: line
-
-	/////////////////////////////
-	//fixme
-	/////////////////////////////
-	target: fixme
-		define
-			min-zoom: 1
-			fill-color: pink
-			shape-size: 6
-			line-width: 0
-		draw: shape
-		define
-			min-zoom: 12
-			text: fixme
-			font-size: 12
-		draw: text
 
 	/////////////////////////////
 	//bicycle crossings

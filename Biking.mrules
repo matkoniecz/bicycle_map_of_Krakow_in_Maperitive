@@ -51,9 +51,15 @@ rules
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: black
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - footway should be path"
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: cycleway should be path
@@ -64,9 +70,15 @@ rules
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: black
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - cycleway should be path"
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: missing segregated
@@ -77,9 +89,15 @@ rules
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: blue
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - missing segregated"
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: no_surface_info
@@ -90,9 +108,15 @@ rules
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: violet
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - no_surface_info"
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: no_and_yes_bug
@@ -103,35 +127,53 @@ rules
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: purple
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - no_and_yes_bug"
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: missing designated
 		define
 			min-zoom: 1
-			line-color: purple
+			line-color: red
 			line-width: 10
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: red
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - missing designated"
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: invalid designated
 		define
 			min-zoom: 1
-			line-color: purple
+			line-color: red
 			line-width: 10
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: red
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - invalid designated"
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: weird segregated
@@ -142,9 +184,15 @@ rules
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: brown
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - weird segregated- " segregated
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: weird cycleway value
@@ -155,9 +203,15 @@ rules
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: teal
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - weird cycleway value- " cycleway
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: weird bicycle value
@@ -168,9 +222,15 @@ rules
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: orange
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - weird bicycle value- " bicycle
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: weird surface value
@@ -181,9 +241,15 @@ rules
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: yellow
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - weird surface value- " surface
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: bicycle unexpected status no source mentioned
@@ -194,9 +260,15 @@ rules
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: gray
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - bicycle unexpected status without source:bicycle- " bicycle
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: weird highway value
@@ -207,9 +279,15 @@ rules
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: lime
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - weird highway value- " highway
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: bicycle oneway tag synch oneway bicycle
@@ -220,9 +298,15 @@ rules
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: #663300
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - bicycle oneway tag synch +(oneway:bicycle)- " 
-			font-size: 12
+			font-size: 10
 		draw: text
 
 	target: bicycle oneway tag synch cycleway
@@ -233,11 +317,33 @@ rules
 			line-style: solid
 		draw: line
 		define
-			min-zoom: 12
+			min-zoom: 1
+			fill-color: #a61e00
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 1
 			text: name " - cycleway=opposite or cycleway=opposite is missing- " 
-			font-size: 12
+			font-size: 10
 		draw: text
 
+
+	/////////////////////////////
+	//fixme
+	/////////////////////////////
+	target: fixme
+		define
+			min-zoom: 1
+			fill-color: pink
+			shape-size: 6
+			line-width: 0
+		draw: shape
+		define
+			min-zoom: 12
+			text: fixme
+			font-size: 12
+		draw: text
 
 	/////////////////////////////
 	//railway areas + debug for this
@@ -255,22 +361,6 @@ rules
 			line-color: #a1a1a1
 			line-width: 1
 		draw: line
-
-	/////////////////////////////
-	//fixme
-	/////////////////////////////
-	target: fixme
-		define
-			min-zoom: 1
-			fill-color: pink
-			shape-size: 6
-			line-width: 0
-		draw: shape
-		define
-			min-zoom: 12
-			text: fixme
-			font-size: 12
-		draw: text
 
 	/////////////////////////////
 	//bicycle crossings
