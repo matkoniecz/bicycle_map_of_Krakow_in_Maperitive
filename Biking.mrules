@@ -217,9 +217,9 @@ rules
 	/////////////////////////////
 	target: blocked area
 		define
-			fill-color: #bfbfbf
+			fill-color: #E8DACC
 			line-width: 0
-			line-color: #bfbfbf
+			line-color: #E8DACC
 		draw: fill
 	target: railway
 		define
@@ -627,21 +627,21 @@ rules
 	target: water
 		define
 			min-zoom: 1
-			fill-color: #b0b0ef
+			fill-color: #CFCFF9
 			line-width: 0
-			line-color: #b0b0ef
+			line-color: #CFCFF9
 		draw: fill
 	target: water-line
 		define
 			min-zoom: 1
 			line-width: 2
-			line-color: #b0b0ef
+			line-color: #CFCFF9
 		draw: line
 	target: water-line-small
 		define
 			min-zoom: 12
 			line-width: 1
-			line-color: #b0b0ef
+			line-color: #CFCFF9
 		draw: line
 
 	/////////////////////////////
