@@ -77,9 +77,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: black
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: black
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -96,9 +106,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: black
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: black
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -115,9 +135,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: blue
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: blue
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -134,9 +164,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: violet
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: violet
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -153,9 +193,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: purple
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: purple
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -172,9 +222,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: red
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: red
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -191,9 +251,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: red
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: red
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -210,9 +280,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: brown
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: brown
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -229,9 +309,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: teal
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: teal
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -248,9 +338,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: orange
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: orange
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -267,9 +367,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: yellow
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: yellow
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -286,9 +396,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: gray
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: gray
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -305,9 +425,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: lime
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: lime
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -324,9 +454,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: #663300
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: #663300
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
@@ -343,9 +483,19 @@ rules
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: #a61e00
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: #a61e00
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1

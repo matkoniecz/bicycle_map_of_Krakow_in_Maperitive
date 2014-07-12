@@ -36,9 +36,19 @@ def get_bicycle_styles
 		draw: line
 		define
 			min-zoom: 1
+			max-zoom: 18
 			fill-color: #{element[1]}
-			shape-size: 6
-			line-width: 0
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: #{element[1]}
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
 		draw: shape
 		define
 			min-zoom: 1
