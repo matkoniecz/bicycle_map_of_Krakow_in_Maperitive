@@ -258,9 +258,9 @@ returned += "
 	target: proper cycleway with a terrible surface
 		define
 			min-zoom: 9
-			line-color: red
+			line-color: #A0522D
 			line-width: #{cycleway_wide_marker}
-			line-style: solid
+			line-style: dot
 		draw: line
 		draw: text
 
@@ -285,9 +285,9 @@ returned += "
 	target: not segregated cycleway with a terrible surface
 		define
 			min-zoom: 9
-			line-color: red
+			line-color: #A0522D
 			line-width: #{cycleway_narrow_marker}
-			line-style: solid
+			line-style: dot
 		draw: line
 		draw: text
 
@@ -304,9 +304,9 @@ returned += "
 	target: bicycle allowed not in a park with a terrible surface
 		define
 			min-zoom: 11.5
-			line-color: red
+			line-color: orange
 			line-width: #{cycleway_narrow_marker}
-			line-style: solid
+			line-style: dot
 			border-width: 0%
 		draw: line
 		draw: text
@@ -324,9 +324,9 @@ returned += "
 	target: bicycle allowed in a park with a terrible surface
 		define
 			min-zoom: 11.5
-			line-color: red
+			line-color: orange
 			line-width: #{cycleway_very_narrow_marker}
-			line-style: solid
+			line-style: dot
 			border-width: 0%
 		draw: line
 		draw: text
@@ -334,38 +334,6 @@ returned += "
 	/////////////////////////////
 	//special cycleways
 	/////////////////////////////
-	target: marked contraflow
-		define
-			min-zoom: 12
-			line-color: blue
-			line-width: 7:1;12:2.5;17:3
-			line-style: solid
-			line-offset: 14:1;15:2;16:3;17:3
-			line-offset-sides: left
-		for: oneway=-1
-			define
-				line-offset-sides: right
-		draw: line
-		draw: text
-		
-	target: unmarked contraflow
-		define
-			min-zoom: 12
-			line-color: blue
-			line-width: 7:1;12:2.5;17:3
-			line-style: dot
-			line-offset: 14:0.5;15:1;16:2;17:3
-			line-offset-sides: left
-		for: oneway=-1
-			define
-				line-offset-sides: right
-		draw: line
-		draw: text
-		define
-			line-width: 1
-			line-style: solid
-		draw: line
-
 	target: unexpected cycling ban
 		define
 			min-zoom: 12.5
@@ -395,11 +363,56 @@ returned += "
 		draw: line
 
 	/////////////////////////////
-	//oneway arrows
+	//handling of oneway issues
 	/////////////////////////////
+	target: unexpected oneway
+		define
+			min-zoom: 14
+			line-color: red
+			line-width: 12:1;13:1.5;14:2;17:2.5
+			line-style: solid
+			line-offset: 14:1;15:2;16:3;17:3
+			line-offset-sides: left
+		for: oneway=-1
+			define
+				line-offset-sides: right
+		draw: line
+
+	target: marked contraflow
+		define
+			min-zoom: 16
+			line-color: blue
+			line-width: 7:1;12:2.5;17:3
+			line-style: solid
+			line-offset: 14:1;15:2;16:3;17:3
+			line-offset-sides: left
+		for: oneway=-1
+			define
+				line-offset-sides: right
+		draw: line
+		draw: text
+		
+	target: unmarked contraflow
+		define
+			min-zoom: 16
+			line-color: blue
+			line-width: 7:1;12:2.5;17:3
+			line-style: dot
+			line-offset: 14:0.5;15:1;16:2;17:3
+			line-offset-sides: left
+		for: oneway=-1
+			define
+				line-offset-sides: right
+		draw: line
+		draw: text
+		define
+			line-width: 1
+			line-style: solid
+		draw: line
+	
 	target: oneway
 		define
-			min-zoom: 15
+			min-zoom: 16
 			shape: custom
 			shape-def: 0,10, 10,0, 0,-10, 10,0;Z
 			shape-size: 7
