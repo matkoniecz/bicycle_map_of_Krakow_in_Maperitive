@@ -100,9 +100,10 @@ unexpected_allowed_cycling = "((bicycle=yes OR bicycle=permissive) AND NOT #{no_
 puts "		marked contraflow: cycleway=opposite_lane AND NOT #{no_access}"
 puts "		unmarked contraflow: cycleway=opposite AND NOT #{no_access} AND NOT #{unexpected_allowed_cycling}"
 puts "		oneway: (((oneway=yes AND NOT oneway:bicycle=no) OR (oneway:bicycle=yes)) AND (#{cycleable} OR #{typical_road}))"
-puts "		bicycle_allowed_not_in_park: #{unexpected_allowed_cycling} AND NOT source:bicycle=park_rules"
-puts "		bicycle_allowed_in_park: #{unexpected_allowed_cycling} AND source:bicycle=park_rules"
-puts "		bicycle allowed with a terrible surface: #{unexpected_allowed_cycling} AND #{terible_surface}"
+puts "		bicycle allowed not in park with not terible surface: #{unexpected_allowed_cycling} AND NOT source:bicycle=park_rules AND NOT #{terible_surface}"
+puts "		bicycle allowed in park with not terible surface: #{unexpected_allowed_cycling} AND source:bicycle=park_rules AND NOT #{terible_surface}"
+puts "		bicycle allowed not in a park with a terrible surface: #{unexpected_allowed_cycling} AND NOT source:bicycle=park_rules AND #{terible_surface}"
+puts "		bicycle allowed in a park with a terrible surface: #{unexpected_allowed_cycling} AND source:bicycle=park_rules AND #{terible_surface}"
 unexpected_cycling_ban = "(((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND NOT (bicycle=yes OR bicycle=permissive) AND NOT bicycle = designated AND NOT cycleway=lane)) AND NOT source:bicycle=cemetery_rules)"
 puts "		unexpected cycling ban: #{unexpected_cycling_ban} AND NOT area = yes"
 if heavy_debug

@@ -255,29 +255,11 @@ returned += "
 		draw: line
 		draw: text
 
-	target: not segregated cycleway with a bad surface
-		define
-			min-zoom: 9
-			line-color: #A0522D
-			line-width: #{cycleway_narrow_marker}
-			line-style: solid
-		draw: line
-		draw: text
-
 	target: proper cycleway with a terrible surface
 		define
 			min-zoom: 9
 			line-color: red
 			line-width: #{cycleway_wide_marker}
-			line-style: solid
-		draw: line
-		draw: text
-
-	target: not segregated cycleway with a terrible surface
-		define
-			min-zoom: 9
-			line-color: red
-			line-width: #{cycleway_narrow_marker}
 			line-style: solid
 		draw: line
 		draw: text
@@ -291,7 +273,35 @@ returned += "
 		draw: line
 		draw: text
 
-	target: bicycle allowed with a terrible surface
+	target: not segregated cycleway with a bad surface
+		define
+			min-zoom: 9
+			line-color: #A0522D
+			line-width: #{cycleway_narrow_marker}
+			line-style: solid
+		draw: line
+		draw: text
+
+	target: not segregated cycleway with a terrible surface
+		define
+			min-zoom: 9
+			line-color: red
+			line-width: #{cycleway_narrow_marker}
+			line-style: solid
+		draw: line
+		draw: text
+
+	target: bicycle allowed not in park with not terible surface
+		define
+			min-zoom: 11
+			line-color: orange
+			line-width: #{cycleway_narrow_marker}
+			line-style: solid
+			border-width: 0%
+		draw: line
+		draw: text
+
+	target: bicycle allowed not in a park with a terrible surface
 		define
 			min-zoom: 11.5
 			line-color: red
@@ -301,7 +311,7 @@ returned += "
 		draw: line
 		draw: text
 
-	target: bicycle_allowed_in_park
+	target: bicycle allowed in park with not terible surface
 		define
 			min-zoom: 11.5
 			line-color: orange
@@ -311,11 +321,11 @@ returned += "
 		draw: line
 		draw: text
 
-	target: bicycle_allowed_not_in_park
+	target: bicycle allowed in a park with a terrible surface
 		define
-			min-zoom: 11
-			line-color: orange
-			line-width: #{cycleway_narrow_marker}
+			min-zoom: 11.5
+			line-color: red
+			line-width: #{cycleway_very_narrow_marker}
 			line-style: solid
 			border-width: 0%
 		draw: line
