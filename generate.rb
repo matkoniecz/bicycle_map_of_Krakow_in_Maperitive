@@ -132,6 +132,9 @@ puts "	points, lines, areas"
 if debug
 	bicycle_tags = "(amenity=bicycle_parking OR bicycle OR highway=cycleway)"
 	fixme = "(FIXME OR fixme)"
+	if not heavy_debug
+		fixme = "(#{fixme} AND fixme:type:requires_new_aerial_images!=yes)" 
+	end
 	puts "		fixme: #{fixme} AND (fixme:type:bicycle=yes OR #{bicycle_tags})"
 	puts "		fixme: way[#{bicycle_tags}].node[#{fixme}]"
 end
