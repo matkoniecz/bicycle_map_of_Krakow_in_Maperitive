@@ -30,7 +30,7 @@ def is_one_of name, list
 end
 
 mtb_route = "(mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)"
-private_property = "(access=private OR access=no)" 
+private_property = "((access=private OR access=no) AND NOT bicycle=yes AND NOT bicycle=designated)" 
 no_access = "(#{private_property} OR #{mtb_route})"
 cycleable = "((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT #{no_access}  AND NOT area:highway)"
 motorway = "(highway=motorway OR highway=motorway_link OR highway=trunk OR highway=trunk_link)"
@@ -49,7 +49,8 @@ minor_service_road_accessible_to_bicycles = "(#{is_one_of("highway", road_low_tr
 proper_surface = "(surface = asphalt OR smoothness = excellent OR smoothness = good OR smoothness = intermediate OR cycleway:surface=asphalt)"
 terible_surface = "(smoothness = bad OR smoothness = very_bad OR smoothness = horrible OR smoothness = very_horrible OR smoothness = impassable OR surface = mud OR surface=cobblestone)"
 cycleway_separated_from_road = "((highway=cycleway OR bicycle=designated) AND (segregated = yes OR NOT (foot=yes OR foot=designated)))"
-cycleway = "((#{cycleway_separated_from_road} OR cycleway=lane) AND NOT #{no_access})"
+shared_road_with_low_traffic = "((vehicle=private OR vehicle=no) AND bicycle=designated)"
+cycleway = "((#{cycleway_separated_from_road} OR cycleway=lane OR #{shared_road_with_low_traffic}) AND NOT #{no_access})"
 no_surface_info_for_main_part = "(surface=paved OR surface=unpaved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness)))"
 no_surface_info_for_lane = "(cycleway:surface=paved OR cycleway:surface=unpaved OR NOT cycleway:surface)"
 not_segregated_cycleway = "(((bicycle=designated OR highway=cycleway) AND NOT #{cycleway}) AND NOT #{no_access} AND NOT area:highway)"
@@ -69,7 +70,6 @@ puts "		minor service cycleable road: #{minor_service_road_accessible_to_bicycle
 puts "		cycleable road: #{typical_road_accessible_to_bicycles}"
 if debug
 	puts "		missing designated: cycleway=lane AND NOT bicycle=designated"
-	puts "		invalid designated: bicycle=designated AND NOT (cycleway=lane OR highway=path OR highway=cycleway OR highway=pedestrian OR highway=track)"
 	puts "		weird cycleway value: #{weird("cycleway", ["lane", "opposite_lane", "no", "opposite", "crossing"])}"
 	puts "		weird bicycle value: #{weird("bicycle", ["yes", "no", "designated", "permissive", "use_sidepath"])}"
 	puts "		weird surface value: #{cycleable} AND (#{weird_main_surface} OR #{weird_cycleway_surface})"

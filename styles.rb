@@ -7,7 +7,6 @@ def get_bicycle_styles
 				["no_surface_info", "violet"],
 				["no_and_yes_bug", "purple"],
 				["missing designated", "red"],
-				["invalid designated", "red"],
 				["weird segregated", "brown", "segregated"],
 				["weird cycleway value", "teal", "cycleway"],
 				["weird bicycle value", "orange", "bicycle"],
