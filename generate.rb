@@ -97,7 +97,7 @@ puts "		not segregated cycleway with a good surface: #{not_segregated_cycleway} 
 puts "		not segregated cycleway with a bad surface: #{not_segregated_cycleway} AND NOT #{proper_surface}"
 puts "		not segregated cycleway with a terrible surface: #{not_segregated_cycleway} AND #{terible_surface}"
 unexpected_allowed_cycling = "((bicycle=yes OR bicycle=permissive) AND NOT #{no_access} AND NOT area=yes AND (highway=footway OR highway=path OR highway=pedestrian))"
-unexpected_cycling_ban = "(((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND NOT (bicycle=yes OR bicycle=permissive) AND NOT bicycle = designated AND NOT cycleway=lane)) AND NOT source:bicycle=cemetery_rules)"
+unexpected_cycling_ban = "(((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND name AND NOT (bicycle=yes OR bicycle=permissive) AND NOT bicycle = designated AND NOT cycleway=lane)) AND NOT source:bicycle=cemetery_rules)"
 puts "		marked contraflow: cycleway=opposite_lane AND NOT #{no_access}"
 puts "		unmarked contraflow: cycleway=opposite AND NOT #{no_access} AND NOT #{unexpected_allowed_cycling}"
 oneway = "(((oneway=yes AND NOT oneway:bicycle=no) OR (oneway:bicycle=yes)) AND (#{cycleable} OR #{typical_road}))"
