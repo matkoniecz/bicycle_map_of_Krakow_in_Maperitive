@@ -4,7 +4,7 @@ Retrieving mapa data fetches 150MB file. From http://wiki.openstreetmap.org/wiki
 
 1a) to download map using ruby script:
 
-run download.rb.
+run download.rb with useragent (for example your email) as the first parameter
 
 1b) to fetch map data without installed ruby:
 
