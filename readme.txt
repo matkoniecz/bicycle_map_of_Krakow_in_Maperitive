@@ -1,6 +1,6 @@
 This project is a tool to process data from OpenStreetMap into map about cycling infrastructure in city Kraków, using program Maperitive. It may be useful for other locations but it is untested.
 
-Retrieving mapa data fetches 140MB file. From http://wiki.openstreetmap.org/wiki/Overpass_API - "You can safely assume that you don't disturb other users when you do less than 10.000 queries per day or download less than 5 GB data per day.").
+Retrieving mapa data fetches 150MB file. From http://wiki.openstreetmap.org/wiki/Overpass_API - "You can safely assume that you don't disturb other users when you do less than 10.000 queries per day or download less than 5 GB data per day.").
 
 1a) to download map using ruby script:
 
