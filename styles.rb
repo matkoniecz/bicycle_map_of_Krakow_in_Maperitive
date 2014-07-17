@@ -538,7 +538,7 @@ returned += "
 		define
 			min-zoom: 13
 			line-color: pink
-			line-width: 2
+			line-width: 4
 			line-style: solid
 		draw: line
 
