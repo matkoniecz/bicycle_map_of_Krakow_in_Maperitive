@@ -30,7 +30,7 @@ def is_one_of name, list
 end
 
 mtb_route = "(mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)"
-private_property = "((access=private OR access=no) AND NOT bicycle=yes AND NOT bicycle=designated)" 
+private_property = "((access=private OR access=no OR vehicle=private OR vehicle=no) AND NOT bicycle=yes AND NOT bicycle=designated)" 
 no_access = "(#{private_property} OR #{mtb_route})"
 cycleable = "((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT #{no_access}  AND NOT area:highway)"
 motorway = "(highway=motorway OR highway=motorway_link OR highway=trunk OR highway=trunk_link)"
