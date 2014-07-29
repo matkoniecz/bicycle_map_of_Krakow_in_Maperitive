@@ -73,7 +73,11 @@ if debug
 	puts "		weird cycleway value: #{weird("cycleway", ["lane", "opposite_lane", "no", "opposite", "crossing"])}"
 	puts "		weird bicycle value: #{weird("bicycle", ["yes", "no", "designated", "permissive", "use_sidepath"])}"
 	puts "		weird surface value: #{cycleable} AND (#{weird_main_surface} OR #{weird_cycleway_surface})"
-	puts "		no_surface_info: (#{cycleway} OR #{not_segregated_cycleway}) AND (#{no_surface_info_for_main_part} AND #{no_surface_info_for_lane})"
+	check_surface_here = cycleway
+	if heavy_debug
+		check_surface_here = "(#{cycleable} OR #{typical_road_accessible_to_bicycles})" 
+	end
+	puts "		no_surface_info: (#{check_surface_here} OR #{not_segregated_cycleway}) AND (#{no_surface_info_for_main_part} AND #{no_surface_info_for_lane})"
 	puts "		no_and_yes_bug: (#{cycleable} AND bicycle=no) OR (highway=cycleway AND bicycle AND NOT bicycle = designated AND NOT bicycle = dismount)"
 	puts "		no maxspeed info: (@isOneOf(highway, primary, primary_link, secondary, secondary_link) AND NOT maxspeed)"
 	puts "		plus 50 maxspeed: (maxspeed > 50 AND NOT #{motorway})"
