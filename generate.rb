@@ -54,7 +54,7 @@ cycleway = "((#{cycleway_separated_from_road} OR cycleway=lane OR #{shared_road_
 no_surface_info_for_main_part = "(surface=paved OR surface=unpaved OR (NOT (surface) AND NOT (tracktype) AND NOT (smoothness)))"
 no_surface_info_for_lane = "(cycleway:surface=paved OR cycleway:surface=unpaved OR NOT cycleway:surface)"
 not_segregated_cycleway = "(((bicycle=designated OR highway=cycleway) AND NOT #{cycleway}) AND NOT #{no_access} AND NOT area:highway)"
-valid_bicycle_source_value = "(source:bicycle=sign OR source:bicycle=park_rules OR source:bicycle=forest_rules OR source:bicycle=cemetery_rules OR footway=sidewalk OR footway=crossing)" #footway=sidewalk, footway=crossing hack is temporary as source:bicycle needs proper string for this status (but it probably will be checked anyway)
+valid_bicycle_source_value = "(source:bicycle=sign OR source:bicycle=park_rules OR source:bicycle=forest_rules OR source:bicycle=cemetery_rules OR source:bicycle=water_law OR footway=sidewalk OR footway=crossing)" #footway=sidewalk, footway=crossing hack is temporary as source:bicycle needs proper string for this status (but it probably will be checked anyway)
 OK_surface_values = ["asphalt", "grass", "dirt", "compacted", "sett", "paved", "paving_stones", "gravel", "ground", "sand", "wood", "earth", "pebblestone", "concrete", "concrete:plates", "unpaved", "cobblestone", "mud", "grass_paver"]
 weird_main_surface = weird("surface", OK_surface_values)
 used = ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_link", "secondary", "secondary_link", "tertiary", "tertiary_link", "pedestrian", "residential", "living_street", "unclassified", "service", "track", "footway", "cycleway", "path"]
