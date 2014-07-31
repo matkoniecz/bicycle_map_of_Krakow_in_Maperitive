@@ -15,6 +15,7 @@ def get_bicycle_styles
 				["weird highway value", "lime", "highway"],
 				["bicycle oneway tag synch oneway bicycle", "#663300", "", "bicycle oneway tag synch +(oneway:bicycle)"], #bark brown
 				["bicycle oneway tag synch cycleway", "#a61e00", "", "cycleway=opposite or cycleway=opposite is missing"], #bark brown + red
+				["public as access value", "#33CC33"],
 			]
 	bugs.each do |element|
 		name = "name \" - #{element[0]}"

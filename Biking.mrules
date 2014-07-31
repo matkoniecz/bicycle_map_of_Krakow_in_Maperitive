@@ -451,6 +451,35 @@ rules
 			font-size: 10
 		draw: text
 
+	target: public as access value
+		define
+			min-zoom: 1
+			line-color: #33CC33
+			line-width: 10
+			line-style: solid
+		draw: line
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: #33CC33
+			shape-size: 2
+			line-width: 1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			max-zoom: 18
+			fill-color: #33CC33
+			shape-size: 1:20; 13:6; 14:5; 15:4; 16:3; 17:2; 18:1
+			line-width: 1:2; 12:1
+			line-color: pink
+		draw: shape
+		define
+			min-zoom: 1
+			text: name " - public as access value"
+			font-size: 10
+		draw: text
+
 
 	/////////////////////////////
 	//fixme

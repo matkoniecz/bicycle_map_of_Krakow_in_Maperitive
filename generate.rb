@@ -69,6 +69,7 @@ puts "		low traffic cycleable road: #{low_traffic_road_accessible_to_bicycles}"
 puts "		minor service cycleable road: #{minor_service_road_accessible_to_bicycles}"
 puts "		cycleable road: #{typical_road_accessible_to_bicycles}"
 if debug
+	puts "		public as access value: access=public OR vehicle=public OR bicycle=public"
 	puts "		missing designated: cycleway=lane AND NOT bicycle=designated"
 	puts "		weird cycleway value: #{weird("cycleway", ["lane", "opposite_lane", "no", "opposite", "crossing"])}"
 	puts "		weird bicycle value: #{weird("bicycle", ["yes", "no", "designated", "permissive", "use_sidepath"])}"
