@@ -3,6 +3,7 @@
 /interpreter2
 /*.osm
 /*.geojson
+*.georef
 /tmp
 /tmp2
 /Maperitive/logs
