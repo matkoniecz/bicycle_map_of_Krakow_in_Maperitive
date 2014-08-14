@@ -4,6 +4,9 @@
 /*.osm
 /*.geojson
 *.georef
+/before.png
+/after.png
+/diff.png
 /tmp
 /tmp2
 /Maperitive/logs
