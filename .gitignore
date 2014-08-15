@@ -15,3 +15,5 @@ download.bat
 /diff/before.png
 /diff/after.png
 /diff/diff.png
+
+*/.idea/*
