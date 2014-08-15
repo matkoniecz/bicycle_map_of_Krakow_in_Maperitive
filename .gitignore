@@ -4,9 +4,6 @@
 /*.osm
 /*.geojson
 *.georef
-/before.png
-/after.png
-/diff.png
 /tmp
 /tmp2
 /Maperitive/logs
@@ -14,3 +11,7 @@
 /Maperitive/Temp
 
 download.bat
+
+/diff/before.png
+/diff/after.png
+/diff/diff.png
