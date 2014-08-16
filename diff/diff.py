@@ -54,17 +54,12 @@ def add_pixel(l, x, y):
         if opt is None or opt > expansion:
             opt = expansion
             index = i
-    print str(x) + " " + str(y)
     if opt is None or opt > 50:
         l.append((x-margin, y-margin, x+margin, y+margin))
-        print "new"
     else:
         bb = l[index]
         x_min, y_min, x_max, y_max = bb
         l[index] = (min(x - margin, x_min), min(y - margin, y_min), max(x + margin, x_max), max(y + margin, y_max))
-        print str(index)
-    print l
-    print ""
     return l
 
 
@@ -84,7 +79,6 @@ def save():
         #The box is a 4-tuple defining the left, upper, right, and lower pixel coordinate.
         #The Python Imaging Library uses a Cartesian pixel coordinate system, with (0,0) in the upper left corner.
         box = (max(0, x_min-margin), max(0, y_min-margin), min(x_image, x_max+margin), min(y_image, y_max+margin))
-        print box
         diff_image_cropped = diff_image.crop(box)
         diff_image_cropped.save(str(i) + " diff_bb.png")
 
