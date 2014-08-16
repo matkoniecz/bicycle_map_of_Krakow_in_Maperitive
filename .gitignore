@@ -1,15 +1,16 @@
-/test
-/interpreter
-/interpreter2
-/*.osm
-/*.geojson
-*.georef
-/tmp
-/tmp2
+#osm data files
+*.osm
+
+#Maperitive files produced during normal activity
 /Maperitive/logs
 /Maperitive/Cache
 /Maperitive/Temp
 
+#contains user-agent
 download.bat
 
+#files created by JetBrains software
 */.idea/*
+
+#Unused file generated during exporting an image from Maperitive
+*.georef
