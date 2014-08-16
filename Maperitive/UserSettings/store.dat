@@ -46,11 +46,10 @@
     "gui.layout.news.y":"52", 
     "gui.layout.news.width":"400", 
     "gui.layout.news.height":"500", 
-    "user.command-history":"ATUAAAB1c2UtcnVsZXNldCBsb2NhdGlvbj0uLi9CaWtpbmcubXJ1bGVzIGFzLWFsaWFzPWJpa2luZwFAAAAAdXNlLXJ1bGVzZXQgbG9jYXRpb249Li4vQmlraW5nRGVidWcubXJ1bGVzIGFzLWFsaWFzPWJpa2luZ19kZWJ1ZwFJAAAAdXNlLXJ1bGVzZXQgbG9jYXRpb249Li4vQmlraW5nRGVidWdNYXgubXJ1bGVzIGFzLWFsaWFzPWJpa2luZ19oZWF2eV9kZWJ1ZwA=", 
+    "user.command-history":"ATUAAAB1c2UtcnVsZXNldCBsb2NhdGlvbj0uLi9CaWtpbmcubXJ1bGVzIGFzLWFsaWFzPWJpa2luZwFAAAAAdXNlLXJ1bGVzZXQgbG9jYXRpb249Li4vQmlraW5nRGVidWcubXJ1bGVzIGFzLWFsaWFzPWJpa2luZ19kZWJ1ZwFJAAAAdXNlLXJ1bGVzZXQgbG9jYXRpb249Li4vQmlraW5nRGVidWdNYXgubXJ1bGVzIGFzLWFsaWFzPWJpa2luZ19oZWF2eV9kZWJ1ZwENAAAAbGlzdC1ydWxlc2V0cwA=", 
     "app.first-time":"True", 
     "app.last-run-version":"2.3.32", 
     "app.update.obsolete":"False", 
-    "user.registered-rulesets":"AXgAAABBUVppYVd0cGJtY0JVR002WEZWelpYSnpYRTFoZEdWMWMzcGNSRzlqZFcxbGJuUnpYRTFoY0dWeWFYUnBkbVZjVW5Wc1pYTmNZM2xqYkdWdFlYQmNUV0Z3WlhKcGRHbDJaVnd1TGk5Q2FXdHBibWN1YlhKMWJHVnoBiAAAAEFReGlhV3RwYm1kZlpHVmlkV2NCVldNNlhGVnpaWEp6WEUxaGRHVjFjM3BjUkc5amRXMWxiblJ6WEUxaGNHVnlhWFJwZG1WY1VuVnNaWE5jWTNsamJHVnRZWEJjVFdGd1pYSnBkR2wyWlZ3dUxpOUNhV3RwYm1kRVpXSjFaeTV0Y25Wc1pYTT0BlAAAAEFSSmlhV3RwYm1kZmFHVmhkbmxmWkdWaWRXY0JXR002WEZWelpYSnpYRTFoZEdWMWMzcGNSRzlqZFcxbGJuUnpYRTFoY0dWeWFYUnBkbVZjVW5Wc1pYTmNZM2xqYkdWdFlYQmNUV0Z3WlhKcGRHbDJaVnd1TGk5Q2FXdHBibWRFWldKMVowMWhlQzV0Y25Wc1pYTT0A", 
     "gui.layout.main-form.window-state":"maximized", 
     "gui.layout.main-form.width":"750", 
     "gui.layout.main-form.height":"500", 
@@ -110,5 +109,6 @@
     "map.rendering.shield-padding-bottom":"3", 
     "map.rendering.shield-resize-mode":"default", 
     "map.rendering.contour.label":"False", 
-    "map.decoration.grid":"False"
+    "map.decoration.grid":"False", 
+    "user.registered-rulesets":"AWQAAABBUVppYVd0cGJtY0JRV002WEZWelpYSnpYRTFoZEdWMWMzcGNSR1Z6YTNSdmNGeFBVMDFjWTNsamJHVnRZWEJjVFdGd1pYSnBkR2wyWlZ3dUxseENhV3RwYm1jdWJYSjFiR1Z6AXQAAABBUXhpYVd0cGJtZGZaR1ZpZFdjQlJtTTZYRlZ6WlhKelhFMWhkR1YxYzNwY1JHVnphM1J2Y0Z4UFUwMWNZM2xqYkdWdFlYQmNUV0Z3WlhKcGRHbDJaVnd1TGx4Q2FXdHBibWRFWldKMVp5NXRjblZzWlhNPQGAAAAAQVJKaWFXdHBibWRmYUdWaGRubGZaR1ZpZFdjQlNXTTZYRlZ6WlhKelhFMWhkR1YxYzNwY1JHVnphM1J2Y0Z4UFUwMWNZM2xqYkdWdFlYQmNUV0Z3WlhKcGRHbDJaVnd1TGx4Q2FXdHBibWRFWldKMVowMWhlQzV0Y25Wc1pYTT0A"
 }

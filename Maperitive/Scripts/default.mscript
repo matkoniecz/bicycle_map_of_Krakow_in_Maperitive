@@ -1,3 +1,6 @@
-﻿use-ruleset alias=biking
+﻿use-ruleset location=..\Biking.mrules as-alias=biking
+use-ruleset location=..\BikingDebug.mrules as-alias=biking_debug
+use-ruleset location=..\BikingDebugMax.mrules as-alias=biking_heavy_debug
+use-ruleset alias=biking
 load-source "..\interpreter.osm"
 move-pos x=19.935 y=50.055 zoom=12.1364
