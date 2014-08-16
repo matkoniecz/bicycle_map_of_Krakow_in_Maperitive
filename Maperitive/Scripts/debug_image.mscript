@@ -1,5 +1,5 @@
 ﻿use-ruleset alias=biking_debug
 load-source "..\interpreter.osm"
 move-pos x=19.935 y=50.055 zoom=12.1364
-export-bitmap width=16000 height=10000 zoom=16 file=after.png
+export-bitmap width=16000 height=10000 zoom=16 file=raw\after.png
 exit

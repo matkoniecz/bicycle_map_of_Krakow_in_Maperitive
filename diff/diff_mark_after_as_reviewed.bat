@@ -1,4 +1,4 @@
-del before.png
-copy after.png before.png
-del after.png
-del diff.png
+del raw\before.png
+copy raw\after.png raw\before.png
+del raw\after.png
+del raw\diff.png

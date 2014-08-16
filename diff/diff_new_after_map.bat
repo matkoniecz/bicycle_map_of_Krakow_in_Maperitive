@@ -1,3 +1,3 @@
 ..\Maperitive\Maperitive.exe Scripts\debug_image.mscript
-del after.png.georef
+del raw\after.png.georef
 python diff.py
