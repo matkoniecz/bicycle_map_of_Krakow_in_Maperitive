@@ -42,8 +42,6 @@ def iterate():
             if change > 0:
                 diff[x, y] = (255, 0, 0)
                 l = add_pixel(l, x, y)
-            else:
-                diff[x, y] = (255, 255, 255)
 
 
 def add_pixel(l, x, y):
