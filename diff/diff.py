@@ -1,5 +1,5 @@
 import Image
-
+import sys
 
 def load_images():
     global before_image
@@ -27,9 +27,15 @@ def iterate():
     global after
     global diff
     global l
+    print '.'*100
     l = []
+    pixel_count = x_image * y_image
+    percentage = 0
     for x in range(0, x_image):
         for y in range(0, y_image):
+            while 100*x*y/pixel_count > percentage:
+                sys.stdout.write('.')
+                percentage += 1
             change = 0
             for i in range(0, 3):
                 change += abs(before[x, y][i] - after[x, y][i])
