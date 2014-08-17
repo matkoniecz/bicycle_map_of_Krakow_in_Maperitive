@@ -158,10 +158,10 @@ returned += "
 	target: bicycle_parking_no_operator
 		define
 			min-zoom: 1
-			fill-color: yellow
-			shape-size: 2
+			fill-color: orange
+			shape-size: 14:2; 15:5
 			line-width: 0
-			line-color: yellow
+			line-color: orange
 			shape: circle
 		draw: shape
 
@@ -169,7 +169,7 @@ returned += "
 		define
 			min-zoom: 1
 			fill-color: red
-			shape-size: 3
+			shape-size: 14:3; 15:8
 			line-width: 0
 			shape: circle
 		draw: shape
@@ -178,7 +178,7 @@ returned += "
 		define
 			min-zoom: 1
 			fill-color: violet
-			shape-size: 4
+			shape-size: 14:4; 15:11
 			line-width: 0
 			shape: circle
 		draw: shape
