@@ -78,7 +78,7 @@ def save():
     diff_image.save("raw\\diff.png")
 
     for i, bb in enumerate(l):
-        margin = 50
+        margin = 75
         x_min, y_min, x_max, y_max = bb
         #The box is a 4-tuple defining the left, upper, right, and lower pixel coordinate.
         #The Python Imaging Library uses a Cartesian pixel coordinate system, with (0,0) in the upper left corner.
