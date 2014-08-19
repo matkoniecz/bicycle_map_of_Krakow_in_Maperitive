@@ -77,6 +77,7 @@ def save():
     global l
     diff_image.save("raw\\diff.png")
 
+    print ""
     for i, bb in enumerate(l):
         margin = 75
         x_min, y_min, x_max, y_max = bb
@@ -91,6 +92,11 @@ def save():
 
         after_image_cropped = after_image.crop(box)
         after_image_cropped.save(str(i) + " after_bb.png")
+
+        print str(i)
+        print (x_min + x_max)/2, (y_min + y_max)/2
+        print str(100*(x_min + x_max)/2/x_image) + "%, " + str(100*(y_min + y_max)/2/y_image) + "%"
+        print ""
 
 load_images()
 iterate()
