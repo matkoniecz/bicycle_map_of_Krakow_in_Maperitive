@@ -35,7 +35,7 @@ features
 	areas
 		water: natural=water OR waterway=riverbank OR waterway=dock OR landuse=reservoir
 		trees: leisure=park OR landuse=forest OR landuse=orchard OR natural=wood OR leisure=garden
-		blocked area: landuse=railway OR aeroway=aerodrome
+		blocked area: landuse=railway OR aeroway=aerodrome OR man_made=works
 	lines
 		water-line: (waterway=river OR waterway=canal) AND NOT tunnel
 		water-line-small: (waterway=stream OR waterway=ditch) AND NOT tunnel
