@@ -1,3 +1,4 @@
+# Encoding: utf-8
 load "styles.rb"
 
 debug = false
