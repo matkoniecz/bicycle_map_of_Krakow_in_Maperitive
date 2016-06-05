@@ -1,3 +1,3 @@
-generate.rb > Biking.mrules
-generate.rb debug > BikingDebug.mrules
-generate.rb heavy_debug > BikingDebugMax.mrules
+ruby generate.rb > Biking.mrules
+ruby generate.rb debug > BikingDebug.mrules
+ruby generate.rb heavy_debug > BikingDebugMax.mrules
