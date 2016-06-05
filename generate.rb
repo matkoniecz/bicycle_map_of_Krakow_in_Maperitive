@@ -62,6 +62,10 @@ used = ["motorway", "motorway_link", "trunk", "trunk_link", "primary", "primary_
 discarded =["steps", "proposed", "construction", "bridleway", "platform", "bus_stop", "raceway"]
 weird_highway_value = weird("highway", used | discarded)
 weird_cycleway_surface = weird("cycleway:surface", OK_surface_values)
+
+unexpected_allowed_cycling = "((bicycle=yes OR bicycle=permissive) AND NOT #{no_access} AND NOT area=yes AND (highway=footway OR highway=path OR highway=pedestrian))"
+unexpected_cycling_ban = "(((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND name AND NOT (bicycle=yes OR bicycle=permissive) AND NOT bicycle = designated AND NOT cycleway=lane)) AND NOT source:bicycle=cemetery_rules)"
+
 puts "features"
 puts "	lines"
 puts "		high traffic cycleable road: #{high_traffic_road_accessible_to_bicycles}"
@@ -74,7 +78,7 @@ if debug
 	puts "		missing designated: cycleway=lane AND NOT bicycle=designated"
 	puts "		weird cycleway value: #{weird("cycleway", ["lane", "opposite_lane", "no", "opposite", "crossing"])}"
 	puts "		weird bicycle value: #{weird("bicycle", ["yes", "no", "designated", "permissive", "use_sidepath"])}"
-	check_surface_here = cycleway
+	check_surface_here = "#{cycleable}"
 	heavy_debug_check_surface_here = "(#{cycleable} OR #{typical_road_accessible_to_bicycles})"
 	if heavy_debug
 		check_surface_here = heavy_debug_check_surface_here
@@ -100,11 +104,9 @@ puts "		motorway: #{motorway}"
 puts "		proper cycleway: #{cycleway} AND #{proper_surface} AND NOT #{terible_surface}"
 puts "		proper cycleway with a bad surface: #{cycleway} AND NOT #{proper_surface} AND NOT #{terible_surface}"
 puts "		proper cycleway with a terrible surface: #{cycleway} AND  #{terible_surface}"
-puts "		not segregated cycleway with a good surface: #{not_segregated_cycleway} AND #{proper_surface} AND NOT #{terible_surface}"
+puts "		not segregated cycleway with a good surface: (#{not_segregated_cycleway} AND #{proper_surface} AND NOT #{terible_surface}) OR (#{unexpected_allowed_cycling} AND #{proper_surface} AND NOT #{terible_surface})"
 puts "		not segregated cycleway with a bad surface: #{not_segregated_cycleway} AND NOT #{proper_surface} AND NOT #{terible_surface}"
 puts "		not segregated cycleway with a terrible surface: #{not_segregated_cycleway} AND #{terible_surface}"
-unexpected_allowed_cycling = "((bicycle=yes OR bicycle=permissive) AND NOT #{no_access} AND NOT area=yes AND (highway=footway OR highway=path OR highway=pedestrian))"
-unexpected_cycling_ban = "(((bicycle=no AND #{typical_road}) OR (highway=pedestrian AND name AND NOT (bicycle=yes OR bicycle=permissive) AND NOT bicycle = designated AND NOT cycleway=lane)) AND NOT source:bicycle=cemetery_rules)"
 puts "		marked contraflow: cycleway=opposite_lane AND NOT #{no_access}"
 puts "		unmarked contraflow: cycleway=opposite AND NOT #{no_access} AND NOT #{unexpected_allowed_cycling}"
 oneway = "(((oneway=yes AND NOT oneway:bicycle=no) OR (oneway:bicycle=yes)) AND (#{cycleable} OR #{typical_road}))"
