@@ -33,7 +33,7 @@ end
 mtb_route = "(mtb:scale AND NOT mtb:scale=0 AND NOT mtb:scale=0-)"
 private_property = "(((access AND NOT access=yes AND NOT access=permissive) OR (vehicle AND NOT vehicle=yes AND NOT access=permissive)) AND NOT bicycle=yes AND NOT bicycle=designated)" 
 no_access = "(#{private_property} OR #{mtb_route})"
-cycleable = "((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT #{no_access}  AND NOT area:highway)"
+cycleable = "(highway AND ((highway=cycleway OR cycleway=lane OR bicycle = yes OR bicycle = designated OR cycleway=opposite_lane) AND NOT #{no_access}  AND NOT area:highway))"
 motorway = "(highway=motorway OR highway=motorway_link OR highway=trunk OR highway=trunk_link)"
 road_high_traffic_list = ["primary", "primary_link", "secondary", "secondary_link"]
 road_normal_traffic_list = ["tertiary", "tertiary_link", "residential", "unclassified"]
